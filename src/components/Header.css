@@ -370,3 +370,15 @@ header {
 .talk-btn:hover .arrow{
   transform:translateX(5px);
 }
+
+@media (max-width:768px){
+
+.header{
+flex-wrap:wrap;
+}
+
+.nav-links{
+display:none;
+}
+
+}
