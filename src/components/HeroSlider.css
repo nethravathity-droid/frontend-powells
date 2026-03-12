@@ -35,3 +35,16 @@
     rgba(4,20,47,0.4)
   );
 }
+
+@media (max-width: 768px) {
+
+.hero-section {
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 32px;
+}
+
+}
