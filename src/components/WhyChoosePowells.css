@@ -1,0 +1,116 @@
+.why-section {
+  position: relative;
+  padding: 120px 20px;
+  background-image: url("/images/control-panel-bg.jpg"); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.why-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 1;
+}
+
+.why-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Title Card */
+.why-title-card {
+  max-width: 520px;
+  margin: 0 auto 60px;
+  background: rgb(18, 65, 130);
+  border-radius: 18px;
+  padding: 28px 32px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.why-title-card h2 {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-weight: 700;
+  
+}
+
+.why-title-card p {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* Cards */
+.why-card {
+  background: linear-gradient(135deg, #aba3a3, #ffffff);
+  border-radius: 16px;
+  padding: 26px 24px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.12);
+  border-color: #2563eb;
+}
+
+.why-card .icon {
+  font-size: 40px;
+  display: block;        /* IMPORTANT */
+  text-align: center;   /* CENTER ICON */
+  margin: 0 auto 14px;  /* CENTER + SPACE */
+}
+
+
+.why-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #100c62;
+}
+
+.why-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Initial hidden state */
+.why-title-card,
+.why-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+/* Visible state */
+.why-title-card.show,
+.why-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional smooth hover */
+.why-card {
+  transition: all 0.4s ease, transform 0.8s ease, opacity 0.8s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+}

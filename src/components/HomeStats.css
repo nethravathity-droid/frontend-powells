@@ -1,0 +1,115 @@
+.stats-section {
+  background: linear-gradient(135deg, #05306b, #041f47);
+  padding: 100px 0;
+  color: #ffffff;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* LEFT */
+.stats-left h2 {
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.stats-left h2 span {
+  color: #12a1be;
+}
+
+.stats-left p {
+  font-size: 16px;
+  max-width: 420px;
+  line-height: 1.7;
+  color: #d1d9e6;
+}
+
+/* RIGHT GRID */
+.stats-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-card h3 {
+  font-size: 42px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #cfe3ff;
+}
+
+/* ICON STYLE */
+.icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: #ffffff;
+}
+
+/* ICON COLORS */
+.icon.blue { color: #0d4fb3; }
+.icon.green { color: #2ecc71; }
+.icon.teal { color: #1abc9c; }
+.icon.orange { color: #f39c12; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .stats-right {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    justify-content: center;
+  }
+}
+
+/* Initial hidden state */
+.stats-left,
+.stat-card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+/* When visible */
+.stats-left.show,
+.stat-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: slight delay between cards */
+.stat-card:nth-child(1) { transition-delay: 0.2s; }
+.stat-card:nth-child(2) { transition-delay: 0.4s; }
+.stat-card:nth-child(3) { transition-delay: 0.6s; }
+.stat-card:nth-child(4) { transition-delay: 0.8s; }

@@ -1,0 +1,67 @@
+/* Full background with blue shade */
+.auth-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(10, 30, 80, 0.75), rgba(5, 20, 60, 0.85)),
+   url("/image/lab7.png")
+    no-repeat center center/cover;
+}
+
+/* Card */
+.auth-card {
+  background: white;
+  padding: 40px;
+  width: 340px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Button */
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  background: #1e40af;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: #1d4ed8;
+}
+
+/* Message */
+.auth-msg {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Switch link */
+.auth-switch {
+  margin-top: 15px;
+  color: #1e40af;
+  cursor: pointer;
+  font-size: 14px;
+}
+
