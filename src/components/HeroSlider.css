@@ -1,0 +1,133 @@
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* EACH SLIDE */
+.slide {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+}
+
+/* ACTIVE SLIDE */
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(4,20,47,0.85),
+    rgba(4,20,47,0.4)
+  );
+}
+
+@media (max-width: 768px) {
+
+.hero-section {
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 32px;
+}
+
+}
+
+@media (max-width:768px){
+
+section{
+padding:40px 20px;
+}
+
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(rgba(10,25,60,0.7), rgba(10,25,60,0.7)),
+  url("https://images.unsplash.com/photo-1581092921461-eab10380a7e0");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 8%;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.primary-btn {
+  background: #ff6b00;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 25px;
+}
+
+@media (max-width:768px){
+
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+}
+
+.hero{
+width:100%;
+max-width:100%;
+overflow:hidden;
+}
+
+.hero img{
+width:100%;
+height:auto;
+object-fit:cover;
+}

@@ -1,0 +1,322 @@
+/* ===== CONTACT PAGE BASE ===== */
+.contact-page {
+  background: #f8fafc;
+  padding: 100px 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ===== MAIN GRID ===== */
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ===== LEFT CONTENT ===== */
+.contact-left span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #2563eb;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.contact-left h1 {
+  margin-top: 16px;
+  font-size: 46px;
+  line-height: 1.2;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.contact-left h1 span {
+  color: #2563eb;
+}
+
+.contact-left p {
+  margin-top: 22px;
+  font-size: 17px;
+  color: #475569;
+  max-width: 520px;
+}
+
+/* ===== CONTACT INFO ===== */
+.contact-info {
+  margin-top: 40px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e0ecff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #2563eb;
+}
+
+.info-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.info-text h4 {
+  margin: 4px 0 0;
+  font-size: 18px;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* ===== FORM CARD ===== */
+.contact-form-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+}
+
+.contact-form-card h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 26px;
+}
+
+/* ===== FORM GRID ===== */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ===== INPUTS ===== */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+  grid-column: span 2;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== FULL WIDTH INPUT ===== */
+.full {
+  grid-column: span 2;
+}
+
+/* ===== BUTTON ===== */
+.contact-form button {
+  grid-column: span 2;
+  margin-top: 10px;
+  padding: 14px 0;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+}
+
+/* ===== IMAGE CTA ===== */
+/* ===== SUPPORT SECTION CONTAINER ===== */
+.contact-support {
+  background-color: #001f4d; /* Deep Navy Blue from the image */
+  padding: 80px 60px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 60px auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* ===== LEFT CONTENT ===== */
+.contact-support-left {
+  flex: 1.2;
+}
+
+.contact-support-left h2 {
+  color: #ffffff;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.contact-support-left p {
+  color: #e2e8f0;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+/* ===== BUTTONS ===== */
+.contact-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 50px; /* Fully rounded pill shape */
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  color: #ffffff;
+}
+
+/* Both buttons use the same semi-transparent blue base from the image */
+.btn.primary, 
+.btn.secondary {
+  background-color: #4376ba; 
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== RIGHT IMAGE ===== */
+.contact-support-right {
+  flex: 1;
+}
+
+.contact-support-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px; /* Matches the rounded corners of the photo in image */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 992px) {
+  .contact-support {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 24px;
+    margin: 20px;
+  }
+
+  .contact-support-left p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-support-left h2 {
+    font-size: 32px;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+  }
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+padding:20px;
+gap:30px;
+}
+
+.contact-left h1{
+font-size:28px;
+}
+
+.contact-image-content h2{
+font-size:32px;
+}
+
+}
+
+
+/* ===== MOBILE FIX ===== */
+@media (max-width:768px){
+
+/* FORM CARD */
+.contact-form-card{
+width:100%;
+padding:20px;
+box-sizing:border-box;
+}
+
+/* FORM LAYOUT */
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* INPUTS */
+.contact-form input,
+.contact-form textarea{
+width:100% !important;
+box-sizing:border-box;
+}
+
+/* BUTTON */
+.contact-form button{
+width:100%;
+}
+
+}
+
+@media (max-width:768px){
+
+.info-text h4{
+font-size:15px;
+}
+
+}
