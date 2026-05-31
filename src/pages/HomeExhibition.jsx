@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./HomeExhibition.css";
 
+import { useNavigate } from "react-router-dom";
 export default function HomeExhibition() {
 
   const images = [
@@ -12,7 +13,7 @@ export default function HomeExhibition() {
   ];
 
   const [current, setCurrent] = useState(0);
-
+  const navigate = useNavigate();
   // AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,10 +48,18 @@ export default function HomeExhibition() {
             power solutions showcased at international exhibitions.
           </p>
 <br/>
- 
- <a className="expo-btn" href="/pages/Blog">
-               Explore Gallery
-              </a>
+         <button
+
+          className="expo-btn"
+
+          onClick={() => navigate("/pages/Blog")}
+
+        >
+
+          Explore Gallery
+
+        </button>
+
         </div>
 
        <div className="slider-container">

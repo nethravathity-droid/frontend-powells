@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 
 export default function Auth() {
+  const API_URL = "https://powells-backend-1.onrender.com";
   const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(true);
   const [msg, setMsg] = useState("");
@@ -48,9 +49,9 @@ export default function Auth() {
       return;
     }
 
-   const url = isRegister
-  ? "http://localhost:5000/api/auth/register" // Change 5000 to your backend port
-  : "http://localhost:5000/api/auth/login";
+const url = isRegister
+  ? `${API_URL}/api/auth/register`
+  : `${API_URL}/api/auth/login`;
   
     const body = isRegister
       ? form
