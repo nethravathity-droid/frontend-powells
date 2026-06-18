@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const products = [
   { name: "Ammeters", img: "/image/mt3.png", path: "/pages/Ammeter" },
-  { name: "Voltmeters", img: "/image/vm5.png", path: "/pages/Voltmeter" },
+  { name: "Voltmeters", img: "/image/vm9601.png", path: "/pages/Voltmeter" },
   { name: "AVM Meter", img: "/image/avm.png", path: "/pages/AVM" },
   { name: "VAF Meter", img: "/image/mt5.png", path: "/pages/vafmeter" },
   { name: "HZ Meter", img: "/image/hz.png", path: "/pages/hzmeter" },
@@ -18,6 +18,10 @@ const products = [
   { name: "ATS 4Pole", img: "/image/ats2pole.png", path: "/pages/Ats2p" },
   { name: "ATS without Display", img: "/image/ats250.png", path: "/pages/Ats" },
   { name: "ATS with Display", img: "/image/atswd.png", path: "/pages/Ats" },
+    { name: "MCB", img: "/image/4pole_mcb.png", path: "/pages/Mcb" },
+  { name: "RCCB", img: "/image/rccb_4pole.png", path: "/pages/Rccb" },
+  { name: "Isolators", img: "/image/isolators.png", path: "/pages/isolators" },
+  { name: "Db box", img: "/image/digital_timers.png", path: "/pages/digital_timers" },
 ];
 
 export default function Products() {

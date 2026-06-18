@@ -24,7 +24,7 @@ const SocialSidebar = () => {
       </a>
 
       <a
-        href="http://www.linkedin.com/in/powells-india-corporation-ba6b603b1"
+        href="https://www.linkedin.com/in/powells-india-32a548417/"
         target="_blank"
         rel="noopener noreferrer"
         className="social-icon linkedin"

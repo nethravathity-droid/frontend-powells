@@ -1,0 +1,177 @@
+.rccb-hero{
+  padding:100px 0;
+  background:#f5f8fc;
+}
+
+.rccb-hero .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+}
+
+.rccb-content{
+  flex:1;
+}
+
+.rccb-tag{
+  display:inline-block;
+  background:#d71920;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  margin-bottom:20px;
+}
+
+.rccb-content h1{
+  font-size:54px;
+  margin-bottom:20px;
+}
+
+.rccb-content p{
+  font-size:18px;
+  line-height:1.8;
+  color:#555;
+  margin-bottom:30px;
+}
+
+.rccb-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.primary-btn{
+  background:#d71920;
+  color:white;
+  border:none;
+  padding:15px 35px;
+  cursor:pointer;
+}
+
+.secondary-btn{
+  background:white;
+  color:#d71920;
+  border:2px solid #d71920;
+  padding:15px 35px;
+  cursor:pointer;
+}
+
+.rccb-image img{
+  width:100%;
+  max-width:500px;
+}
+
+.rccb-features,
+.rccb-specs,
+.rccb-applications{
+  padding:90px 0;
+}
+
+.rccb-features h2,
+.rccb-specs h2,
+.rccb-applications h2{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:50px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+
+.feature-card{
+  padding:30px;
+  background:#fff;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border-radius:10px;
+}
+
+.feature-card h3{
+  color:#d71920;
+  margin-bottom:15px;
+}
+
+.rccb-specs table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.rccb-specs td{
+  border:1px solid #ddd;
+  padding:18px;
+}
+
+.application-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.application-grid div{
+  padding:25px;
+  background:#fff;
+  text-align:center;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.rccb-cta{
+  padding:100px 20px;
+  background:#d71920;
+  color:white;
+  text-align:center;
+}
+
+.rccb-cta h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.rccb-cta p{
+  max-width:700px;
+  margin:auto;
+  margin-bottom:30px;
+}
+
+.rccb-cta button{
+  padding:15px 40px;
+  background:white;
+  color:#d71920;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+
+@media(max-width:991px){
+
+  .rccb-hero .container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .application-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:768px){
+
+  .feature-grid,
+  .application-grid{
+    grid-template-columns:1fr;
+  }
+
+  .rccb-content h1{
+    font-size:34px;
+  }
+
+  .rccb-buttons{
+    flex-direction:column;
+  }
+}

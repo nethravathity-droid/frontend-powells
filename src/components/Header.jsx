@@ -132,6 +132,22 @@ export default function Header() {
                 Automatic Transfer Switch
               </span>
             </div>
+
+                        <div className="mega-column">
+              <h4>Low Voltage Switchgear</h4>
+              <span onClick={() => handleNavigate("/pages/Mcb")}>
+                MCCB
+              </span>
+              <span onClick={() => handleNavigate("/pages/Rccb")}>
+                RCCB
+              </span>
+              <span onClick={() => handleNavigate("/pages/Isolator")}>
+                Isolators
+              </span>
+                            <span onClick={() => handleNavigate("/pages/ats")}>
+                DB Box
+              </span>
+            </div>
           </div>
         )}
       </header>

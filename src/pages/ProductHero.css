@@ -221,6 +221,7 @@
 }
 
 /* ===== TABLE STYLE ===== */
+
 .table-wrapper {
   overflow-x: auto;
 }
@@ -229,11 +230,15 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  color: #222; /* Table text color */
 }
 
 thead {
   background: #003a8f;
-  color: #fff;
+}
+
+thead th {
+  color: #ffffff; /* Header text white */
 }
 
 th,
@@ -241,6 +246,10 @@ td {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
+}
+
+td {
+  color: #222222; /* Body text dark */
 }
 
 tbody tr:nth-child(even) {
