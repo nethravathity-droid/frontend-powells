@@ -19,7 +19,6 @@ import img1 from "/image/ats160a.png";
 import img2 from "/image/ats250.png";
 import img3 from "/image/ats2pole.png";
 import img4 from "/image/ats4pole.png";
-import HomeExhibition from "./HomeExhibition";
 
 const categories = [
   {
@@ -475,7 +474,7 @@ const StarRating = ({ rating }) => {
         ))}
       </div>
     </section>
-<HomeExhibition/>
+
   
  <section className="home-showcase">
       {/* LEFT – GLASS SLIDER */}
