@@ -384,13 +384,23 @@ export default function Home() {
 
       <section className="mcb-showcase" ref={mcbRef}>
         <div className="mcb-content">
-          <span className="product-tag mcb-text mcb-text-1">POWELLS SWITCHGEAR</span>
+          <div className="mcb-tags">
+            <span className="mcb-newly-launched mcb-text mcb-text-0">
+              <span className="mcb-newly-launched-dot" aria-hidden="true" />
+              Newly Launched
+            </span>
+          </div>
 
           <h2 className="mcb-text mcb-text-2">
             Miniature Circuit
             <br />
             Breakers (MCB)
           </h2>
+
+          <p className="mcb-launch-note mcb-text mcb-text-2b">
+            2025 Edition — Now available for residential, commercial &amp; industrial
+            installations across India.
+          </p>
 
           <p className="mcb-text mcb-text-3">
             Designed for superior electrical protection, Powells MCBs safeguard
@@ -408,7 +418,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mcb-images">
+        <div className="mcb-images-wrap">
+          <div className="mcb-launch-ribbon mcb-text mcb-text-ribbon" aria-hidden="true">
+            <span>New</span>
+          </div>
+          <div className="mcb-images">
           <img
             src="/image/1p_mcb.png"
             alt="1 Pole MCB"
@@ -433,6 +447,7 @@ export default function Home() {
             className="mcb-img mcb-img-4"
             loading="lazy"
           />
+          </div>
         </div>
       </section>
 
