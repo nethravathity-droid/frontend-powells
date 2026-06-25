@@ -36,8 +36,8 @@
   .social-sidebar {
     top: 50%;
     bottom: auto;
-    left: 12px;
-    right: auto;
+    left: auto;
+    right: 12px;
     transform: translateY(-50%);
     flex-direction: column;
     gap: 10px;
@@ -50,13 +50,13 @@
   }
 
   .social-icon:hover {
-    transform: scale(1.08) translateX(2px);
+    transform: scale(1.08) translateX(-2px);
   }
 }
 
 @media (max-width: 480px) {
   .social-sidebar {
-    left: 10px;
+    right: 10px;
     gap: 8px;
   }
 
