@@ -10,7 +10,14 @@ import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
 import "./McbShowcase.css";
 import "./CategorySection.css";
+import "./AboutProgress.css";
 import Event from "./Event";
+
+const TRUST_METRICS = [
+  { label: "Customer Satisfaction", rating: 4.5 },
+  { label: "Industry Competitiveness", rating: 4.0 },
+  { label: "Product Reliability", rating: 4.8 },
+];
 
 import img1 from "/image/ats160a.png";
 import img2 from "/image/ats250.png";
@@ -106,6 +113,8 @@ export default function Home() {
   const atsRef = useRef(null);
   const mcbRef = useRef(null);
   const categoryRef = useRef(null);
+  const progressRef = useRef(null);
+  const [starsActive, setStarsActive] = useState(false);
   const [meterIndex, setMeterIndex] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [active, setActive] = useState(null);
@@ -224,20 +233,49 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const el = progressRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("progress-visible");
+          setStarsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const StarRating = ({ rating }) => (
-    <div className="rating">
-      {[1, 2, 3, 4, 5].map((star, i) => {
-        const fill = Math.min(Math.max(rating - i, 0), 1);
+    <div
+      className="trust-rating"
+      role="img"
+      aria-label={`${rating} out of 5 stars`}
+    >
+      {[1, 2, 3, 4, 5].map((star) => {
+        const fill = Math.min(Math.max(rating - (star - 1), 0), 1);
         return (
-          <div className="star-box" key={i}>
-            <div className="star-bg">★</div>
-            <div className="star-fill" style={{ width: `${fill * 76}%` }}>
+          <span key={star} className="trust-star">
+            <span className="trust-star-bg" aria-hidden="true">
               ★
-            </div>
-          </div>
+            </span>
+            <span
+              className="trust-star-fill"
+              aria-hidden="true"
+              style={{ width: starsActive ? `${fill * 100}%` : "0%" }}
+            >
+              <span>★</span>
+            </span>
+          </span>
         );
       })}
-      <span className="rating-value">{rating}</span>
+      <span className="trust-rating-value">{rating.toFixed(1)}</span>
     </div>
   );
 
@@ -645,35 +683,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-progress reveal">
-        <div className="progress-container">
+      <section className="about-progress" ref={progressRef}>
+        <div className="progress-bg-grid" aria-hidden="true" />
+
+        <div className="progress-inner">
           <div className="progress-left">
-            <p className="small-title">Driven • Innovative • Trusted</p>
+            <span className="progress-eyebrow">Driven · Innovative · Trusted</span>
             <h2>
-              Empowering Electrical Innovation <br />
-              With Proven Expertise
+              Empowering Electrical Innovation With Proven Expertise
             </h2>
-            <p className="desc">
+            <p className="progress-desc">
               At Powells India Corporation, we develop advanced electrical
               solutions designed to enhance performance, safety and reliability.
-              Our focus on engineering excellence and continuous innovation helps
-              industries operate with greater efficiency and confidence.
+              Our focus on engineering excellence helps industries operate with
+              greater efficiency and confidence.
             </p>
+            <div className="progress-highlights">
+              <span className="progress-highlight">
+                <strong>25+</strong> Years
+              </span>
+              <span className="progress-highlight">
+                <strong>500+</strong> Clients
+              </span>
+              <span className="progress-highlight">
+                <strong>ISO</strong> Certified
+              </span>
+            </div>
           </div>
 
-          <div className="progress-right">
-            <div className="progress-box1">
-              <p>Customer Satisfaction</p>
-              <StarRating rating={4.5} />
-            </div>
-            <div className="progress-box2">
-              <p>Industry Competitiveness</p>
-              <StarRating rating={4.0} />
-            </div>
-            <div className="progress-box3">
-              <p>Product Reliability</p>
-              <StarRating rating={4.8} />
-            </div>
+          <div className="progress-cards">
+            {TRUST_METRICS.map((item, index) => (
+              <div
+                key={item.label}
+                className={`trust-card trust-card-${index + 1}`}
+              >
+                <div className="trust-card-header">
+                  <span className="trust-card-label">{item.label}</span>
+                  <StarRating rating={item.rating} />
+                </div>
+                <div className="trust-bar">
+                  <div
+                    className="trust-bar-fill"
+                    style={{
+                      width: starsActive
+                        ? `${(item.rating / 5) * 100}%`
+                        : "0%",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
