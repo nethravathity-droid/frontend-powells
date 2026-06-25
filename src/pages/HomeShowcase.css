@@ -2,75 +2,54 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: clamp(32px, 5vw, 60px);
-  padding: var(--section-py, clamp(60px, 8vw, 100px)) var(--section-px, clamp(20px, 6vw, 8%));
+  gap: clamp(28px, 5vw, 56px);
+  padding: var(--section-py, clamp(56px, 8vw, 96px)) var(--section-px, clamp(20px, 6vw, 8%));
   background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  overflow: hidden;
 }
 
 .showcase-left {
   display: flex;
   justify-content: center;
-}
-
-.glass-slider {
-  width: min(100%, 380px);
-  aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: var(--shadow-lg);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 24px;
-  animation: float 6s ease-in-out infinite;
-  overflow: hidden;
-}
-
-.glass-slider img {
-  width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .showcase-right h2 {
-  font-size: clamp(28px, 3.5vw, 38px);
+  font-size: clamp(24px, 3.2vw, 36px);
   font-weight: 700;
   color: #0f172a;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .showcase-right p {
-  font-size: clamp(15px, 1.8vw, 17px);
+  font-size: clamp(14px, 1.7vw, 16px);
   line-height: 1.75;
   color: #475569;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .showcase-right ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 28px;
+  margin-bottom: 0;
 }
 
 .showcase-right li {
-  font-size: clamp(14px, 1.6vw, 16px);
+  font-size: clamp(13px, 1.5vw, 15px);
   color: #1e293b;
-  margin-bottom: 10px;
-  padding-left: 4px;
+  margin-bottom: 8px;
 }
 
 .more-btn {
-  padding: 14px 32px;
+  margin-top: 20px;
+  padding: 13px 28px;
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -78,7 +57,7 @@
 
 .more-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
 }
 
 @media (max-width: 900px) {
@@ -91,16 +70,11 @@
     text-align: left;
     display: inline-block;
   }
-
-  .glass-slider {
-    width: min(100%, 320px);
-  }
 }
 
 @media (max-width: 480px) {
-  .glass-slider {
-    width: 100%;
-    max-width: 280px;
-    padding: 16px;
+  .home-showcase {
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 }

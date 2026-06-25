@@ -312,8 +312,8 @@
 
 @media (max-width: 480px) {
   .hero-meter-stage {
-    width: min(300px, 94vw);
-    bottom: 20px;
+    width: min(280px, 92vw);
+    bottom: 16px;
   }
 
   .hero-meter-card {
@@ -322,7 +322,11 @@
   }
 
   .hero-meter-card img {
-    max-height: 140px;
+    max-height: 130px;
+  }
+
+  .hero-thumb-strip {
+    display: none;
   }
 
   .hero-thumb {
