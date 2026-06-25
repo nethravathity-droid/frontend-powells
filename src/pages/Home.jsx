@@ -8,6 +8,7 @@ import "./HomeShowcase.css";
 import WhyChoosePowells from "../components/WhyChoosePowells";
 import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
+import "./McbShowcase.css";
 import Event from "./Event";
 
 import img1 from "/image/ats160a.png";
@@ -102,6 +103,7 @@ export default function Home() {
   const navigate = useNavigate();
   const meterViewportRef = useRef(null);
   const atsRef = useRef(null);
+  const mcbRef = useRef(null);
   const [meterIndex, setMeterIndex] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [active, setActive] = useState(null);
@@ -164,6 +166,24 @@ export default function Home() {
         }
       },
       { threshold: 0.22 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = mcbRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("mcb-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
     );
 
     observer.observe(el);
@@ -362,23 +382,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mcb-showcase reveal">
+      <section className="mcb-showcase" ref={mcbRef}>
         <div className="mcb-content">
-          <span className="product-tag">POWELLS SWITCHGEAR</span>
+          <span className="product-tag mcb-text mcb-text-1">POWELLS SWITCHGEAR</span>
 
-          <h2>
+          <h2 className="mcb-text mcb-text-2">
             Miniature Circuit
             <br />
             Breakers (MCB)
           </h2>
 
-          <p>
+          <p className="mcb-text mcb-text-3">
             Designed for superior electrical protection, Powells MCBs safeguard
             residential, commercial and industrial systems against overloads and
             short circuits while ensuring maximum reliability and safety.
           </p>
 
-          <div className="mcb-buttons">
+          <div className="mcb-buttons mcb-text mcb-text-4">
             <a href="/pages/Contact" className="enquire-btn">
               Enquire Now
             </a>
@@ -389,10 +409,30 @@ export default function Home() {
         </div>
 
         <div className="mcb-images">
-          <img src="/image/1p_mcb.png" alt="MCB" className="img1" />
-          <img src="/image/2pole_mcb.png" alt="MCB" className="img2" />
-          <img src="/image/3pole_mcb.png" alt="MCB" className="img3" />
-          <img src="/image/4pole_mcb.png" alt="MCB" className="img4" />
+          <img
+            src="/image/1p_mcb.png"
+            alt="1 Pole MCB"
+            className="mcb-img mcb-img-1"
+            loading="lazy"
+          />
+          <img
+            src="/image/2pole_mcb.png"
+            alt="2 Pole MCB"
+            className="mcb-img mcb-img-2"
+            loading="lazy"
+          />
+          <img
+            src="/image/3pole_mcb.png"
+            alt="3 Pole MCB"
+            className="mcb-img mcb-img-3"
+            loading="lazy"
+          />
+          <img
+            src="/image/4pole_mcb.png"
+            alt="4 Pole MCB"
+            className="mcb-img mcb-img-4"
+            loading="lazy"
+          />
         </div>
       </section>
 
