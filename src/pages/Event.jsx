@@ -8,19 +8,18 @@ const NEWS_ITEMS = [
   "Powells expands manufacturing capabilities with innovative automation technologies.",
 ];
 
-const EVENT_IMAGES = [
-  "/image/P1.jpeg",
-  "/image/P2.jpeg",
-  "/image/P3.jpeg",
-  "/image/p4.jpeg",
-  "/image/p5.jpeg",
-  "/image/p6.jpeg",
+const EVENT_SLIDES = [
+  { src: "/image/event.jpeg", alt: "Powells exhibition event" },
+  { src: "/image/event1.jpeg", alt: "Powells industry event" },
+  { src: "/image/event2.jpeg", alt: "Powells product launch event" },
 ];
 
 export default function Event() {
   const navigate = useNavigate();
   const [newsIndex, setNewsIndex] = useState(0);
   const sectionRef = useRef(null);
+
+  const scrollImages = [...EVENT_SLIDES, ...EVENT_SLIDES];
 
   useEffect(() => {
     const newsTimer = setInterval(() => {
@@ -35,7 +34,10 @@ export default function Event() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.classList.add("is-visible");
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible");
+          observer.disconnect();
+        }
       },
       { threshold: 0.15 }
     );
@@ -43,79 +45,73 @@ export default function Event() {
     return () => observer.disconnect();
   }, []);
 
-  const galleryImages = [...EVENT_IMAGES, ...EVENT_IMAGES];
+  const goBlog = () => navigate("/pages/Blog");
 
   return (
-    <section className="updates-section reveal" ref={sectionRef}>
-
+    <section className="updates-section" ref={sectionRef}>
       <div className="updates-left">
-
         <div
-          className="updates-news-box"
-          onClick={() => navigate("/pages/Blog")}
+          className="updates-panel"
+          onClick={goBlog}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && navigate("/pages/Blog")}
+          onKeyDown={(e) => e.key === "Enter" && goBlog()}
         >
-          <div className="updates-box-header">
-            <span>Latest News</span>
+          <div className="updates-panel-head">
+            <span className="updates-panel-head-dot" aria-hidden="true" />
+            Latest News
           </div>
 
-          <div className="updates-news-slider">
+          <div className="updates-news-viewport">
             <div
               className="updates-news-track"
               style={{ transform: `translateY(-${newsIndex * 100}%)` }}
             >
               {NEWS_ITEMS.map((text, i) => (
-                <p key={i} className="updates-news-text">{text}</p>
+                <p key={i} className="updates-news-line">
+                  {text}
+                </p>
               ))}
             </div>
           </div>
 
           <div className="updates-news-dots">
             {NEWS_ITEMS.map((_, i) => (
-              <span key={i} className={`updates-dot ${i === newsIndex ? "active" : ""}`} />
+              <span
+                key={i}
+                className={`updates-dot ${i === newsIndex ? "active" : ""}`}
+              />
             ))}
           </div>
-        </div>
 
-        <div
-          className="updates-event-box"
-          onClick={() => navigate("/pages/Blog")}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && navigate("/pages/Blog")}
-        >
-          <div className="updates-box-header">
-            <span>Upcoming Events</span>
-          </div>
-
-          <h3>Powells Industrial Electrical Exhibition 2026</h3>
-
-          <div className="updates-event-marquee">
-            <div className="updates-event-track">
-              {galleryImages.map((src, i) => (
-                <img key={`${src}-${i}`} src={src} alt="Event showcase" loading="lazy" />
+          <div className="updates-event-strip">
+            <div className="updates-event-scroll">
+              {scrollImages.map((item, i) => (
+                <div key={`${item.src}-${i}`} className="updates-event-slide">
+                  <img src={item.src} alt={item.alt} loading="lazy" />
+                </div>
               ))}
             </div>
           </div>
         </div>
-
       </div>
 
       <div className="updates-right">
+        <span className="updates-anim updates-anim-1 updates-section-tag">
+          INNOVATION & TECHNOLOGY
+        </span>
 
-        <span className="updates-section-tag">INNOVATION & TECHNOLOGY</span>
+        <h2 className="updates-anim updates-anim-2">
+          Driving The Future Of Smart Electrical Engineering
+        </h2>
 
-        <h2>Driving The Future Of Smart Electrical Engineering</h2>
-
-        <p>
+        <p className="updates-anim updates-anim-3">
           Powells India Corporation continuously invests in advanced electrical
           technologies, intelligent automation systems, and modern power management
           solutions designed to meet evolving industrial demands worldwide.
         </p>
 
-        <p>
+        <p className="updates-anim updates-anim-4">
           Through engineering excellence and customer-driven innovation, we develop
           products that improve efficiency, reliability, safety, and energy performance
           across industrial and commercial applications.
@@ -123,12 +119,27 @@ export default function Event() {
 
         <div className="updates-innovation-grid">
           {[
-            { title: "Smart Technology", desc: "Advanced monitoring and intelligent control systems." },
-            { title: "Customer Focus", desc: "Solutions engineered for practical industrial requirements." },
-            { title: "Quality Assurance", desc: "Reliable products tested to international standards." },
-            { title: "Future Ready", desc: "Designed for modern automation and smart infrastructure." },
-          ].map((card) => (
-            <div key={card.title} className="updates-innovation-card">
+            {
+              title: "Smart Technology",
+              desc: "Advanced monitoring and intelligent control systems.",
+            },
+            {
+              title: "Customer Focus",
+              desc: "Solutions engineered for practical industrial requirements.",
+            },
+            {
+              title: "Quality Assurance",
+              desc: "Reliable products tested to international standards.",
+            },
+            {
+              title: "Future Ready",
+              desc: "Designed for modern automation and smart infrastructure.",
+            },
+          ].map((card, i) => (
+            <div
+              key={card.title}
+              className={`updates-innovation-card updates-anim updates-anim-card-${i + 1}`}
+            >
               <h4>{card.title}</h4>
               <p>{card.desc}</p>
             </div>
@@ -137,14 +148,12 @@ export default function Event() {
 
         <button
           type="button"
-          className="updates-cta-btn"
-          onClick={() => navigate("/pages/Blog")}
+          className="updates-cta-btn updates-anim updates-anim-5"
+          onClick={goBlog}
         >
           Explore Updates <span aria-hidden>→</span>
         </button>
-
       </div>
-
     </section>
   );
 }
