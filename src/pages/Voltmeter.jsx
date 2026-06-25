@@ -3,9 +3,9 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 const images = [
-  "/image/vm1.png",
-  "/image/vm2.png",
-  "/image/vm3.png",
+  "/image/volt1.jpeg",
+  "/image/volt2.jpeg",
+  "/image/volt3.jpeg",
 ];
 
 export default function ProductHero() {
@@ -91,27 +91,27 @@ export default function ProductHero() {
 <div className="product-grid">
   {[
     {
-      img: "vm3.png",
+      img: "volt1.jpeg",
       name: "VM9601",
       desc: "Single Phase Voltmeter."
     },
     {
-      img: "vm5.png",
+      img: "volt2.jpeg",
       name: "VM9603",
       desc: "Three Phase Voltmeter."
     },
     {
-      img: "vm1.png",
+      img:"volt3.jpeg",
       name: "VM4801",
       desc: "Single Phase with 96X48."
     },
      {
-      img: "vm2.png",
+      img: "volt1.jpeg",
       name: "VM96DC",
       desc: "Industrial DC Meter 96X96."
     },
      {
-      img: "vm4.png",
+      img: "volt2.jpeg",
       name: "VM48DC",
       desc: "Industrial DC Meter 96X48."
     }
