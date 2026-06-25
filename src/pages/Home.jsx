@@ -26,13 +26,6 @@ const tickerItems = [
   "Smart Power Management",
 ];
 
-const atsSlides = [
-  { src: img1, label: "ATS 160A — Heavy Duty Switching" },
-  { src: img2, label: "ATS 250A — Industrial Grade" },
-  { src: img3, label: "2 Pole ATS — Compact Design" },
-  { src: img4, label: "4 Pole ATS — Full Protection" },
-];
-
 const showcaseSlides = [
   {
     image: "/image/po4.png",
@@ -110,7 +103,6 @@ export default function Home() {
   const meterViewportRef = useRef(null);
   const [meterIndex, setMeterIndex] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
-  const [atsIndex, setAtsIndex] = useState(0);
   const [active, setActive] = useState(null);
   const [activeTab, setActiveTab] = useState("mission");
   const [meterMetrics, setMeterMetrics] = useState({ step: 150, maxIndex: 4 });
@@ -156,13 +148,6 @@ export default function Home() {
     const timer = setInterval(() => {
       setShowcaseIndex((prev) => (prev + 1) % showcaseSlides.length);
     }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setAtsIndex((prev) => (prev + 1) % atsSlides.length);
-    }, 4200);
     return () => clearInterval(timer);
   }, []);
 
@@ -315,62 +300,20 @@ export default function Home() {
 
       <section className="ats-hero reveal">
         <div className="ats-content">
-          <span className="ats-eyebrow">Automatic Transfer Switch</span>
-          <h2>2 & 4 Pole ATS Systems</h2>
+          <h1>AUTOMATIC TRANSFER SWITCH / ATS</h1>
+          <h2>2 AND 4 POLE</h2>
 
-          <div className="ats-slider-wrap">
-            <button
-              className="ats-arrow left"
-              onClick={() =>
-                setAtsIndex(
-                  (prev) => (prev - 1 + atsSlides.length) % atsSlides.length
-                )
-              }
-              aria-label="Previous ATS"
-            >
-              ‹
-            </button>
-
-            <div className="ats-viewport">
-              <div
-                className="ats-track"
-                style={{ transform: `translateX(-${atsIndex * 100}%)` }}
-              >
-                {atsSlides.map((slide, i) => (
-                  <div className="ats-slide" key={i}>
-                    <img src={slide.src} alt={slide.label} loading="lazy" />
-                    <span className="ats-slide-label">{slide.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <button
-              className="ats-arrow right"
-              onClick={() =>
-                setAtsIndex((prev) => (prev + 1) % atsSlides.length)
-              }
-              aria-label="Next ATS"
-            >
-              ›
-            </button>
+          <div className="ats-images">
+            <img src={img1} alt="ATS 160A" loading="lazy" />
+            <img src={img2} alt="ATS 250A" loading="lazy" />
+            <img src={img3} alt="2 Pole ATS" loading="lazy" />
+            <img src={img4} alt="4 Pole ATS" loading="lazy" />
           </div>
 
-          <div className="ats-dots">
-            {atsSlides.map((_, i) => (
-              <button
-                key={i}
-                className={`ats-dot ${i === atsIndex ? "active" : ""}`}
-                onClick={() => setAtsIndex(i)}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
-
-          <p className="ats-subtitle">Real-time Automatic Power Switching</p>
+          <p className="ats-subtitle">A Real-time Automatic Power Switching</p>
 
           <button className="ats-btn" onClick={() => navigate("/pages/Ats")}>
-            Explore ATS Range →
+            Click More →
           </button>
         </div>
       </section>
