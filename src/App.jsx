@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
-//import Chatbot from "./components/Chatbot";
+import Chatbot from "./components/Chatbot";
 import HeroSlider from "./components/HeroSlider";
 import Ammeter from "./pages/Ammeter";
 import Voltmeter from "./pages/Voltmeter";
@@ -77,6 +77,7 @@ export default function App() {
 
       </Routes>
        <Whatsapp />
+       <Chatbot />
          <Footer />
           </>
           
