@@ -11,3 +11,17 @@ export async function postJson(path, body) {
   const data = await response.json().catch(() => ({}));
   return { response, data };
 }
+
+export async function authFetch(path, options = {}) {
+  const token = localStorage.getItem("adminToken");
+  const response = await fetch(`${API_BASE}${path}`, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options.headers,
+    },
+  });
+  const data = await response.json().catch(() => ({}));
+  return { response, data };
+}

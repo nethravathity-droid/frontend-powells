@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -34,10 +34,25 @@ import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
 import DbBox from "./pages/DbBox";
 import ChannelPartner from "./pages/ChannelPartner";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
 import ProductPageAnimations from "./components/ProductPageAnimations";
 
 export default function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
+  if (isAdminRoute) {
+    return (
+      <Routes>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/*" element={<Navigate to="/admin" replace />} />
+      </Routes>
+    );
+  }
+
   return (
     <div className="site-shell">
       <ElectricalBackdrop variant="site" />
