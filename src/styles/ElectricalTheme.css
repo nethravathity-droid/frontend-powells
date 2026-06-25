@@ -281,7 +281,11 @@
 }
 
 .footer.elec-footer .elec-backdrop {
-  opacity: 0.12;
+  opacity: 0.42;
+}
+
+.footer.elec-footer .elec-circuit-svg {
+  opacity: 0.35;
 }
 
 .footer.elec-footer .footer-container,

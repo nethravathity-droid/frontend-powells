@@ -1,52 +1,47 @@
 import "./Footer.css";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { Zap } from "lucide-react";
 import ElectricalBackdrop from "./ElectricalBackdrop";
 
 export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="footer elec-footer elec-accent-strip">
+    <footer className="footer elec-footer elec-section-dark elec-accent-strip">
       <ElectricalBackdrop variant="dark" />
-      <div className="footer-container">
 
-        {/* LEFT - COMPANY */}
-        <div className="footer-brand">
+      <div className="footer-container">
+        <div className="footer-brand footer-col">
           <div className="logo1" onClick={() => navigate("/")}>
             <img src="/image/logo2.png" alt="Powells India Logo" />
-                    <div className="footer-links">
-          <h4>POWELLS INDIA CORPORATION</h4>
           </div>
-          </div>
+          <span className="footer-eyebrow elec-eyebrow">
+            <Zap size={12} aria-hidden="true" />
+            Electrical Manufacturing
+          </span>
+          <h4 className="footer-company-name">POWELLS INDIA CORPORATION</h4>
           <p className="footer-description">
-            Delivering intelligent electrical, energy monitoring and 
-            automation solutions engineered for reliability and performance.
+            Delivering intelligent electrical, energy monitoring and automation
+            solutions engineered for reliability and performance.
           </p>
-
           <p className="footer-address">
-            📍 No 54, 1st floor, Kachohalli, Bangalore North,
-            Dasanapura Hobli, Bengaluru Urban,
-            Karnataka – 560091
+            No 54, 1st floor, Kachohalli, Bangalore North, Dasanapura Hobli,
+            Bengaluru Urban, Karnataka – 560091
           </p>
         </div>
 
-        {/* QUICK LINKS */}
-        <div className="footer-links">
+        <div className="footer-links footer-col">
           <h4>Quick Links</h4>
-<Link 
-  to="/" 
-  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
->
-  Home
-</Link>          <Link to="/pages/About">About Us</Link>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            Home
+          </Link>
+          <Link to="/pages/About">About Us</Link>
           <Link to="/products">Products</Link>
           <Link to="/pages/Contact">Contact</Link>
           <Link to="/pages/ChannelPartner">Channel Partner</Link>
         </div>
 
-        {/* CONTACT NUMBERS */}
-        <div className="footer-links">
+        <div className="footer-links footer-col">
           <h4>Contact Numbers</h4>
           <p>080 28016867</p>
           <p>+91 8431183166 / 7892540406</p>
@@ -54,8 +49,7 @@ export default function Footer() {
           <p>+91 8431163665 / 8050264257</p>
         </div>
 
-        {/* EMAILS */}
-        <div className="footer-links">
+        <div className="footer-links footer-col">
           <h4>Email</h4>
           <p>sales@powellsindiacorporation.com</p>
           <p>support@powellsindiacorporation.com</p>
@@ -63,21 +57,36 @@ export default function Footer() {
           <p>accounts@powellsindiacorporation.com</p>
 
           <div className="social-links">
-            <Link to="https://www.facebook.com/profile.php?id=61571928883400" target="_blank" rel="noopener noreferrer">
+            <Link
+              to="https://www.facebook.com/profile.php?id=61571928883400"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
               <i className="fab fa-facebook-f"></i>
             </Link>
-            <Link to="https://www.instagram.com/powellsindia" target="_blank" rel="noopener noreferrer">
+            <Link
+              to="https://www.instagram.com/powellsindia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <i className="fab fa-instagram"></i>
             </Link>
-            <Link to="http://www.linkedin.com/in/powells-india-corporation-ba6b603b1" target="_blank" rel="noopener noreferrer">
+            <Link
+              to="http://www.linkedin.com/in/powells-india-corporation-ba6b603b1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <i className="fab fa-linkedin-in"></i>
             </Link>
           </div>
         </div>
-
       </div>
 
       <div className="footer-bottom">
+        <span className="footer-bottom-line" aria-hidden="true" />
         © {new Date().getFullYear()} Powells India Corporation. All Rights Reserved.
       </div>
     </footer>
