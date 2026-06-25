@@ -34,12 +34,12 @@
 
 @media (max-width: 768px) {
   .social-sidebar {
-    top: auto;
-    bottom: 90px;
-    transform: none;
-    flex-direction: row;
-    right: 50%;
-    transform: translateX(50%);
+    top: 50%;
+    bottom: auto;
+    left: 12px;
+    right: auto;
+    transform: translateY(-50%);
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -48,10 +48,21 @@
     height: 38px;
     font-size: 16px;
   }
+
+  .social-icon:hover {
+    transform: scale(1.08) translateX(2px);
+  }
 }
 
 @media (max-width: 480px) {
   .social-sidebar {
-    bottom: 80px;
+    left: 10px;
+    gap: 8px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
   }
 }

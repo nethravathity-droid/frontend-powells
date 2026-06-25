@@ -138,20 +138,12 @@ export default function Header() {
               </span>
             </div>
 
-                        <div className="mega-column">
+            <div className="mega-column">
               <h4>Low Voltage Switchgear</h4>
-              <span onClick={() => handleNavigate("/pages/Mcb")}>
-                MCCB
-              </span>
-              <span onClick={() => handleNavigate("/pages/Rccb")}>
-                RCCB
-              </span>
-              <span onClick={() => handleNavigate("/pages/Isolator")}>
-                Isolators
-              </span>
-              <span onClick={() => handleNavigate("/products")}>
-                DB Box
-              </span>
+              <span onClick={() => handleNavigate("/pages/Mcb")}>MCCB</span>
+              <span onClick={() => handleNavigate("/pages/Rccb")}>RCCB</span>
+              <span onClick={() => handleNavigate("/pages/Isolator")}>Isolators</span>
+              <span onClick={() => handleNavigate("/products")}>DB Box</span>
             </div>
           </div>
         )}
