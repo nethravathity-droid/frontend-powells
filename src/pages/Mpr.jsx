@@ -64,7 +64,7 @@ RELAY (MPR)</h1>
               </a>
         
               <a className="secondary-btn" href="/pages/Contact">
-                Get a Quote
+                Get Quotation
               </a>
             </div><br/><br/><br/>
 

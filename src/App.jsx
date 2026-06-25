@@ -34,11 +34,13 @@ import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
 import ChannelPartner from "./pages/ChannelPartner";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
+import ProductPageAnimations from "./components/ProductPageAnimations";
 
 export default function App() {
   return (
     <div className="site-shell">
       <ElectricalBackdrop variant="site" />
+      <ProductPageAnimations />
       <Header />
       <SocialSidebar />
       <ScrollToTop />

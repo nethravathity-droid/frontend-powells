@@ -1,189 +1,96 @@
 import "./SPDSection.css";
+import { Link } from "react-router-dom";
 
-import React from "react";
+const SPD_MODELS = [
+  {
+    image: "/image/spd.jpg",
+    title: "Surge Protection Device — 2 Pole",
+    desc: "Designed for installation at the main distribution board. Protects electrical systems from direct lightning strikes and high surge currents.",
+    specs: [
+      "Uc: DC600V & AC385V",
+      "Imax (8/20µs): 40kA / 60kA",
+      "In (8/20µs): 20kA / 30kA",
+      "Up: ≤ 2.8kV / ≤ 2.0kV",
+    ],
+    reverse: false,
+  },
+  {
+    image: "/image/spd1.jpg",
+    title: "Surge Protection Device — 3 Pole",
+    desc: "Installed in sub-distribution panels to protect equipment from switching surges and indirect lightning effects.",
+    specs: [
+      "Uc: DC1000V & AC385V",
+      "Imax (8/20µs): 40kA / 60kA",
+      "In (8/20µs): 20kA / 30kA",
+      "Up: ≤ 3.6kV / ≤ 2.0kV",
+    ],
+    reverse: true,
+  },
+  {
+    image: "/image/spd4.jpg",
+    title: "Surge Protection Device — 4 Pole",
+    desc: "Final protection stage placed close to sensitive equipment such as computers, automation systems and electronics.",
+    specs: [
+      "Uc: DC1400V & AC385V",
+      "Imax (8/20µs): 40kA / 60kA",
+      "In (8/20µs): 20kA / 30kA",
+      "Up: ≤ 3.6kV / ≤ 2.0kV",
+    ],
+    reverse: false,
+  },
+];
 
-
-const SPD = () => {
+export default function SPD() {
   return (
-    <section className="spd-section">
-
-      {/* SPD 1 */}
-      <div className="spd-container">
-        <div className="spd-image">
-          <img src="/image/spd.jpg" alt="SPD Type 1" />
+    <div className="spd-page-wrap">
+      <section className="spd-hero-banner">
+        <span className="product-tag">Powells Protection</span>
+        <h1>Surge Protection Devices (SPD)</h1>
+        <p>
+          Industrial-grade surge protection engineered to safeguard panels,
+          machinery and critical electrical infrastructure across residential,
+          commercial and industrial applications.
+        </p>
+        <div className="hero-buttons" style={{ justifyContent: "center" }}>
+          <a href="/image/spd4.jpg" download className="primary-btn spd-cta-btn primary">
+            Download Catalogue
+          </a>
+          <Link to="/pages/Contact" className="secondary-btn spd-cta-btn secondary">
+            Get Quotation
+          </Link>
         </div>
+      </section>
 
-        <div className="spd-text">
-          <h2>Surge Protection Device - 2 Pole</h2>
-          <p>
-            Designed for installation at the main distribution board.
-            Protects electrical systems from direct lightning strikes
-            and high surge currents.
-          </p>
-
-          <div className="spd-details">
-            <span>⚡ Uc: DC600V & Uc: AC385V</span>
-            <span>⚡ Imax:(80/20s) 40kA & Imax:(80/20s) 60kA</span>
-            <span>⚡ In:(80/20s) 20kA & In:(80/20s) 30kA</span>
-            <span>⚡ Up:less than or equal 2.8kV & Up:less than or equal 2.0kV</span>
+      <section className="spd-section">
+        {SPD_MODELS.map((model) => (
+          <div
+            key={model.title}
+            className={`spd-container${model.reverse ? " reverse" : ""}`}
+          >
+            <div className="spd-image">
+              <img src={model.image} alt={model.title} />
+            </div>
+            <div className="spd-text">
+              <h2>{model.title}</h2>
+              <p>{model.desc}</p>
+              <div className="spd-details">
+                {model.specs.map((spec) => (
+                  <span key={spec}>{spec}</span>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        ))}
+      </section>
 
-
-      {/* SPD 2 */}
-      <div className="spd-container reverse">
-        <div className="spd-image">
-          <img src="/image/spd1.jpg" alt="SPD Type 2" />
-        </div>
-
-        <div className="spd-text">
-          <h2>Surge Protection Device - 3 Pole</h2>
-          <p>
-            Installed in sub distribution panels to protect equipment
-            from switching surges and indirect lightning effects.
-          </p>
-
-          <div className="spd-details">
-            <span>⚡ Uc: DC1000V & Uc: AC385V</span>
-            <span>⚡ Imax:(80/20s) 40kA & Imax:(80/20s) 60kA</span>
-            <span>⚡ In:(80/20s) 3.6kV & In:(80/20s) 30kA</span>
-            <span>⚡ Up:less than or equal 3.6kV & Up:less than or equal 2.0kV</span>
-          </div>
-        </div>
-      </div>
-
-
-      {/* SPD 3 */}
-      <div className="spd-container">
-        <div className="spd-image">
-          <img src="/image/spd4.jpg" alt="SPD Type 3" />
-        </div>
-
-        <div className="spd-text">
-          <h2>Surge Protection Device - 4 Pole</h2>
-          <p>
-            Final protection stage placed close to sensitive equipment
-            like computers, automation systems and electronics.
-          </p>
-
-          <div className="spd-details">
-            <span>⚡ Uc: DC1400V & Uc: AC385V</span>
-            <span>⚡ Imax:(80/20s) 40kA & Imax:(80/20s) 60kA</span>
-            <span>⚡ In:(80/20s) 3.6kV & In:(80/20s) 30kA</span>
-            <span>⚡ Up:less than or equal 3.6kV & Up:less than or equal 2.0kV</span>
-          </div>
-        </div>
-      </div>
-
-    </section>
+      <section className="spd-cta">
+        <a href="/image/spd4.jpg" download className="primary-btn spd-cta-btn primary">
+          Download Catalogue
+        </a>
+        <Link to="/pages/Contact" className="secondary-btn spd-cta-btn secondary">
+          Get Quotation
+        </Link>
+      </section>
+    </div>
   );
-};
-
-export default SPD;
-
-/*export default function SPDSection() {
-  return (
-    <section className="spd-section">
-      {/* LEFT CONTENT */
-      /*<div className="spd-left">
-        <h1 className="spd-title">
-          Surge Protective Devices <span>(SPD)</span>
-        </h1>
-
-        <div className="spec-heading">Technical Specifications</div>
-
-        <div className="spec-grid">
-          {/* DC Cards */
-          /*<div className="spec-card">
-            <h3>SPD DC</h3>
-            <p>Model: CMT-40</p>
-            <p>Uc: DC600V</p>
-            <p>Imax: 40kA</p>
-            <p>In: 20kA</p>
-            <p>Up: ≤2.8kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-
-          <div className="spec-card">
-            <h3>SPD DC</h3>
-            <p>Model: CMT-40</p>
-            <p>Uc: DC1000V</p>
-            <p>Imax: 40kA</p>
-            <p>In: 20kA</p>
-            <p>Up: ≤3.6kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-
-          <div className="spec-card">
-            <h3>SPD DC</h3>
-            <p>Model: CMT-40</p>
-            <p>Uc: DC1400V</p>
-            <p>Imax: 40kA</p>
-            <p>In: 20kA</p>
-            <p>Up: ≤3.6kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-
-          {/* AC Cards */
-          /*<div className="spec-card">
-            <h3>SPD AC</h3>
-            <p>Model: CMT-60</p>
-            <p>Uc: AC385V</p>
-            <p>Imax: 60kA</p>
-            <p>In: 30kA</p>
-            <p>Up: ≤2.0kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-
-          <div className="spec-card">
-            <h3>SPD AC</h3>
-            <p>Model: CMT-60</p>
-            <p>Uc: AC385V</p>
-            <p>Imax: 60kA</p>
-            <p>In: 30kA</p>
-            <p>Up: ≤2.0kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-
-          <div className="spec-card">
-            <h3>SPD AC</h3>
-            <p>Model: CMT-60</p>
-            <p>Uc: AC385V</p>
-            <p>Imax: 60kA</p>
-            <p>In: 30kA</p>
-            <p>Up: ≤2.0kV</p>
-            <p>Type: T2</p>
-            <p>IEC/EN61643-11</p>
-          </div>
-        </div>
-      </div>
-
-      {/* RIGHT PRODUCT IMAGES */
-     /* <div className="spd-right">
-        <img src="/image/spd1.png" alt="SPD Device" />
-        <img src="/image/spd1.png" alt="SPD Device" />
-        <img src="/image/spd1.png" alt="SPD Device" />
-        <a
-  href="/catalogues/powells-product-catalogue.pdf"
-  download
-  className="catalogue-btn"
-  style={{ marginRight: '15px' }} // Adds space
->
-  Download Catalogue
-</a>
-<a
-  href="/contact"
-  className="catalogue-btn"
->
-  Get a Quote
-</a>
-      </div>
-    </section>
-  );
-}*/
+}

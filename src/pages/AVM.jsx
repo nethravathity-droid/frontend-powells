@@ -67,7 +67,7 @@ How an AVM Meter Works            <ul>
               </a>
         
               <a className="secondary-btn" href="/pages/Contact">
-                Get a Quote
+                Get Quotation
               </a>
             </div><br/><br/><br/>
 

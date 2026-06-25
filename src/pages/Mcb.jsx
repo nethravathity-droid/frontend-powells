@@ -1,4 +1,5 @@
 import "./mcb.css";
+import { Link } from "react-router-dom";
 
 function MCBPage() {
   return (
@@ -21,8 +22,8 @@ function MCBPage() {
             </p>
 
             <div className="hero-buttons">
-              <button>Download Datasheet</button>
-              <button className="outline">Contact Sales</button>
+              <button type="button" className="primary-btn">Download Datasheet</button>
+              <Link to="/pages/Contact" className="secondary-btn outline">Get Quotation</Link>
             </div>
           </div>
 

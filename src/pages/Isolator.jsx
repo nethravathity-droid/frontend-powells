@@ -1,4 +1,5 @@
 import "./IsolatorPage.css";
+import { Link } from "react-router-dom";
 
 function IsolatorPage() {
   return (
@@ -22,13 +23,12 @@ function IsolatorPage() {
             </p>
 
             <div className="hero-buttons">
-              <button className="primary-btn">
-                Download Catalog
+              <button type="button" className="primary-btn">
+                Download Catalogue
               </button>
-
-              <button className="secondary-btn">
-                Get a Quote
-              </button>
+              <Link to="/pages/Contact" className="secondary-btn">
+                Get Quotation
+              </Link>
             </div>
           </div>
 

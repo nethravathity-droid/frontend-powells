@@ -157,7 +157,7 @@ const [selectedVariant, setSelectedVariant] = useState(null);
               </a>
         
               <a className="secondary-btn" href="/pages/Contact">
-                Get a Quote
+                Get Quotation
               </a>
             </div></div>
 </section>

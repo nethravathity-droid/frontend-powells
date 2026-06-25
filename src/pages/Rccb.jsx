@@ -21,14 +21,9 @@ function RCCBPage() {
               and fire hazards.
             </p>
 
-            <div className="rccb-buttons">
-              <button className="primary-btn">
-                Download Datasheet
-              </button>
-
-              <button className="secondary-btn">
-                Request Quote
-              </button>
+            <div className="hero-buttons">
+              <button type="button" className="primary-btn">Download Datasheet</button>
+              <a href="/pages/Contact" className="secondary-btn">Get Quotation</a>
             </div>
           </div>
 
