@@ -3,15 +3,34 @@ import { useNavigate } from "react-router-dom";
 import "./event.css";
 
 const NEWS_ITEMS = [
-  "Powells introduces next-generation Smart Energy Monitoring Systems for industrial applications.",
-  "New ATS & Changeover Switch Series launched with advanced safety protection features.",
-  "Powells expands manufacturing capabilities with innovative automation technologies.",
+  "Next-gen Smart Energy Monitoring Systems for industrial use.",
+  "New ATS & Changeover Switch Series with advanced protection.",
+  "Expanded manufacturing with innovative automation technologies.",
 ];
 
 const EVENT_SLIDES = [
   { src: "/image/event.jpeg", alt: "Powells exhibition event" },
   { src: "/image/event1.jpeg", alt: "Powells industry event" },
   { src: "/image/event2.jpeg", alt: "Powells product launch event" },
+];
+
+const INNOVATION_CARDS = [
+  {
+    title: "Smart Technology",
+    desc: "Advanced monitoring and intelligent control systems.",
+  },
+  {
+    title: "Customer Focus",
+    desc: "Solutions engineered for practical industrial requirements.",
+  },
+  {
+    title: "Quality Assurance",
+    desc: "Reliable products tested to international standards.",
+  },
+  {
+    title: "Future Ready",
+    desc: "Designed for modern automation and smart infrastructure.",
+  },
 ];
 
 export default function Event() {
@@ -118,24 +137,7 @@ export default function Event() {
         </p>
 
         <div className="updates-innovation-grid">
-          {[
-            {
-              title: "Smart Technology",
-              desc: "Advanced monitoring and intelligent control systems.",
-            },
-            {
-              title: "Customer Focus",
-              desc: "Solutions engineered for practical industrial requirements.",
-            },
-            {
-              title: "Quality Assurance",
-              desc: "Reliable products tested to international standards.",
-            },
-            {
-              title: "Future Ready",
-              desc: "Designed for modern automation and smart infrastructure.",
-            },
-          ].map((card, i) => (
+          {INNOVATION_CARDS.map((card, i) => (
             <div
               key={card.title}
               className={`updates-innovation-card updates-anim updates-anim-card-${i + 1}`}
