@@ -3,7 +3,7 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 const images = [
-  "/image/vaf.png",
+  "/image/mt5.png",
 ];
 
 export default function ProductHero() {
