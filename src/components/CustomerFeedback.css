@@ -1,76 +1,8 @@
-/* ── Customer Feedback — Powells brand ── */
+/* ── Customer Feedback ── */
 .customer-feedback {
   position: relative;
   padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 8%);
-  background: linear-gradient(160deg, #081423 0%, #0f172a 50%, #1e3a5f 100%);
-  color: #f8fafc;
   overflow: hidden;
-}
-
-/* Decorative circles */
-.fb-deco {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.fb-deco-circle-1 {
-  width: 320px;
-  height: 320px;
-  border: 2px solid rgba(56, 189, 248, 0.15);
-  border-radius: 50%;
-  top: -80px;
-  right: -60px;
-}
-
-.fb-deco-circle-2 {
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.25), transparent 70%);
-  border-radius: 50%;
-  bottom: 12%;
-  left: 4%;
-}
-
-.fb-deco-circle-3 {
-  width: 56px;
-  height: 56px;
-  border: 2px solid rgba(251, 191, 36, 0.35);
-  border-radius: 50%;
-  top: 28%;
-  left: 8%;
-}
-
-/* Decorative squares */
-.fb-deco-square-1 {
-  width: 88px;
-  height: 88px;
-  border: 2px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  transform: rotate(18deg);
-  bottom: 18%;
-  right: 6%;
-}
-
-.fb-deco-square-2 {
-  width: 48px;
-  height: 48px;
-  background: rgba(14, 165, 233, 0.12);
-  border-radius: 8px;
-  transform: rotate(-12deg);
-  top: 14%;
-  right: 22%;
-}
-
-.fb-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
-  pointer-events: none;
 }
 
 .fb-container {

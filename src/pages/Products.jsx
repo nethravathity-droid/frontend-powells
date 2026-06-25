@@ -1,5 +1,6 @@
 import "./Products.css";
 import { useNavigate } from "react-router-dom";
+import PageShell from "../components/PageShell";
 
 const products = [
   { name: "Ammeters", img: "/image/mt3.png", path: "/pages/Ammeter" },
@@ -28,6 +29,7 @@ export default function Products() {
   const navigate = useNavigate();
 
   return (
+    <PageShell variant="light" className="products-page-wrap">
     <section className="products-section">
       <h1 className="products-title">PRODUCTS</h1>
 
@@ -56,6 +58,7 @@ export default function Products() {
         ))}
       </div>
     </section>
+    </PageShell>
   );
 }
 

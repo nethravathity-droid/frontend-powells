@@ -41,7 +41,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`header ${scrolled ? "scrolled" : ""}`}>
+      <header className={`header elec-header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-inner">
 
           {/* LOGO */}

@@ -9,6 +9,7 @@ import WhyChoosePowells from "../components/WhyChoosePowells";
 import CustomerFeedback from "../components/CustomerFeedback";
 import HowCanWeHelp from "../components/HowCanWeHelp";
 import SubscribeSection from "../components/SubscribeSection";
+import ElectricalBackdrop from "../components/ElectricalBackdrop";
 import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
 import "./McbShowcase.css";
@@ -686,12 +687,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-progress" ref={progressRef}>
-        <div className="progress-bg-grid" aria-hidden="true" />
+      <section className="about-progress elec-section-dark elec-accent-strip" ref={progressRef}>
+        <ElectricalBackdrop variant="dark" />
 
         <div className="progress-inner">
           <div className="progress-left">
-            <span className="progress-eyebrow">Driven · Innovative · Trusted</span>
+            <span className="progress-eyebrow elec-eyebrow">Driven · Innovative · Trusted</span>
             <h2>
               Empowering Electrical Innovation With Proven Expertise
             </h2>

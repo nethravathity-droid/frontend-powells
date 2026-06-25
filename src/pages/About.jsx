@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./About.css";
 import aboutVideo from "/image/about.mp4";
+import PageShell from "../components/PageShell";
 
 export default function About() {
   const [showContent, setShowContent] = useState(false);
@@ -35,6 +36,7 @@ export default function About() {
   }, []);
 
   return (
+    <PageShell variant="light" className="about-page-wrap">
     <section className="about-section">
       
       {/* 🔹 Video Section */}
@@ -112,5 +114,6 @@ export default function About() {
       </div>
 </section>
     </section>
+    </PageShell>
   );
 }

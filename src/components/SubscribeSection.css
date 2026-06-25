@@ -1,32 +1,7 @@
 .subscribe-section {
   position: relative;
   padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 8%);
-  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
   overflow: hidden;
-}
-
-.subscribe-deco {
-  position: absolute;
-  pointer-events: none;
-}
-
-.subscribe-deco-circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 2px solid rgba(37, 99, 235, 0.12);
-  top: -60px;
-  left: 5%;
-}
-
-.subscribe-deco-square {
-  width: 72px;
-  height: 72px;
-  border: 2px solid rgba(14, 165, 233, 0.15);
-  border-radius: 10px;
-  transform: rotate(-15deg);
-  bottom: 20%;
-  right: 8%;
 }
 
 .subscribe-inner {

@@ -2,30 +2,7 @@
 .about-progress {
   position: relative;
   padding: clamp(56px, 8vw, 100px) clamp(20px, 5vw, 8%);
-  background: linear-gradient(145deg, #0b1120 0%, #0f172a 40%, #1e1b4b 100%);
-  color: #f8fafc;
   overflow: hidden;
-}
-
-.about-progress::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 10% 20%, rgba(56, 189, 248, 0.12), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(99, 102, 241, 0.1), transparent 50%);
-  pointer-events: none;
-}
-
-.progress-bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
-  pointer-events: none;
 }
 
 .progress-inner {

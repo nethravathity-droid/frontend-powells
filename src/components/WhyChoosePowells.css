@@ -2,18 +2,7 @@
 .why-section {
   position: relative;
   padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 8%);
-  background: linear-gradient(180deg, #f1f5f9 0%, #f8fafc 45%, #ffffff 100%);
   overflow: hidden;
-}
-
-.why-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #0ea5e9, #2563eb, #0ea5e9);
 }
 
 .why-container {

@@ -1,7 +1,8 @@
 .stats-section {
-  background: linear-gradient(135deg, #05306b, #041f47);
+  position: relative;
   padding: 100px 0;
   color: #ffffff;
+  overflow: hidden;
 }
 
 .stats-container {

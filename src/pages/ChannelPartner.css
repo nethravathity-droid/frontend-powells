@@ -1,67 +1,7 @@
 .cp-page {
   position: relative;
-  min-height: calc(100vh - var(--header-height, 88px));
   padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 8%) clamp(64px, 8vw, 96px);
-  background: linear-gradient(160deg, #081423 0%, #0f2850 50%, #0c4a6e 100%);
-  color: #f8fafc;
   overflow: hidden;
-}
-
-.cp-circuit-bg {
-  position: absolute;
-  inset: 0;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.cp-circuit-bg svg {
-  width: 100%;
-  height: 100%;
-}
-
-.cp-circuit-bg path {
-  fill: none;
-  stroke: rgba(56, 189, 248, 0.35);
-  stroke-width: 2;
-}
-
-.cp-circuit-bg circle {
-  fill: rgba(251, 191, 36, 0.55);
-}
-
-.cp-circuit-bg rect {
-  fill: rgba(37, 99, 235, 0.12);
-  stroke: rgba(56, 189, 248, 0.35);
-  stroke-width: 1.5;
-}
-
-.cp-circuit-bg circle[fill="none"] {
-  fill: none;
-  stroke: rgba(56, 189, 248, 0.25);
-}
-
-.cp-deco {
-  position: absolute;
-  pointer-events: none;
-}
-
-.cp-deco-circle {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 2px solid rgba(56, 189, 248, 0.15);
-  top: -80px;
-  right: -40px;
-}
-
-.cp-deco-square {
-  width: 90px;
-  height: 90px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  transform: rotate(20deg);
-  bottom: 10%;
-  left: 4%;
 }
 
 .cp-container {

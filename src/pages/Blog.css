@@ -7,11 +7,12 @@
   box-sizing: border-box;
 }
 
-body {
+.blog-page {
   font-family: "Poppins", sans-serif;
   background: #021c34;
   overflow-x: hidden;
   color: white;
+  min-height: 100vh;
 }
 
 /* HERO */

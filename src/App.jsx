@@ -33,13 +33,16 @@ import Mcb from "./pages/Mcb";
 import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
 import ChannelPartner from "./pages/ChannelPartner";
+import ElectricalBackdrop from "./components/ElectricalBackdrop";
 
 export default function App() {
   return (
-    <>
+    <div className="site-shell">
+      <ElectricalBackdrop variant="site" />
       <Header />
-        <SocialSidebar />
- <ScrollToTop />
+      <SocialSidebar />
+      <ScrollToTop />
+      <main className="site-main">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pages/About" element={<About/>} />
@@ -79,10 +82,10 @@ export default function App() {
                            <Route path="/pages/HomeExhibition" element={<HomeExhibition />} /> 
 
       </Routes>
-       <Whatsapp />
-       <Chatbot />
-         <Footer />
-          </>
-          
+      </main>
+      <Whatsapp />
+      <Chatbot />
+      <Footer />
+    </div>
   );
 }

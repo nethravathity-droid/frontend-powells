@@ -1,6 +1,10 @@
+.about-page-wrap {
+  padding-top: var(--header-height, 88px);
+}
+
 .about-section {
-  padding: 80px 10%;
-  background: #f8f9fa;
+  padding: 0 10% 80px;
+  background: transparent;
 }
 
 /* Row Layout */

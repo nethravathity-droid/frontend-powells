@@ -1,6 +1,10 @@
+.products-page-wrap {
+  padding-top: calc(var(--header-height, 88px) + 8px);
+}
+
 .products-section {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-  padding: calc(var(--header-height, 88px) + 24px) var(--section-px, clamp(20px, 5vw, 40px)) var(--section-py, 60px);
+  background: transparent;
+  padding: 24px var(--section-px, clamp(20px, 5vw, 40px)) var(--section-py, 60px);
   min-height: 60vh;
 }
 

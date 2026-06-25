@@ -45,7 +45,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <>
+    <div className="blog-page">
       {/* HERO */}
       <section className="blog-hero">
 
@@ -283,6 +283,6 @@ export default function Blog() {
         </div>
 
       </section>
-    </>
+    </div>
   );
 }

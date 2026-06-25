@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { postJson } from "../config/api";
 import { validateEmail, validatePhone } from "../utils/formValidation";
+import PageShell from "../components/PageShell";
 import { Handshake, Building2, Mail, Phone, Send } from "lucide-react";
 
 export default function ChannelPartner() {
@@ -70,28 +71,14 @@ export default function ChannelPartner() {
         />
       </Helmet>
 
-      <div className="cp-page">
-        <div className="cp-circuit-bg" aria-hidden="true">
-          <svg viewBox="0 0 900 400" preserveAspectRatio="xMidYMid slice">
-            <path d="M0 80 H250 V40 H500 V120 H750 V60 H900" />
-            <path d="M150 0 V180 M450 20 V220 M700 0 V160" />
-            <circle cx="250" cy="80" r="8" />
-            <circle cx="500" cy="120" r="8" />
-            <rect x="320" y="200" width="48" height="48" rx="6" />
-            <circle cx="620" cy="240" r="32" fill="none" strokeWidth="2" />
-          </svg>
-        </div>
-
-        <div className="cp-deco cp-deco-circle" aria-hidden="true" />
-        <div className="cp-deco cp-deco-square" aria-hidden="true" />
-
+      <PageShell variant="dark" className="cp-page">
         <div className="cp-container">
           <header className="cp-header">
             <div className="cp-symbol">
               <span className="cp-symbol-ring" aria-hidden="true" />
               <Handshake size={36} strokeWidth={2} aria-hidden="true" />
             </div>
-            <span className="cp-eyebrow">Partnership Program</span>
+            <span className="cp-eyebrow elec-eyebrow">Partnership Program</span>
             <h1>Become a Channel Partner</h1>
             <p>
               Join Powells India's growing dealer and distributor network.
@@ -181,7 +168,7 @@ export default function ChannelPartner() {
             </form>
           </div>
         </div>
-      </div>
+      </PageShell>
     </>
   );
 }

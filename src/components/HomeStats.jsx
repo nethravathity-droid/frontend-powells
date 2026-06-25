@@ -2,6 +2,7 @@ import "./HomeStats.css";
 import { FaBuilding, FaGlobeAsia, FaUsers, FaBolt } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 
 export default function HomeStats() {
   const sectionRef = useRef(null);
@@ -23,7 +24,8 @@ export default function HomeStats() {
   }, []);
 
   return (
-    <section className="stats-section" ref={sectionRef}>
+    <section className="stats-section elec-section-dark elec-accent-strip" ref={sectionRef}>
+      <ElectricalBackdrop variant="dark" />
       <div className="stats-container">
         
         {/* LEFT CONTENT */}

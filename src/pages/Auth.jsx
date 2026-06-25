@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
+import PageShell from "../components/PageShell";
 
 export default function Auth() {
   const API_URL = "https://powells-backend-1.onrender.com";
@@ -75,6 +76,7 @@ const url = isRegister
   };
 
   return (
+    <PageShell variant="dark" className="auth-page-wrap">
     <div className="auth-bg">
       <div className="auth-card">
         <h2>{isRegister ? "Create Account" : "Login"}</h2>
@@ -124,5 +126,6 @@ const url = isRegister
         </p>
       </div>
     </div>
+    </PageShell>
   );
 }

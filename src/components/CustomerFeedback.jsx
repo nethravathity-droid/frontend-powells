@@ -1,6 +1,7 @@
 import "./CustomerFeedback.css";
 import { useEffect, useRef, useState } from "react";
 import { Quote, User } from "lucide-react";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 
 const FEEDBACK = [
   {
@@ -95,19 +96,14 @@ export default function CustomerFeedback() {
 
   return (
     <section
-      className={`customer-feedback${visible ? " fb-visible" : ""}`}
+      className={`customer-feedback elec-section-dark elec-accent-strip${visible ? " fb-visible" : ""}`}
       ref={sectionRef}
     >
-      <div className="fb-deco fb-deco-circle-1" aria-hidden="true" />
-      <div className="fb-deco fb-deco-circle-2" aria-hidden="true" />
-      <div className="fb-deco fb-deco-circle-3" aria-hidden="true" />
-      <div className="fb-deco fb-deco-square-1" aria-hidden="true" />
-      <div className="fb-deco fb-deco-square-2" aria-hidden="true" />
-      <div className="fb-grid-bg" aria-hidden="true" />
+      <ElectricalBackdrop variant="dark" />
 
       <div className="fb-container">
         <header className="fb-header">
-          <span className="fb-eyebrow">Powells Voices</span>
+          <span className="fb-eyebrow elec-eyebrow">Powells Voices</span>
           <h2>What Our Customers Say</h2>
           <p>
             Real feedback from industries that rely on Powells electrical

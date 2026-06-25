@@ -1,12 +1,14 @@
 import "./Footer.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 
 export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="footer">
+    <footer className="footer elec-footer elec-accent-strip">
+      <ElectricalBackdrop variant="dark" />
       <div className="footer-container">
 
         {/* LEFT - COMPANY */}

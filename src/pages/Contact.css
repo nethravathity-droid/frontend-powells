@@ -1,8 +1,12 @@
 /* ===== CONTACT PAGE BASE ===== */
+.contact-page-wrap {
+  padding-top: var(--header-height, 88px);
+}
+
 .contact-page {
-  background: #f8fafc;
-  padding: 100px 0;
-  font-family: "Inter", "Segoe UI", sans-serif;
+  background: transparent;
+  padding: 60px 0 100px;
+  font-family: var(--font-sans, "Poppins", sans-serif);
 }
 
 /* ===== MAIN GRID ===== */

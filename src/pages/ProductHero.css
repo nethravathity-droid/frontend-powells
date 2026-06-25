@@ -97,8 +97,10 @@
 
 /* MORE PRODUCTS */
 .more-products {
+  position: relative;
   padding: 80px 8%;
-  background: #f5f7fb;
+  overflow: hidden;
+  background: transparent;
 }
 
 .product-grid {
@@ -329,8 +331,10 @@ tbody tr:hover {
 }
 
 .product-hero {
+  position: relative;
   padding: 80px 5%;
-  background: linear-gradient(135deg, #0a1f4d, #123a8a);
+  overflow: hidden;
+  background: linear-gradient(160deg, #081423 0%, #0f2850 50%, #0c4a6e 100%);
   color: white;
 }
 

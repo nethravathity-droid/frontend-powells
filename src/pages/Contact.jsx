@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Contact.css";
 import { Link } from "react-router-dom";
 import { postJson } from "../config/api";
+import PageShell from "../components/PageShell";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -77,6 +78,7 @@ const Contact = () => {
   };
 
   return (
+    <PageShell variant="light" className="contact-page-wrap">
     <div className="contact-page">
       <div className="contact-container">
         {/* LEFT SIDE */}
@@ -218,6 +220,7 @@ const Contact = () => {
   </div>
 </div>
     </div>
+    </PageShell>
   );
 };
 

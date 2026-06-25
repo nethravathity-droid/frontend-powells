@@ -1,44 +1,8 @@
-/* ── How Can We Help — electrical themed ── */
+/* ── How Can We Help ── */
 .help-section {
   position: relative;
   padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 8%);
-  background: linear-gradient(135deg, #081423 0%, #0f2850 45%, #0c4a6e 100%);
-  color: #f8fafc;
   overflow: hidden;
-}
-
-.help-circuit-bg {
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.help-circuit-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.help-circuit-svg path {
-  fill: none;
-  stroke: rgba(56, 189, 248, 0.35);
-  stroke-width: 2;
-}
-
-.help-circuit-svg circle {
-  fill: rgba(251, 191, 36, 0.6);
-  stroke: rgba(251, 191, 36, 0.8);
-}
-
-.help-circuit-svg rect {
-  fill: rgba(37, 99, 235, 0.15);
-  stroke: rgba(56, 189, 248, 0.4);
-  stroke-width: 1.5;
-}
-
-.help-circuit-svg circle[fill="none"] {
-  fill: none;
-  stroke: rgba(56, 189, 248, 0.25);
 }
 
 .help-inner {

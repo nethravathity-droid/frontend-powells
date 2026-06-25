@@ -10,6 +10,7 @@ import {
   Leaf,
   Award,
 } from "lucide-react";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 
 const FEATURES = [
   {
@@ -78,12 +79,13 @@ export default function WhyChoosePowells() {
 
   return (
     <section
-      className={`why-section${visible ? " why-visible" : ""}`}
+      className={`why-section elec-section-light elec-accent-strip${visible ? " why-visible" : ""}`}
       ref={sectionRef}
     >
+      <ElectricalBackdrop variant="light" />
       <div className="why-container">
         <header className="why-header">
-          <span className="why-eyebrow">Why Powells</span>
+          <span className="why-eyebrow elec-eyebrow">Why Powells</span>
           <h2>Why Do You Choose Us?</h2>
           <p className="why-subtitle">Powells India Corporation</p>
         </header>

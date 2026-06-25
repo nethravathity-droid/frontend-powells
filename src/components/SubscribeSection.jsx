@@ -3,6 +3,7 @@ import { useState } from "react";
 import { postJson } from "../config/api";
 import { validateEmail } from "../utils/formValidation";
 import { Mail, Bell } from "lucide-react";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 
 export default function SubscribeSection() {
   const [email, setEmail] = useState("");
@@ -43,9 +44,8 @@ export default function SubscribeSection() {
   };
 
   return (
-    <section className="subscribe-section">
-      <div className="subscribe-deco subscribe-deco-circle" aria-hidden="true" />
-      <div className="subscribe-deco subscribe-deco-square" aria-hidden="true" />
+    <section className="subscribe-section elec-section-light">
+      <ElectricalBackdrop variant="light" />
 
       <div className="subscribe-inner">
         <div className="subscribe-icon-wrap">

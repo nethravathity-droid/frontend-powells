@@ -1,13 +1,14 @@
-/* Full background with blue shade */
+.auth-page-wrap {
+  padding-top: var(--header-height, 88px);
+}
+
 .auth-bg {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height, 88px));
   display: flex;
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(rgba(10, 30, 80, 0.75), rgba(5, 20, 60, 0.85)),
-   url("/image/lab7.png")
-    no-repeat center center/cover;
+  padding: 40px 20px;
+  background: transparent;
 }
 
 /* Card */

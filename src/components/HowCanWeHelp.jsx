@@ -2,6 +2,7 @@ import "./HowCanWeHelp.css";
 import { useState } from "react";
 import { postJson } from "../config/api";
 import { validateEmail, validatePhone } from "../utils/formValidation";
+import ElectricalBackdrop from "./ElectricalBackdrop";
 import {
   Zap,
   Headphones,
@@ -90,24 +91,12 @@ export default function HowCanWeHelp() {
   };
 
   return (
-    <section className="help-section">
-      <div className="help-circuit-bg" aria-hidden="true">
-        <svg className="help-circuit-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-          <path d="M0 120 H200 V80 H400 V160 H600 V100 H800" />
-          <path d="M100 0 V200 M300 40 V280 M500 0 V240 M700 60 V300" />
-          <circle cx="200" cy="120" r="6" />
-          <circle cx="400" cy="160" r="6" />
-          <circle cx="600" cy="100" r="6" />
-          <rect x="180" y="260" width="40" height="40" rx="4" />
-          <rect x="420" y="320" width="36" height="36" rx="4" />
-          <circle cx="320" cy="400" r="28" fill="none" strokeWidth="2" />
-          <circle cx="520" cy="440" r="18" fill="none" strokeWidth="2" />
-        </svg>
-      </div>
+    <section className="help-section elec-section-dark elec-accent-strip">
+      <ElectricalBackdrop variant="dark" />
 
       <div className="help-inner">
         <div className="help-left">
-          <span className="help-eyebrow">Connect With Powells</span>
+          <span className="help-eyebrow elec-eyebrow">Connect With Powells</span>
           <h2>How Can We Help You?</h2>
           <p>
             From product selection to project support — our electrical experts
