@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import "./MeterShowcase.css";
 import ScrollSection from "./ScrollSection";
+import Event from "./Event";
 
 import img1 from "/image/ats160a.png";
 import img2 from "/image/ats250.png";
@@ -165,8 +166,8 @@ const StarRating = ({ rating }) => {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-primary" onClick={() => navigate("/Contact")}>Get in Touch</button>
-            <button className="btn-secondary" onClick={() => navigate("/Products")}>Explore Products</button>
+            <button className="btn-primary" onClick={() => navigate("/pages/Contact")}>Get in Touch</button>
+            <button className="btn-secondary" onClick={() => navigate("/products")}>Explore Products</button>
           </div>
         </div>
       </section>
@@ -274,11 +275,11 @@ const StarRating = ({ rating }) => {
     </p>
 
     <div className="mcb-buttons">
-      <a href="/pages/contact" className="enquire-btn">
+      <a href="/pages/Contact" className="enquire-btn">
         Enquire Now
       </a>
 
-      <a href="/products/mcb" className="learn-btn">
+      <a href="/pages/Mcb" className="learn-btn">
         View Product
       </a>
     </div>
@@ -295,167 +296,8 @@ const StarRating = ({ rating }) => {
   </div>
 
 </section>
- <section className="powells-insights">
+<Event />
 
-  <div className="insights-grid">
-
-    {/* LEFT NEWS */}
-    <div
-      className="news-panel"
-      onClick={() => window.location.href = "pages/blog"}
-    >
-      <h3>Latest News</h3>
-
-      <div className="news-list">
-
-        <div className="news-card">
-          Smart Energy Metering Solutions Introduced
-        </div>
-
-        <div className="news-card">
-          Advanced ATS Systems Released For Industries
-        </div>
-
-        <div className="news-card">
-          Powells Expands Manufacturing Capabilities
-        </div>
-
-        <div className="news-card">
-          Intelligent Automation Technologies Showcase
-        </div>
-
-      </div>
-    </div>
-
-    {/* RIGHT CONTENT */}
-    <div className="content-panel">
-
-      <span>POWELLS INNOVATION</span>
-
-      <h2>
-        Engineering Reliable Electrical
-        Solutions For Modern Industries
-      </h2>
-
-      <p>
-        Powells India Corporation develops advanced electrical
-        products focused on safety, efficiency, automation and
-        energy management.
-      </p>
-
-      <p>
-        Through continuous innovation and engineering excellence,
-        our products help industries improve operational
-        reliability while reducing energy consumption.
-      </p>
-
-      <a href="/blog" className="read-btn">
-        Read More
-      </a>
-
-    </div>
-
-  </div>
-
-  {/* EXHIBITION SLIDER */}
-
-  <div
-    className="exhibition-strip"
-    onClick={() => window.location.href = "pages/blog"}
-  >
-
-    <div className="strip-track">
-
-      <img src="/image/P1.jpeg" alt="" />
-      <img src="/image/P2.jpeg" alt="" />
-      <img src="/image/P3.jpeg" alt="" />
-      <img src="/image/p4.jpeg" alt="" />
-      <img src="/image/p5.jpeg" alt="" />
-      <img src="/image/p6.jpeg" alt="" />
-<img src="/image/p7.jpeg" alt="" />
-    </div>
-
-  </div>
-
-</section>
-<div className="news-events-section">
-
-  {/* LATEST NEWS */}
-  <div
-    className="latest-news-box"
-    onClick={() => window.location.href = "pages/blog"}
-  >
-    <div className="box-title">
-      Latest News
-    </div>
-
-    <div className="news-slider-container">
-      <div className="news-slider-track">
-
-        <div className="news-slide">
-          Powells launches next-generation Smart Energy Monitoring Systems.
-        </div>
-
-        <div className="news-slide">
-          Advanced ATS & Changeover Switches introduced for industrial applications.
-        </div>
-
-        <div className="news-slide">
-          Powells participates in major Electrical Engineering Exhibition 2026.
-        </div>
-
-        <div className="news-slide">
-          New automation technologies improve energy efficiency and safety.
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  {/* UPCOMING EVENTS */}
-  <div
-    className="events-box"
-    onClick={() => window.location.href = "pages/blog"}
-  >
-    <div className="box-title">
-      Upcoming Events
-    </div>
-
-    <div className="event-slider">
-
-      <div className="event-track">
-
-        <div className="event-poster">
-          <img src="/image/event.jpeg" alt="Event 1" />
-        </div>
-
-        <div className="event-poster">
-          <img src="/image/event1.jpeg" alt="Event 2" />
-        </div>
-
-                <div className="event-poster">
-          <img src="/image/event2.jpeg" alt="Event 2" />
-        </div>
-
-        {/* Duplicate for smooth infinite loop */}
-
-        <div className="event-poster">
-          <img src="/image/event.jpeg" alt="Event 1" />
-        </div>
-
-        <div className="event-poster">
-          <img src="/image/event1.jpeg" alt="Event 2" />
-        </div>
-                <div className="event-poster">
-          <img src="/image/event2.jpeg" alt="Event 2" />
-        </div>
-<br/>
-      </div>
-
-    </div>
-  </div>
-
-</div>
   <section className="category-section" >
       <div className="category-container">
         {categories1.map((item, index) => (

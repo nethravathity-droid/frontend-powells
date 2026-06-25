@@ -20,8 +20,8 @@ const products = [
   { name: "ATS with Display", img: "/image/atswd.png", path: "/pages/Ats" },
     { name: "MCB", img: "/image/4pole_mcb.png", path: "/pages/Mcb" },
   { name: "RCCB", img: "/image/rccb_4pole.png", path: "/pages/Rccb" },
-  { name: "Isolators", img: "/image/isolators.png", path: "/pages/isolators" },
-  { name: "Db box", img: "/image/digital_timers.png", path: "/pages/digital_timers" },
+  { name: "Isolators", img: "/image/isolators.png", path: "/pages/Isolator" },
+  { name: "Db box", img: "/image/digital_timers.png", path: "/products" },
 ];
 
 export default function Products() {

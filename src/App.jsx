@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -29,6 +29,9 @@ import ScrollSection from "./pages/ScrollSection";
 import SocialSidebar from "./components/SocialSidebar";
 import Blog from "./pages/Blog"; 
 import HomeExhibition from "./pages/HomeExhibition";
+import Mcb from "./pages/Mcb";
+import Rccb from "./pages/Rccb";
+import Isolator from "./pages/Isolator";
 
 export default function App() {
   return (
@@ -40,7 +43,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/pages/About" element={<About/>} />
         <Route path="/products" element={<Products />} />
+        <Route path="/Products" element={<Navigate to="/products" replace />} />
         <Route path="/pages/Contact" element={<Contact />} />
+        <Route path="/contact" element={<Navigate to="/pages/Contact" replace />} />
+        <Route path="/pages/contact" element={<Navigate to="/pages/Contact" replace />} />
         <Route path="/components/HeroSlider" element={<HeroSlider />} /> 
         <Route path="/cart" element={<div>Cart Page</div>} />
        <Route path="/pages/Ammeter" element={<Ammeter />} />
@@ -56,9 +62,17 @@ export default function App() {
               <Route path="/pages/Amf" element={<Amf />} /> 
                          <Route path="/pages/Ats2p" element={<Ats2p />} /> 
                          <Route path="/pages/Ats" element={<Ats />} />
+                         <Route path="/pages/ats" element={<Navigate to="/pages/Ats" replace />} />
+                         <Route path="/pages/Mcb" element={<Mcb />} />
+                         <Route path="/pages/Rccb" element={<Rccb />} />
+                         <Route path="/pages/Isolator" element={<Isolator />} />
+                         <Route path="/pages/isolators" element={<Navigate to="/pages/Isolator" replace />} />
+                         <Route path="/products/mcb" element={<Navigate to="/pages/Mcb" replace />} />
                            <Route path="/auth" element={<Auth />} />
                            <Route path="/ScrollSection" element={<ScrollSection/>}/>
-                           <Route path="/pages/Blog" element={<Blog />} /> 
+                           <Route path="/pages/Blog" element={<Blog />} />
+                           <Route path="/Blog" element={<Navigate to="/pages/Blog" replace />} />
+                           <Route path="/blog" element={<Navigate to="/pages/Blog" replace />} />
                            <Route path="/pages/HomeExhibition" element={<HomeExhibition />} /> 
 
       </Routes>

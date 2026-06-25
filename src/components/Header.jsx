@@ -60,8 +60,8 @@ export default function Header() {
               Products
             </button>
 
-            <Link to="/Products">Product List</Link>
-            <Link to="pages/About">About Us</Link>
+            <Link to="/products">Product List</Link>
+            <Link to="/pages/About">About Us</Link>
             <Link to="/pages/Blog">Blog</Link>
             <Link to="/pages/Contact">Contact</Link>
             
@@ -128,7 +128,7 @@ export default function Header() {
               <span onClick={() => handleNavigate("/pages/Ats2p")}>
                 Automatic Transfer Switch 2&4 Pole
               </span>
-              <span onClick={() => handleNavigate("/pages/ats")}>
+              <span onClick={() => handleNavigate("/pages/Ats")}>
                 Automatic Transfer Switch
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function Header() {
               <span onClick={() => handleNavigate("/pages/Isolator")}>
                 Isolators
               </span>
-                            <span onClick={() => handleNavigate("/pages/ats")}>
+              <span onClick={() => handleNavigate("/products")}>
                 DB Box
               </span>
             </div>
@@ -155,9 +155,9 @@ export default function Header() {
       {/* MOBILE MENU */}
       <div className={`mobile-menu ${mobileOpen ? "show" : ""}`}>
         <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
-        <Link to="/Products" onClick={() => setMobileOpen(false)}>Products</Link>
+        <Link to="/products" onClick={() => setMobileOpen(false)}>Products</Link>
         <Link to="/pages/About" onClick={() => setMobileOpen(false)}>About Us</Link>
-        <Link to="/Blog" onClick={() => setMobileOpen(false)}>Blog</Link>
+        <Link to="/pages/Blog" onClick={() => setMobileOpen(false)}>Blog</Link>
         <Link to="/pages/Contact" onClick={() => setMobileOpen(false)}>Contact</Link>
         <Link to="/auth" onClick={() => setMobileOpen(false)}>Login</Link>
         
