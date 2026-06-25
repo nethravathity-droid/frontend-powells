@@ -9,6 +9,7 @@ const TABS = [
   { id: "channel-partner", label: "Channel Partner" },
   { id: "inquiry", label: "Home Inquiry" },
   { id: "subscribe", label: "Subscribe" },
+  { id: "orders", label: "Shop Orders (COD)" },
   { id: "logins", label: "Login History" },
   { id: "users", label: "Registered Users" },
 ];
@@ -109,6 +110,10 @@ export default function AdminDashboard() {
       const res = await authFetch("/api/admin/users");
       if (res.response.ok) setItems(res.data.items || []);
       else setError(res.data.message || "Failed to load data");
+    } else if (tab === "orders") {
+      const res = await authFetch("/api/admin/orders?limit=50");
+      if (res.response.ok) setItems(res.data.items || []);
+      else setError(res.data.message || "Failed to load data");
     } else {
       const typeParam = tab === "all" ? "" : `&type=${tab}`;
       const res = await authFetch(`/api/admin/submissions?limit=50${typeParam}`);
@@ -127,7 +132,7 @@ export default function AdminDashboard() {
     loadData();
   }, [loadData, navigate]);
 
-  const isSubmissionTab = !["logins", "users"].includes(tab);
+  const isSubmissionTab = !["logins", "users", "orders"].includes(tab);
 
   return (
     <div className="admin-page">
@@ -166,6 +171,10 @@ export default function AdminDashboard() {
           <div className="admin-stat-card">
             <span>Subscribers</span>
             <strong>{stats.subscribe}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Shop Orders</span>
+            <strong>{stats.orders ?? 0}</strong>
           </div>
           <div className="admin-stat-card">
             <span>Logins</span>
@@ -254,6 +263,45 @@ export default function AdminDashboard() {
                     <td>{row.name}</td>
                     <td>{row.email}</td>
                     <td>{row.phone}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        )}
+
+        {!loading && tab === "orders" && (
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Items</th>
+                <th>Total (COD)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.length === 0 ? (
+                <tr>
+                  <td colSpan={7} className="admin-empty">No orders yet</td>
+                </tr>
+              ) : (
+                items.map((row) => (
+                  <tr key={row._id}>
+                    <td>{formatDate(row.createdAt)}</td>
+                    <td>{row.orderId}</td>
+                    <td>{row.customer?.name}</td>
+                    <td>{row.customer?.phone}</td>
+                    <td className="admin-cell-message">
+                      {(row.items || []).map((i) => `${i.name} ×${i.quantity}`).join(", ")}
+                    </td>
+                    <td>₹{row.total?.toLocaleString("en-IN")}</td>
+                    <td>
+                      <span className="admin-badge ok">{row.status || "pending"}</span>
+                    </td>
                   </tr>
                 ))
               )}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import AddToCartButton from "../components/AddToCartButton";
 const images = [
   "/image/volt1.jpeg",
   "/image/volt2.jpeg",
@@ -91,36 +92,42 @@ export default function ProductHero() {
 <div className="product-grid">
   {[
     {
+      id: "vm9601",
       img: "volt1.jpeg",
       name: "VM9601",
       desc: "Single Phase Voltmeter."
     },
     {
+      id: "vm9603",
       img: "volt2.jpeg",
       name: "VM9603",
       desc: "Three Phase Voltmeter."
     },
     {
+      id: "vm4801",
       img:"volt3.jpeg",
       name: "VM4801",
       desc: "Single Phase with 96X48."
     },
      {
+      id: "vm96dc",
       img: "volt1.jpeg",
       name: "VM96DC",
       desc: "Industrial DC Meter 96X96."
     },
      {
+      id: "vm48dc",
       img: "volt2.jpeg",
       name: "VM48DC",
       desc: "Industrial DC Meter 96X48."
     }
     
-  ].map((product, i) => (
-    <div key={i} className="product-card">
+  ].map((product) => (
+    <div key={product.id} className="product-card">
       <img src={`/image/${product.img}`} alt={product.name} />
       <h4>{product.name}</h4>
       <p>{product.desc}</p>
+      <AddToCartButton productId={product.id} variant="compact" />
     </div>
   ))}
 </div>

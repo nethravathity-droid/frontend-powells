@@ -22,20 +22,50 @@
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(140px, 22vw, 220px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(clamp(160px, 22vw, 240px), 1fr));
   gap: clamp(12px, 2vw, 20px);
   max-width: var(--container-max, 1280px);
   margin: 0 auto;
+}
+
+.products-shop-note {
+  max-width: var(--container-max, 1280px);
+  margin: -16px auto 24px;
+  padding: 0 clamp(24px, 4vw, 40px);
+  color: #64748b;
+  font-size: 14px;
 }
 
 .product-card {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: clamp(16px, 3vw, 28px);
+  padding: clamp(16px, 3vw, 24px);
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: default;
+}
+
+.shop-product-click {
   cursor: pointer;
+}
+
+.shop-view-btn {
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #fff;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shop-view-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
 }
 
 .product-card img {

@@ -1,23 +1,28 @@
 import "./mcb.css";
 import { Link } from "react-router-dom";
+import AddToCartButton from "../components/AddToCartButton";
 
 const MODELS = [
   {
+    id: "mcb-1p",
     name: "1 Pole MCB",
     desc: "Single-phase overload and short-circuit protection for branch circuits.",
     img: "/image/1p_mcb.png",
   },
   {
+    id: "mcb-2p",
     name: "2 Pole MCB",
     desc: "Double-pole protection for residential and commercial distribution.",
     img: "/image/2pole_mcb.png",
   },
   {
+    id: "mcb-3p",
     name: "3 Pole MCB",
     desc: "Three-phase protection for industrial and commercial panel boards.",
     img: "/image/3pole_mcb.png",
   },
   {
+    id: "mcb-4p",
     name: "4 Pole MCB",
     desc: "Full three-phase plus neutral protection for complete circuit safety.",
     img: "/image/4pole_mcb.png",
@@ -113,10 +118,11 @@ export default function MCBPage() {
           <h2>Available Configurations</h2>
           <div className="mcb-model-grid">
             {MODELS.map((model) => (
-              <div key={model.name} className="mcb-model-card">
+              <div key={model.id} className="mcb-model-card">
                 <img src={model.img} alt={model.name} />
                 <h3>{model.name}</h3>
                 <p>{model.desc}</p>
+                <AddToCartButton productId={model.id} variant="compact" />
               </div>
             ))}
           </div>

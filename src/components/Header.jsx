@@ -1,10 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { Handshake } from "lucide-react";
+import { Handshake, ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 import "./Header.css";
 
 export default function Header() {
   const navigate = useNavigate();
+  const { cartCount } = useCart();
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -75,6 +77,11 @@ export default function Header() {
 <div className="header-right">
   <Link to="tel:+919148243088"className="talk-btn">
     Let's Talk <span className="arrow">→</span>
+  </Link>
+
+  <Link to="/cart" className="header-cart-btn" aria-label={`Cart, ${cartCount} items`}>
+    <ShoppingCart size={22} strokeWidth={2} />
+    {cartCount > 0 && <span className="header-cart-badge">{cartCount > 99 ? "99+" : cartCount}</span>}
   </Link>
 
   <Link to="/auth" className="login-btn">
@@ -160,8 +167,11 @@ export default function Header() {
           Channel Partner
         </Link>
         <Link to="/pages/Contact" onClick={() => setMobileOpen(false)}>Contact</Link>
+        <Link to="/cart" onClick={() => setMobileOpen(false)} className="mobile-cart-link">
+          <ShoppingCart size={16} aria-hidden="true" />
+          Cart {cartCount > 0 ? `(${cartCount})` : ""}
+        </Link>
         <Link to="/auth" onClick={() => setMobileOpen(false)}>Login</Link>
-        
       </div>
 
       {/* OVERLAY */}

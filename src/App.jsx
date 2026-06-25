@@ -36,6 +36,11 @@ import DbBox from "./pages/DbBox";
 import ChannelPartner from "./pages/ChannelPartner";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+import CartToast from "./components/CartToast";
+import ProductShopBar from "./components/ProductShopBar";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
 import ProductPageAnimations from "./components/ProductPageAnimations";
 
@@ -58,6 +63,8 @@ export default function App() {
       <ElectricalBackdrop variant="site" />
       <ProductPageAnimations />
       <Header />
+      <CartToast />
+      <ProductShopBar />
       <SocialSidebar />
       <ScrollToTop />
       <main className="site-main">
@@ -72,7 +79,9 @@ export default function App() {
         <Route path="/contact" element={<Navigate to="/pages/Contact" replace />} />
         <Route path="/pages/contact" element={<Navigate to="/pages/Contact" replace />} />
         <Route path="/components/HeroSlider" element={<HeroSlider />} /> 
-        <Route path="/cart" element={<div>Cart Page</div>} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
        <Route path="/pages/Ammeter" element={<Ammeter />} />
        <Route path="/pages/Voltmeter" element={<Voltmeter />} /> 
         <Route path="/pages/AVM" element={<AVM />} /> 
