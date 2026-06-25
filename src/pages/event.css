@@ -2,7 +2,7 @@
    POWELLS UPDATES SECTION
 ========================== */
 
-.powells-updates{
+.updates-section{
   width:100%;
   padding:60px 8%;
   display:grid;
@@ -19,8 +19,8 @@
 
 /* BOXES */
 
-.news-box,
-.event-box{
+.updates-news-box,
+.updates-event-box{
   background:#fff;
   border-radius:16px;
   overflow:hidden;
@@ -29,12 +29,12 @@
   box-shadow:0 6px 24px rgba(0,0,0,.08);
 }
 
-.news-box:hover,
-.event-box:hover{
+.updates-news-box:hover,
+.updates-event-box:hover{
   transform:translateY(-4px);
 }
 
-.box-header{
+.updates-box-header{
   background:#0f172a;
   color:white;
   padding:10px 18px;
@@ -44,11 +44,11 @@
 
 /* NEWS — static */
 
-.news-content{
+.updates-news-content{
   padding:16px 18px;
 }
 
-.news-item{
+.updates-news-text{
   margin:0;
   font-size:14px;
   line-height:1.6;
@@ -58,20 +58,20 @@
 
 /* EVENTS — static */
 
-.event-box h3{
+.updates-event-box h3{
   padding:12px 18px 0;
   font-size:16px;
   color:#0f172a;
 }
 
-.event-gallery{
+.updates-event-gallery{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   padding:12px 18px 16px;
 }
 
-.event-gallery img{
+.updates-event-gallery img{
   width:110px;
   height:80px;
   object-fit:cover;
@@ -79,13 +79,13 @@
   transition:.3s;
 }
 
-.event-gallery img:hover{
+.updates-event-gallery img:hover{
   transform:scale(1.04);
 }
 
 /* RIGHT */
 
-.section-tag{
+.updates-section-tag{
   display:inline-block;
   background:#e0f2fe;
   color:#0369a1;
@@ -110,27 +110,27 @@
   margin-bottom:14px;
 }
 
-.innovation-grid{
+.updates-innovation-grid{
   margin-top:20px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
 }
 
-.innovation-card{
+.updates-innovation-card{
   background:#f8fafc;
   padding:16px;
   border-radius:14px;
   border-left:4px solid #2563eb;
 }
 
-.innovation-card h4{
+.updates-innovation-card h4{
   margin-bottom:6px;
   color:#0f172a;
   font-size:14px;
 }
 
-.innovation-card p{
+.updates-innovation-card p{
   margin:0;
   font-size:13px;
 }
@@ -139,7 +139,7 @@
 
 @media(max-width:991px){
 
-  .powells-updates{
+  .updates-section{
     grid-template-columns:1fr;
     gap:30px;
   }
@@ -151,7 +151,7 @@
 
 @media(max-width:768px){
 
-  .powells-updates{
+  .updates-section{
     padding:50px 5%;
   }
 
@@ -159,11 +159,11 @@
     font-size:24px;
   }
 
-  .innovation-grid{
+  .updates-innovation-grid{
     grid-template-columns:1fr;
   }
 
-  .event-gallery img{
+  .updates-event-gallery img{
     width:90px;
     height:68px;
   }

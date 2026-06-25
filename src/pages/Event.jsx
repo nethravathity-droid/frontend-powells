@@ -1,23 +1,26 @@
+import { useNavigate } from "react-router-dom";
 import "./event.css";
 
 export default function Event() {
+  const navigate = useNavigate();
+
   return (
-    <section className="powells-updates">
+    <section className="updates-section">
 
       {/* LEFT SIDE */}
       <div className="updates-left">
 
         {/* LATEST NEWS */}
         <div
-          className="news-box"
-          onClick={() => window.location.href = "/blog"}
+          className="updates-news-box"
+          onClick={() => navigate("/pages/Blog")}
         >
-          <div className="box-header">
+          <div className="updates-box-header">
             <span>Latest News</span>
           </div>
 
-          <div className="news-content">
-            <p className="news-item">
+          <div className="updates-news-content">
+            <p className="updates-news-text">
               Powells introduces next-generation Smart Energy Monitoring Systems
               for industrial applications.
             </p>
@@ -26,10 +29,10 @@ export default function Event() {
 
         {/* EVENTS */}
         <div
-          className="event-box"
-          onClick={() => window.location.href = "/blog"}
+          className="updates-event-box"
+          onClick={() => navigate("/pages/Blog")}
         >
-          <div className="box-header">
+          <div className="updates-box-header">
             <span>Upcoming Events</span>
           </div>
 
@@ -37,10 +40,10 @@ export default function Event() {
             Powells Industrial Electrical Exhibition 2026
           </h3>
 
-          <div className="event-gallery">
-            <img src="/image/p1.jpeg" alt="Event" />
-            <img src="/image/p2.jpeg" alt="Event" />
-            <img src="/image/p3.jpeg" alt="Event" />
+          <div className="updates-event-gallery">
+            <img src="/image/P1.jpeg" alt="Event" />
+            <img src="/image/P2.jpeg" alt="Event" />
+            <img src="/image/P3.jpeg" alt="Event" />
             <img src="/image/p4.jpeg" alt="Event" />
           </div>
         </div>
@@ -50,7 +53,7 @@ export default function Event() {
       {/* RIGHT SIDE CONTENT */}
       <div className="updates-right">
 
-        <span className="section-tag">
+        <span className="updates-section-tag">
           INNOVATION & TECHNOLOGY
         </span>
 
@@ -73,30 +76,30 @@ export default function Event() {
           commercial applications.
         </p>
 
-        <div className="innovation-grid">
+        <div className="updates-innovation-grid">
 
-          <div className="innovation-card">
+          <div className="updates-innovation-card">
             <h4>Smart Technology</h4>
             <p>
               Advanced monitoring and intelligent control systems.
             </p>
           </div>
 
-          <div className="innovation-card">
+          <div className="updates-innovation-card">
             <h4>Customer Focus</h4>
             <p>
               Solutions engineered for practical industrial requirements.
             </p>
           </div>
 
-          <div className="innovation-card">
+          <div className="updates-innovation-card">
             <h4>Quality Assurance</h4>
             <p>
               Reliable products tested to international standards.
             </p>
           </div>
 
-          <div className="innovation-card">
+          <div className="updates-innovation-card">
             <h4>Future Ready</h4>
             <p>
               Designed for modern automation and smart infrastructure.
