@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { Handshake } from "lucide-react";
 import "./Header.css";
 
 export default function Header() {
@@ -63,6 +64,10 @@ export default function Header() {
             <Link to="/products">Product List</Link>
             <Link to="/pages/About">About Us</Link>
             <Link to="/pages/Blog">Blog</Link>
+            <Link to="/pages/ChannelPartner" className="nav-partner-link">
+              <Handshake size={15} aria-hidden="true" />
+              Channel Partner
+            </Link>
             <Link to="/pages/Contact">Contact</Link>
             
           </nav>
@@ -158,6 +163,10 @@ export default function Header() {
         <Link to="/products" onClick={() => setMobileOpen(false)}>Products</Link>
         <Link to="/pages/About" onClick={() => setMobileOpen(false)}>About Us</Link>
         <Link to="/pages/Blog" onClick={() => setMobileOpen(false)}>Blog</Link>
+        <Link to="/pages/ChannelPartner" onClick={() => setMobileOpen(false)} className="nav-partner-link">
+          <Handshake size={15} aria-hidden="true" />
+          Channel Partner
+        </Link>
         <Link to="/pages/Contact" onClick={() => setMobileOpen(false)}>Contact</Link>
         <Link to="/auth" onClick={() => setMobileOpen(false)}>Login</Link>
         

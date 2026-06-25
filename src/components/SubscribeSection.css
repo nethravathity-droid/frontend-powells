@@ -1,0 +1,161 @@
+.subscribe-section {
+  position: relative;
+  padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 8%);
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  overflow: hidden;
+}
+
+.subscribe-deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+.subscribe-deco-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.12);
+  top: -60px;
+  left: 5%;
+}
+
+.subscribe-deco-square {
+  width: 72px;
+  height: 72px;
+  border: 2px solid rgba(14, 165, 233, 0.15);
+  border-radius: 10px;
+  transform: rotate(-15deg);
+  bottom: 20%;
+  right: 8%;
+}
+
+.subscribe-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.subscribe-icon-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-icon-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed rgba(37, 99, 235, 0.35);
+}
+
+.subscribe-content h2 {
+  font-size: clamp(22px, 3.2vw, 30px);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.subscribe-content p {
+  font-size: clamp(14px, 1.6vw, 15px);
+  color: #64748b;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.subscribe-input-wrap {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #64748b;
+}
+
+.subscribe-input-wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 0;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0f172a;
+  min-width: 0;
+}
+
+.subscribe-input-wrap input:focus {
+  outline: none;
+}
+
+.subscribe-form button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.subscribe-form button:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+.subscribe-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.subscribe-status {
+  margin-top: 14px;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.subscribe-status--success {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.subscribe-status--error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (max-width: 480px) {
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-form button {
+    width: 100%;
+  }
+}

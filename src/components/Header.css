@@ -63,6 +63,7 @@
 }
 
 .nav a,
+.nav-partner-link,
 .products-btn {
   color: #fff;
   font-size: clamp(13px, 1.5vw, 15px);
@@ -74,7 +75,14 @@
   transition: color 0.25s ease;
 }
 
+.nav-partner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .nav a:hover,
+.nav-partner-link:hover,
 .products-btn:hover {
   color: #7dd3fc;
 }

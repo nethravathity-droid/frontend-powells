@@ -40,6 +40,7 @@ export default function Footer() {
 </Link>          <Link to="/pages/About">About Us</Link>
           <Link to="/products">Products</Link>
           <Link to="/pages/Contact">Contact</Link>
+          <Link to="/pages/ChannelPartner">Channel Partner</Link>
         </div>
 
         {/* CONTACT NUMBERS */}

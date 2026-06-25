@@ -32,6 +32,7 @@ import HomeExhibition from "./pages/HomeExhibition";
 import Mcb from "./pages/Mcb";
 import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
+import ChannelPartner from "./pages/ChannelPartner";
 
 export default function App() {
   return (
@@ -45,6 +46,8 @@ export default function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/Products" element={<Navigate to="/products" replace />} />
         <Route path="/pages/Contact" element={<Contact />} />
+        <Route path="/pages/ChannelPartner" element={<ChannelPartner />} />
+        <Route path="/channel-partner" element={<Navigate to="/pages/ChannelPartner" replace />} />
         <Route path="/contact" element={<Navigate to="/pages/Contact" replace />} />
         <Route path="/pages/contact" element={<Navigate to="/pages/Contact" replace />} />
         <Route path="/components/HeroSlider" element={<HeroSlider />} /> 

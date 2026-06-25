@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import "./HomeShowcase.css";
 import WhyChoosePowells from "../components/WhyChoosePowells";
 import CustomerFeedback from "../components/CustomerFeedback";
+import HowCanWeHelp from "../components/HowCanWeHelp";
+import SubscribeSection from "../components/SubscribeSection";
 import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
 import "./McbShowcase.css";
@@ -741,6 +743,10 @@ export default function Home() {
       <WhyChoosePowells />
 
       <CustomerFeedback />
+
+      <HowCanWeHelp />
+
+      <SubscribeSection />
     </>
   );
 }

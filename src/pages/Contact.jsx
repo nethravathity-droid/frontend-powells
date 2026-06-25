@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { postJson } from "../config/api";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,15 +54,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch("https://powells-backend-1.onrender.com/api/callback", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
+      const { response, data } = await postJson("/api/callback", formData);
 
       if (response.ok && data.success) {
         alert("Request sent successfully! ✅");
