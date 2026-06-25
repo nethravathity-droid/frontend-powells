@@ -1,72 +1,108 @@
 import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./HeroSlider.css";
-
-const meterSlides = [
-  { src: "/image/am9601.png", label: "Digital Ammeter" },
-  { src: "/image/vm9601.png", label: "Digital Voltmeter" },
-  { src: "/image/avm9600.png", label: "AVM Meter" },
-  { src: "/image/kwh93.png", label: "KWH Energy Meter" },
-  { src: "/image/vaf9603.png", label: "VAF Meter" },
-  { src: "/image/vm96dc.png", label: "Voltmeter Panel" },
-  { src: "/image/mfm.png", label: "MFM Meter" },
-  { src: "/image/am9603.png", label: "Ammeter Series" },
-];
+import { heroProductSlides } from "../data/heroProductSlides";
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
+  const total = heroProductSlides.length;
+  const current = heroProductSlides[index];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % meterSlides.length);
+      setIndex((prev) => (prev + 1) % total);
     }, 3500);
     return () => clearInterval(interval);
-  }, []);
+  }, [total]);
 
   const goTo = (i) => setIndex(i);
+  const prev = () => setIndex((i) => (i - 1 + total) % total);
+  const next = () => setIndex((i) => (i + 1) % total);
 
   return (
-    <section className="hero-slider" aria-label="Hero meter showcase">
-      <div className="hero-slider-bg" />
+    <section className="hero-slider" aria-label="Electrical products showcase">
+      <div
+        className="hero-slider-bg"
+        style={{ background: current.gradient }}
+        key={`bg-${index}`}
+      />
       <div className="hero-slider-grid" aria-hidden="true" />
+      <div className="hero-slider-glow" aria-hidden="true" />
+
+      {/* scrolling product ribbon */}
+      <div className="hero-product-ribbon" aria-hidden="true">
+        <div className="hero-product-ribbon-track">
+          {[...heroProductSlides, ...heroProductSlides].map((item, i) => (
+            <div key={`${item.src}-${i}`} className="hero-ribbon-item">
+              <img src={item.src} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="hero-meter-stage">
-        <p className="hero-meter-tag">Precision Meters</p>
+        <p className="hero-meter-tag">{current.category}</p>
 
         <div className="hero-meter-viewport">
           <div
             className="hero-meter-track"
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
-            {meterSlides.map((meter, i) => (
-              <div key={meter.src} className="hero-meter-slide">
-                <div className="hero-meter-card">
-                  <img src={meter.src} alt={meter.label} loading={i <= 1 ? "eager" : "lazy"} />
+            {heroProductSlides.map((product, i) => (
+              <div key={product.src + product.label} className="hero-meter-slide">
+                <div
+                  className="hero-meter-card"
+                  style={{
+                    background: `linear-gradient(160deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%)`,
+                  }}
+                >
+                  <img
+                    src={product.src}
+                    alt={product.label}
+                    loading={i <= 2 ? "eager" : "lazy"}
+                  />
                 </div>
-                <span className="hero-meter-label">{meter.label}</span>
+                <span className="hero-meter-label">{product.label}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="hero-meter-dots">
-          {meterSlides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              className={`hero-dot ${i === index ? "active" : ""}`}
-              onClick={() => goTo(i)}
-              aria-label={`Show ${meterSlides[i].label}`}
+        <div className="hero-meter-controls">
+          <button type="button" className="hero-nav-btn" onClick={prev} aria-label="Previous product">
+            <ChevronLeft size={20} />
+          </button>
+
+          <div className="hero-meter-progress">
+            <div
+              className="hero-meter-progress-fill"
+              style={{ width: `${((index + 1) / total) * 100}%` }}
             />
+          </div>
+
+          <span className="hero-meter-count">
+            {index + 1} / {total}
+          </span>
+
+          <button type="button" className="hero-nav-btn" onClick={next} aria-label="Next product">
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        <div className="hero-thumb-strip">
+          {heroProductSlides.map((product, i) => (
+            <button
+              key={product.label}
+              type="button"
+              className={`hero-thumb ${i === index ? "active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={product.label}
+              title={product.label}
+            >
+              <img src={product.src} alt="" loading="lazy" />
+            </button>
           ))}
         </div>
-      </div>
-
-      {/* ambient floating meters */}
-      <div className="hero-meter-float hero-meter-float-a">
-        <img src="/image/hz.png" alt="" aria-hidden="true" />
-      </div>
-      <div className="hero-meter-float hero-meter-float-b">
-        <img src="/image/kwh.png" alt="" aria-hidden="true" />
       </div>
     </section>
   );

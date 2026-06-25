@@ -8,46 +8,104 @@
 .hero-slider-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 75% 50%, rgba(37, 99, 235, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 50%),
-    linear-gradient(135deg, #040f1f 0%, #081423 40%, #0a1628 100%);
+  transition: background 1s ease;
 }
 
 .hero-slider-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0.8) 100%);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 35%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
 }
 
-/* Meter carousel — right side */
-.hero-meter-stage {
+.hero-slider-glow {
   position: absolute;
-  right: clamp(20px, 6vw, 80px);
+  width: 50%;
+  height: 70%;
+  right: 5%;
   top: 50%;
   transform: translateY(-50%);
-  width: min(420px, 42vw);
+  background: radial-gradient(ellipse, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: heroGlowPulse 6s ease-in-out infinite;
+}
+
+@keyframes heroGlowPulse {
+  0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.05); }
+}
+
+/* Background product ribbon */
+.hero-product-ribbon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.07;
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-product-ribbon-track {
+  display: flex;
+  gap: 32px;
+  width: max-content;
+  padding: 20px 0;
+  animation: ribbonSlide 60s linear infinite;
+}
+
+.hero-ribbon-item {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-ribbon-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(1.2);
+}
+
+@keyframes ribbonSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Main product stage */
+.hero-meter-stage {
+  position: absolute;
+  right: clamp(16px, 5vw, 72px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(440px, 44vw);
   z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .hero-meter-tag {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7dd3fc;
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(125, 211, 252, 0.25);
+  color: #bae6fd;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(186, 230, 253, 0.2);
   padding: 6px 16px;
   border-radius: 999px;
+  backdrop-filter: blur(8px);
 }
 
 .hero-meter-viewport {
@@ -66,142 +124,193 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 8px;
+  gap: 10px;
+  padding: 4px;
 }
 
 .hero-meter-card {
   width: 100%;
-  aspect-ratio: 1 / 0.85;
+  aspect-ratio: 1 / 0.82;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
-  padding: clamp(16px, 3vw, 28px);
+  padding: clamp(14px, 2.5vw, 24px);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 24px 56px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .hero-meter-card img {
   width: 100%;
-  max-height: clamp(160px, 22vw, 260px);
+  max-height: clamp(150px, 20vw, 240px);
   object-fit: contain;
-  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.4));
-  animation: meterFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.35));
+  animation: meterFloat 4.5s ease-in-out infinite;
 }
 
 @keyframes meterFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 .hero-meter-label {
-  font-size: clamp(13px, 1.5vw, 15px);
+  font-size: clamp(13px, 1.4vw, 16px);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
 }
 
-.hero-meter-dots {
+/* Controls */
+.hero-meter-controls {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.hero-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.hero-nav-btn:hover {
+  background: rgba(37, 99, 235, 0.5);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.hero-meter-progress {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.hero-meter-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.hero-meter-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Thumbnail strip */
+.hero-thumb-strip {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px 2px 2px;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.hero-thumb-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-thumb {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  padding: 4px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-.hero-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.45);
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero-dot.active {
-  background: #60a5fa;
-  border-color: #60a5fa;
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
-}
-
-/* Decorative floating meters */
-.hero-meter-float {
-  position: absolute;
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.hero-meter-float img {
-  width: clamp(60px, 8vw, 100px);
+.hero-thumb img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: blur(0.5px);
 }
 
-.hero-meter-float-a {
-  top: 18%;
-  right: 8%;
-  animation: floatDrift 8s ease-in-out infinite;
+.hero-thumb.active {
+  border-color: #60a5fa;
+  background: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.35);
 }
 
-.hero-meter-float-b {
-  bottom: 22%;
-  right: 42%;
-  animation: floatDrift 10s ease-in-out infinite reverse;
-}
-
-@keyframes floatDrift {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(3deg); }
+.hero-thumb:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 991px) {
   .hero-meter-stage {
     right: 50%;
     top: auto;
-    bottom: 32px;
+    bottom: 28px;
     transform: translateX(50%);
-    width: min(300px, 88vw);
+    width: min(340px, 92vw);
   }
 
-  .hero-meter-float {
-    display: none;
+  .hero-product-ribbon {
+    opacity: 0.05;
   }
 }
 
 @media (max-width: 768px) {
   .hero-meter-card img {
-    max-height: 180px;
+    max-height: 170px;
   }
 
-  .hero-meter-dots {
-    gap: 6px;
+  .hero-thumb {
+    width: 36px;
+    height: 36px;
   }
 
-  .hero-dot {
-    width: 7px;
-    height: 7px;
+  .hero-nav-btn {
+    width: 32px;
+    height: 32px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-meter-stage {
-    max-width: 280px;
+    width: min(300px, 94vw);
+    bottom: 20px;
   }
 
   .hero-meter-card {
-    aspect-ratio: 1 / 0.9;
+    aspect-ratio: 1 / 0.88;
     padding: 12px;
   }
 
   .hero-meter-card img {
-    max-height: 150px;
+    max-height: 140px;
+  }
+
+  .hero-thumb {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
   }
 }

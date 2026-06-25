@@ -83,7 +83,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding-bottom: 340px;
+    padding-bottom: 420px;
   }
 
   .hero-content {
@@ -95,7 +95,7 @@
   .hero {
     min-height: 88vh;
     padding-top: calc(var(--header-height, 88px) + 16px);
-    padding-bottom: 300px;
+    padding-bottom: 380px;
     text-align: left;
   }
 
@@ -114,7 +114,7 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding-bottom: 260px;
+    padding-bottom: 340px;
   }
 }
 
