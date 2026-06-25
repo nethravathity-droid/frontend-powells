@@ -101,6 +101,7 @@ const meters = [
 export default function Home() {
   const navigate = useNavigate();
   const meterViewportRef = useRef(null);
+  const atsRef = useRef(null);
   const [meterIndex, setMeterIndex] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [active, setActive] = useState(null);
@@ -149,6 +150,24 @@ export default function Home() {
       setShowcaseIndex((prev) => (prev + 1) % showcaseSlides.length);
     }, 4000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const el = atsRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("ats-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -298,21 +317,46 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ats-hero reveal">
+      <section className="ats-hero" ref={atsRef}>
         <div className="ats-content">
-          <h1>AUTOMATIC TRANSFER SWITCH / ATS</h1>
-          <h2>2 AND 4 POLE</h2>
+          <h1 className="ats-text ats-text-1">AUTOMATIC TRANSFER SWITCH / ATS</h1>
+          <h2 className="ats-text ats-text-2">2 AND 4 POLE</h2>
 
           <div className="ats-images">
-            <img src={img1} alt="ATS 160A" loading="lazy" />
-            <img src={img2} alt="ATS 250A" loading="lazy" />
-            <img src={img3} alt="2 Pole ATS" loading="lazy" />
-            <img src={img4} alt="4 Pole ATS" loading="lazy" />
+            <img
+              className="ats-img ats-from-left"
+              src={img1}
+              alt="ATS 160A"
+              loading="lazy"
+            />
+            <img
+              className="ats-img ats-from-bottom"
+              src={img2}
+              alt="ATS 250A"
+              loading="lazy"
+            />
+            <img
+              className="ats-img ats-from-right"
+              src={img3}
+              alt="2 Pole ATS"
+              loading="lazy"
+            />
+            <img
+              className="ats-img ats-from-top"
+              src={img4}
+              alt="4 Pole ATS"
+              loading="lazy"
+            />
           </div>
 
-          <p className="ats-subtitle">A Real-time Automatic Power Switching</p>
+          <p className="ats-subtitle ats-text ats-text-3">
+            A Real-time Automatic Power Switching
+          </p>
 
-          <button className="ats-btn" onClick={() => navigate("/pages/Ats")}>
+          <button
+            className="ats-btn ats-text ats-text-4"
+            onClick={() => navigate("/pages/Ats")}
+          >
             Click More →
           </button>
         </div>
