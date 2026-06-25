@@ -1,204 +1,196 @@
 import "./mcb.css";
 import { Link } from "react-router-dom";
 
-function MCBPage() {
+const MODELS = [
+  {
+    name: "1 Pole MCB",
+    desc: "Single-phase overload and short-circuit protection for branch circuits.",
+    img: "/image/1p_mcb.png",
+  },
+  {
+    name: "2 Pole MCB",
+    desc: "Double-pole protection for residential and commercial distribution.",
+    img: "/image/2pole_mcb.png",
+  },
+  {
+    name: "3 Pole MCB",
+    desc: "Three-phase protection for industrial and commercial panel boards.",
+    img: "/image/3pole_mcb.png",
+  },
+  {
+    name: "4 Pole MCB",
+    desc: "Full three-phase plus neutral protection for complete circuit safety.",
+    img: "/image/4pole_mcb.png",
+  },
+];
+
+const SPECS = [
+  ["Rated Current", "0.5A – 63A"],
+  ["Poles", "1P, 2P, 3P, 4P"],
+  ["Rated Voltage", "230V / 400V AC"],
+  ["Breaking Capacity", "10kA"],
+  ["Mounting", "DIN Rail"],
+  ["Operating Temperature", "-25°C to +55°C"],
+  ["Standards", "IEC compliant design"],
+  ["Application", "Overload & short-circuit protection"],
+];
+
+const APPLICATIONS = [
+  "Residential Buildings",
+  "Commercial Complexes",
+  "Industrial Automation",
+  "Solar Installations",
+  "OEM Panels",
+  "Power Distribution",
+];
+
+export default function MCBPage() {
   return (
     <div className="mcb-page">
-
-      {/* Hero */}
       <section className="mcb-hero">
         <div className="container">
           <div className="mcb-hero-content">
-            <span className="category">
-              Miniature Circuit Breakers
-            </span>
-
-            <h1>System Pro M Compact MCB</h1>
-
+            <span className="product-tag">Miniature Circuit Breaker</span>
+            <h1>Powells System Pro MCB</h1>
             <p>
-              Reliable protection for residential,
-              commercial and industrial electrical systems.
-              Designed for overload and short-circuit protection.
+              Reliable protection for residential, commercial and industrial
+              electrical systems. Designed for overload and short-circuit
+              protection with compact DIN rail mounting.
             </p>
-
             <div className="hero-buttons">
-              <button type="button" className="primary-btn">Download Datasheet</button>
-              <Link to="/pages/Contact" className="secondary-btn outline">Get Quotation</Link>
+              <button type="button" className="primary-btn">
+                Download Catalogue
+              </button>
+              <Link to="/pages/Contact" className="secondary-btn">
+                Get Quotation
+              </Link>
             </div>
           </div>
-
           <div className="mcb-hero-image">
-            <img
-              src="/images/mcb-main.png"
-              alt="MCB"
-            />
+            <img src="/image/4pole_mcb.png" alt="Powells MCB" />
           </div>
         </div>
       </section>
 
-      {/* Product Gallery */}
-      <section className="gallery">
-        <div className="container">
-          <img src="/images/mcb1.png" alt="" />
-          <img src="/images/mcb2.png" alt="" />
-          <img src="/images/mcb3.png" alt="" />
-          <img src="/images/mcb4.png" alt="" />
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="features">
+      <section className="mcb-features">
         <div className="container">
           <h2>Key Features</h2>
-
           <div className="feature-grid">
-
             <div className="feature-card">
               <h3>10kA Breaking Capacity</h3>
               <p>
-                High performance protection against
-                overloads and short circuits.
+                High performance protection against overloads and short
+                circuits.
               </p>
             </div>
-
             <div className="feature-card">
               <h3>Compact Design</h3>
               <p>
-                Saves panel space while ensuring
-                superior reliability.
+                Saves panel space while ensuring superior reliability in DB
+                boxes.
               </p>
             </div>
-
             <div className="feature-card">
               <h3>DIN Rail Mounting</h3>
               <p>
-                Easy installation and maintenance.
+                Easy installation and maintenance in standard distribution
+                boards.
               </p>
             </div>
-
             <div className="feature-card">
               <h3>Global Standards</h3>
               <p>
-                IEC compliant for industrial and
-                commercial applications.
+                IEC compliant for industrial and commercial applications
+                nationwide.
               </p>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Specifications */}
-      <section className="specifications">
+      <section className="mcb-models">
+        <div className="container">
+          <h2>Available Configurations</h2>
+          <div className="mcb-model-grid">
+            {MODELS.map((model) => (
+              <div key={model.name} className="mcb-model-card">
+                <img src={model.img} alt={model.name} />
+                <h3>{model.name}</h3>
+                <p>{model.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mcb-specs">
         <div className="container">
           <h2>Technical Specifications</h2>
-
           <table>
             <tbody>
-              <tr>
-                <td>Rated Current</td>
-                <td>0.5A – 63A</td>
-              </tr>
-
-              <tr>
-                <td>Poles</td>
-                <td>1P, 2P, 3P, 4P</td>
-              </tr>
-
-              <tr>
-                <td>Voltage</td>
-                <td>230V / 400V</td>
-              </tr>
-
-              <tr>
-                <td>Breaking Capacity</td>
-                <td>10kA</td>
-              </tr>
-
-              <tr>
-                <td>Mounting</td>
-                <td>DIN Rail</td>
-              </tr>
-
-              <tr>
-                <td>Operating Temp</td>
-                <td>-25°C to +55°C</td>
-              </tr>
+              {SPECS.map(([label, value]) => (
+                <tr key={label}>
+                  <td>{label}</td>
+                  <td>{value}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </section>
 
-      {/* Applications */}
-      <section className="applications">
+      <section className="mcb-applications">
         <div className="container">
           <h2>Applications</h2>
-
-          <div className="app-grid">
-            <div>Residential Buildings</div>
-            <div>Commercial Complexes</div>
-            <div>Industrial Automation</div>
-            <div>Solar Installations</div>
-            <div>OEM Panels</div>
-            <div>Power Distribution</div>
+          <div className="application-grid">
+            {APPLICATIONS.map((item) => (
+              <div key={item}>{item}</div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Downloads */}
-      <section className="downloads">
+      <section className="mcb-benefits">
         <div className="container">
-          <h2>Downloads</h2>
-
-          <div className="download-grid">
-            <a href="#">Datasheet PDF</a>
-            <a href="#">Technical Brochure</a>
-            <a href="#">Installation Manual</a>
+          <h2>Why Choose Powells MCB?</h2>
+          <div className="benefit-grid">
+            <div className="benefit-card">
+              <h3>Proven Performance</h3>
+              <p>
+                Trusted circuit protection for panel builders and electrical
+                contractors.
+              </p>
+            </div>
+            <div className="benefit-card">
+              <h3>Complete Range</h3>
+              <p>
+                1P to 4P configurations to cover every distribution board
+                requirement.
+              </p>
+            </div>
+            <div className="benefit-card">
+              <h3>Technical Support</h3>
+              <p>
+                Expert guidance on rating selection, coordination and panel
+                design.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Related Products */}
-      <section className="related">
-        <div className="container">
-          <h2>Related Products</h2>
-
-          <div className="related-grid">
-
-            <div className="product-card">
-              <img src="/images/rccb.png" alt="" />
-              <h3>RCCB</h3>
-            </div>
-
-            <div className="product-card">
-              <img src="/images/rcbo.png" alt="" />
-              <h3>RCBO</h3>
-            </div>
-
-            <div className="product-card">
-              <img src="/images/isolator.png" alt="" />
-              <h3>Isolator</h3>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta">
+      <section className="mcb-cta">
         <div className="container">
           <h2>Need Technical Assistance?</h2>
           <p>
-            Contact our experts for product selection,
-            installation guidance and support.
+            Contact our experts for product selection, installation guidance
+            and support for your MCB requirements.
           </p>
-
-          <button>Contact Us</button>
+          <Link to="/pages/Contact" className="primary-btn">
+            Get Quotation
+          </Link>
         </div>
       </section>
-
     </div>
   );
 }
-
-export default MCBPage;

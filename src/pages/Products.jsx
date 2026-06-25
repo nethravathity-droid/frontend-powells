@@ -22,7 +22,7 @@ const products = [
     { name: "MCB", img: "/image/4pole_mcb.png", path: "/pages/Mcb" },
   { name: "RCCB", img: "/image/rccb_4pole.png", path: "/pages/Rccb" },
   { name: "Isolators", img: "/image/isolators.png", path: "/pages/Isolator" },
-  { name: "Db box", img: "/image/digital_timers.png", path: "/products" },
+  { name: "DB Box", img: "/image/digital_timers.png", path: "/pages/DbBox" },
 ];
 
 export default function Products() {

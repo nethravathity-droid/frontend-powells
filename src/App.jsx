@@ -32,6 +32,7 @@ import HomeExhibition from "./pages/HomeExhibition";
 import Mcb from "./pages/Mcb";
 import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
+import DbBox from "./pages/DbBox";
 import ChannelPartner from "./pages/ChannelPartner";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
 import ProductPageAnimations from "./components/ProductPageAnimations";
@@ -74,6 +75,8 @@ export default function App() {
                          <Route path="/pages/Mcb" element={<Mcb />} />
                          <Route path="/pages/Rccb" element={<Rccb />} />
                          <Route path="/pages/Isolator" element={<Isolator />} />
+                         <Route path="/pages/DbBox" element={<DbBox />} />
+                         <Route path="/pages/dbbox" element={<Navigate to="/pages/DbBox" replace />} />
                          <Route path="/pages/isolators" element={<Navigate to="/pages/Isolator" replace />} />
                          <Route path="/products/mcb" element={<Navigate to="/pages/Mcb" replace />} />
                            <Route path="/auth" element={<Auth />} />

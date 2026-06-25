@@ -143,7 +143,7 @@ export default function Header() {
               <span onClick={() => handleNavigate("/pages/Mcb")}>MCCB</span>
               <span onClick={() => handleNavigate("/pages/Rccb")}>RCCB</span>
               <span onClick={() => handleNavigate("/pages/Isolator")}>Isolators</span>
-              <span onClick={() => handleNavigate("/products")}>DB Box</span>
+              <span onClick={() => handleNavigate("/pages/DbBox")}>DB Box</span>
             </div>
           </div>
         )}

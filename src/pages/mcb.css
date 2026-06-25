@@ -1,93 +1,292 @@
 .mcb-page {
   padding-top: var(--header-height, 88px);
+  font-family: var(--font-sans, "Poppins", sans-serif);
+}
+
+.mcb-page .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
 }
 
 .mcb-hero {
-  padding: clamp(48px, 6vw, 80px) var(--section-px, 8%);
+  padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 8%);
   background: linear-gradient(160deg, #081423 0%, #0f2850 55%, #0c4a6e 100%);
   color: #f8fafc;
 }
 
-.mcb-hero .category {
-  display: inline-block;
-  background: linear-gradient(135deg, #0284c7, #2563eb);
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+.mcb-hero .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
-.mcb-hero .container {
-  max-width: var(--container-max, 1280px);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+.mcb-hero-content {
+  flex: 1;
 }
 
 .mcb-hero-content h1 {
   font-size: clamp(32px, 4vw, 48px);
-  color: #f8fafc;
-  margin-bottom: 16px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  color: #f8fafc;
 }
 
 .mcb-hero-content p {
-  color: #94a3b8;
-  line-height: 1.75;
-  margin-bottom: 24px;
   font-size: clamp(15px, 1.7vw, 17px);
+  line-height: 1.75;
+  color: #94a3b8;
+  margin-bottom: 28px;
+  max-width: 560px;
 }
 
-.mcb-hero .hero-buttons {
+.mcb-hero-image {
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+  justify-content: center;
 }
 
 .mcb-hero-image img {
   width: 100%;
-  max-height: 420px;
+  max-width: 420px;
   object-fit: contain;
   filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.25));
 }
 
-.gallery,
-.features,
-.mcb-page section {
-  padding: clamp(48px, 6vw, 80px) var(--section-px, 8%);
+.mcb-features,
+.mcb-models,
+.mcb-specs,
+.mcb-applications,
+.mcb-benefits {
+  padding: clamp(56px, 7vw, 90px) clamp(20px, 5vw, 8%);
 }
 
-.features h2,
-.gallery + section h2 {
-  font-size: clamp(24px, 3.5vw, 32px);
+.mcb-features {
+  background: #f8fafc;
+}
+
+.mcb-models {
+  background: #ffffff;
+}
+
+.mcb-specs {
+  background: #f1f5f9;
+}
+
+.mcb-applications {
+  background: #ffffff;
+}
+
+.mcb-benefits {
+  background: #f8fafc;
+}
+
+.mcb-features h2,
+.mcb-models h2,
+.mcb-specs h2,
+.mcb-applications h2,
+.mcb-benefits h2 {
+  text-align: center;
+  font-size: clamp(24px, 3.5vw, 36px);
   font-weight: 700;
   color: #0f2850;
-  text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.02em;
 }
 
-.feature-grid {
+.mcb-page .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+.mcb-page .feature-card {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.mcb-page .feature-card h3 {
+  color: #0f2850;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.mcb-page .feature-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+.mcb-model-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.mcb-model-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcb-model-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(37, 99, 235, 0.12);
+}
+
+.mcb-model-card img {
+  height: 140px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.mcb-model-card h3 {
+  font-size: 17px;
+  color: #0f2850;
+  margin-bottom: 8px;
+}
+
+.mcb-model-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.mcb-specs table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.mcb-specs td {
+  padding: 16px 20px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.mcb-specs td:first-child {
+  font-weight: 600;
+  color: #0f2850;
+  width: 38%;
+  background: #f8fafc;
+}
+
+.mcb-specs tr:nth-child(even) td:last-child {
+  background: #fafbfc;
+}
+
+.mcb-page .application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mcb-page .application-grid div {
+  background: #fff;
+  padding: 22px 20px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #334155;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.mcb-page .benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mcb-page .benefit-card {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.mcb-page .benefit-card h3 {
+  color: #0f2850;
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.mcb-page .benefit-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+.mcb-cta {
+  background: linear-gradient(160deg, #081423 0%, #0f2850 100%);
+  color: #f8fafc;
+  padding: clamp(56px, 7vw, 80px) clamp(20px, 5vw, 8%);
+  text-align: center;
+}
+
+.mcb-cta h2 {
+  font-size: clamp(24px, 3.5vw, 34px);
+  margin-bottom: 16px;
+}
+
+.mcb-cta p {
+  max-width: 560px;
+  margin: 0 auto 28px;
+  line-height: 1.75;
+  color: #94a3b8;
+}
+
+.mcb-cta .primary-btn {
+  display: inline-flex;
+}
+
+@media (max-width: 991px) {
   .mcb-hero .container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
+  }
+
+  .mcb-hero-content p {
+    max-width: 100%;
   }
 
   .mcb-hero .hero-buttons {
     justify-content: center;
+  }
+
+  .mcb-page .feature-grid,
+  .mcb-model-grid,
+  .mcb-page .application-grid,
+  .mcb-page .benefit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .mcb-page .feature-grid,
+  .mcb-model-grid,
+  .mcb-page .application-grid,
+  .mcb-page .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mcb-specs td:first-child {
+    width: 42%;
   }
 }

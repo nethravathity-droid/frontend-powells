@@ -37,6 +37,12 @@ export default function ProductPageAnimations() {
       ".rccb-image",
       ".mcb-hero-content",
       ".mcb-hero-image",
+      ".mcb-model-card",
+      ".isolator-model-card",
+      ".rccb-model-card",
+      ".dbbox-content",
+      ".dbbox-image",
+      ".dbbox-model-card",
       ".spd-cta",
     ].join(",");
 
