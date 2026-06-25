@@ -18,16 +18,57 @@ const WELCOME = {
 export default function Chatbot() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [messages, setMessages] = useState([WELCOME]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const bodyRef = useRef(null);
+
+  const playNotificationSound = () => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      osc.frequency.setValueAtTime(660, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.35);
+    } catch {
+      /* autoplay may be blocked */
+    }
+  };
+
+  useEffect(() => {
+    const dismissed = sessionStorage.getItem("powells-chat-popup-dismissed");
+    if (dismissed) return;
+
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+      playNotificationSound();
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (bodyRef.current) {
       bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
     }
   }, [messages, typing, open]);
+
+  const dismissPopup = () => {
+    setShowPopup(false);
+    sessionStorage.setItem("powells-chat-popup-dismissed", "1");
+  };
+
+  const openChat = () => {
+    dismissPopup();
+    setOpen(true);
+  };
 
   const addBotReply = (response) => {
     setTyping(true);
@@ -66,10 +107,32 @@ export default function Chatbot() {
 
   return (
     <>
+      {showPopup && !open && (
+        <div className="chatbot-popup" role="alert">
+          <button
+            type="button"
+            className="chatbot-popup-close"
+            onClick={dismissPopup}
+            aria-label="Dismiss"
+          >
+            <X size={14} />
+          </button>
+          <button type="button" className="chatbot-popup-body" onClick={openChat}>
+            <div className="chatbot-popup-avatar">
+              <Bot size={22} />
+            </div>
+            <div className="chatbot-popup-text">
+              <strong>Hi there! 👋</strong>
+              <p>How can I help you today? Ask about products, ATS, or get a quotation.</p>
+            </div>
+          </button>
+        </div>
+      )}
+
       <button
         type="button"
         className={`chatbot-fab ${open ? "open" : ""}`}
-        onClick={() => setOpen(!open)}
+        onClick={() => (open ? setOpen(false) : openChat())}
         aria-label={open ? "Close assistant" : "Open Powells assistant"}
       >
         {open ? <X size={24} /> : <MessageCircle size={26} />}
