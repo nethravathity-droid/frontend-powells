@@ -1,66 +1,110 @@
 import "./WhyChoosePowells.css";
 import { useEffect, useRef, useState } from "react";
+import {
+  Target,
+  Lightbulb,
+  Settings2,
+  ShieldCheck,
+  BadgeIndianRupee,
+  Headphones,
+  Leaf,
+  Award,
+} from "lucide-react";
+
+const FEATURES = [
+  {
+    icon: Target,
+    title: "High Precision & Accuracy",
+    text: "Our digital meters deliver reliable real-time data for critical applications.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Innovative Technology",
+    text: "We integrate cutting-edge technologies for future-ready solutions.",
+  },
+  {
+    icon: Settings2,
+    title: "Customizable Solutions",
+    text: "Tailored systems designed to meet specific industry requirements.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Durability & Reliability",
+    text: "Engineered with rigorous testing standards for long-term performance.",
+  },
+  {
+    icon: BadgeIndianRupee,
+    title: "Cost-Effective Solutions",
+    text: "Value-driven products maximizing ROI without compromising quality.",
+  },
+  {
+    icon: Headphones,
+    title: "Expert Customer Support",
+    text: "Dedicated assistance for installation and maintenance.",
+  },
+  {
+    icon: Leaf,
+    title: "Sustainability Commitment",
+    text: "Helping businesses monitor energy and support eco-friendly practices.",
+  },
+  {
+    icon: Award,
+    title: "Proven Track Record",
+    text: "Trusted brand backed by experience and a growing client base.",
+  },
+];
 
 export default function WhyChoosePowells() {
-
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="why-section" ref={sectionRef}>
-      
-      {/* Overlay */}
-      <div className="why-overlay"></div>
-
+    <section
+      className={`why-section${visible ? " why-visible" : ""}`}
+      ref={sectionRef}
+    >
       <div className="why-container">
-        
-        {/* Title */}
-        <div className={`why-title-card ${visible ? "show" : ""}`}>
+        <header className="why-header">
+          <span className="why-eyebrow">Why Powells</span>
           <h2>Why Do You Choose Us?</h2>
-          <p>Powells India Corporation</p>
-        </div>
+          <p className="why-subtitle">Powells India Corporation</p>
+        </header>
 
-        {/* Grid */}
         <div className="why-grid">
-          
-          {[
-            { icon: "🎯", title: "High Precision & Accuracy", text: "Our digital meters deliver reliable real-time data for critical applications." },
-            { icon: "💡", title: "Innovative Technology", text: "We integrate cutting-edge technologies for future-ready solutions." },
-            { icon: "🛠️", title: "Customizable Solutions", text: "Tailored systems designed to meet specific industry requirements." },
-            { icon: "🧱", title: "Durability & Reliability", text: "Engineered with rigorous testing standards for long-term performance." },
-            { icon: "💰", title: "Cost-Effective Solutions", text: "Value-driven products maximizing ROI without compromising quality." },
-            { icon: "🤝", title: "Expert Customer Support", text: "Dedicated assistance for installation and maintenance." },
-            { icon: "🌱", title: "Sustainability Commitment", text: "Helping businesses monitor energy and support eco-friendly practices." },
-            { icon: "🏆", title: "Proven Track Record", text: "Trusted brand backed by experience and growing client base." }
-          ].map((item, index) => (
-            <div
-              key={index}
-              className={`why-card ${visible ? "show" : ""}`}
-              style={{ transitionDelay: `${index * 0.15}s` }}
-            >
-              <span className="icon">{item.icon}</span>
-              <h4>{item.title}</h4>
-              <p>{item.text}</p>
-            </div>
-          ))}
-
+          {FEATURES.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <article
+                key={item.title}
+                className="why-card"
+                style={{ animationDelay: `${0.08 + index * 0.07}s` }}
+              >
+                <div className="why-card-icon">
+                  <Icon size={22} strokeWidth={2} aria-hidden="true" />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomeShowcase.css";
 import WhyChoosePowells from "../components/WhyChoosePowells";
+import CustomerFeedback from "../components/CustomerFeedback";
 import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
 import "./McbShowcase.css";
@@ -738,6 +739,8 @@ export default function Home() {
       </section>
 
       <WhyChoosePowells />
+
+      <CustomerFeedback />
     </>
   );
 }
