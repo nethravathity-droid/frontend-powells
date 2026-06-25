@@ -5,6 +5,22 @@
   z-index: 1;
 }
 
+/* Dark overlay on left so heading stays readable */
+.hero-slider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(4, 12, 28, 0.92) 0%,
+    rgba(4, 12, 28, 0.78) 32%,
+    rgba(4, 12, 28, 0.35) 52%,
+    transparent 68%
+  );
+}
+
 .hero-slider-bg {
   position: absolute;
   inset: 0;
@@ -81,13 +97,14 @@
   to { transform: translateX(-50%); }
 }
 
-/* Main product stage */
+/* Main product stage — right side only, never covers heading */
 .hero-meter-stage {
   position: absolute;
   right: clamp(16px, 5vw, 72px);
   top: 50%;
   transform: translateY(-50%);
-  width: min(440px, 44vw);
+  width: min(400px, 40vw);
+  max-width: calc(50vw - 24px);
   z-index: 4;
   display: flex;
   flex-direction: column;
