@@ -1,0 +1,40 @@
+:root {
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-accent: #0ea5e9;
+  --color-accent-warm: #f97316;
+
+  --color-navy: #081423;
+  --color-navy-mid: #0f172a;
+  --color-slate: #64748b;
+  --color-text: #1e293b;
+  --color-muted: #94a3b8;
+  --color-white: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-alt: #eef2ff;
+
+  --gradient-brand: linear-gradient(135deg, #081423 0%, #072c8f 50%, #2563eb 100%);
+  --gradient-cta: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --gradient-warm: linear-gradient(135deg, #f97316, #ea580c);
+
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.15);
+  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 999px;
+
+  --header-height: 88px;
+  --section-py: clamp(60px, 8vw, 100px);
+  --section-px: clamp(20px, 6vw, 8%);
+  --container-max: 1280px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.35s var(--ease-out);
+}

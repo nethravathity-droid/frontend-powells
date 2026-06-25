@@ -1,50 +1,24 @@
 import { useEffect, useState } from "react";
 import "./HeroSlider.css";
 
-/*const slides = [
-  {
-    image: "/slides/ats.jpg",
-    title: "Automatic Transfer Switches",
-    subtitle: "Reliable power switching for critical operations"
-  },
-  {
-    image: "/slides/energy-meter.jpg",
-    title: "Energy Monitoring Solutions",
-    subtitle: "Accurate power analysis & real-time monitoring"
-  },
-  {
-    image: "/slides/electrical-panel.jpg",
-    title: "Electrical Manufacturing",
-    subtitle: "Engineered panels for industrial excellence"
-  }
-];*/
 const slides = [
   {
-    image:
-      "/image/lab6.png",
-    //title: "Automatic Transfer Switches",
-    subtitle: "Reliable power switching for critical operations"
+    image: "/image/lab6.png",
+    subtitle: "Reliable power switching for critical operations",
   },
   {
-    image:
-       "/image/lab3.png",
-    //title: "Energy Monitoring Systems",
-    subtitle: "Accurate electrical measurement and analytics"
+    image: "/image/lab3.png",
+    subtitle: "Accurate electrical measurement and analytics",
   },
   {
-    image:
-       "/image/lab5.png",
-    //title: "Electrical Manufacturing",
-    subtitle: "Engineered panels and industrial solutions"
+    image: "/image/lab5.png",
+    subtitle: "Engineered panels and industrial solutions",
   },
-    {
-    image:
-       "/image/lab7.png",
-    //title: "Electrical Manufacturing",
-    subtitle: "Engineered panels and industrial solutions"
-  }
+  {
+    image: "/image/lab7.png",
+    subtitle: "Smart automation for modern infrastructure",
+  },
 ];
-
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
@@ -52,41 +26,34 @@ export default function HeroSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 4500);
-
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="hero-slider">
+    <section className="hero-slider" aria-label="Hero slideshow">
       {slides.map((slide, i) => (
         <div
           key={i}
           className={`slide ${i === index ? "active" : ""}`}
           style={{ backgroundImage: `url(${slide.image})` }}
+          aria-hidden={i !== index}
         >
-          <div className="overlay"></div>
-          <div className="slide-content">
-            <h1>{slide.title}</h1>
-            <p>{slide.subtitle}</p>
-          </div>
+          <div className="overlay" />
         </div>
       ))}
+
+      <div className="hero-dots">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            className={`hero-dot ${i === index ? "active" : ""}`}
+            onClick={() => setIndex(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }
-
-<section className="hero">
-  <div className="hero-content">
-    <h1>Reliable Electrical Automation Solutions</h1>
-    <p>
-      Delivering advanced ATS panels, surge protection devices and
-      industrial power solutions for modern infrastructure.
-    </p>
-
-    <div className="hero-buttons">
-      <button className="primary-btn">Download Catalogue</button>
-      <button className="secondary-btn">Get a Quote</button>
-    </div>
-  </div>
-</section>

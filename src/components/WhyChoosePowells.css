@@ -1,7 +1,7 @@
 .why-section {
   position: relative;
-  padding: 120px 20px;
-  background-image: url("/images/control-panel-bg.jpg"); /* replace with your image */
+  padding: var(--section-py, clamp(60px, 10vw, 120px)) var(--section-px, clamp(20px, 5vw, 40px));
+  background-image: url("/images/control-panel-bg.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;

@@ -13,7 +13,6 @@ import {
   Store
 } from "lucide-react";
 import "./MeterShowcase.css";
-import ScrollSection from "./ScrollSection";
 import Event from "./Event";
 
 import img1 from "/image/ats160a.png";
@@ -64,11 +63,12 @@ const categories1 = [
 
 export default function Home() {
   const navigate = useNavigate();
-  const [index, setIndex] = useState(0);
+  const [meterIndex, setMeterIndex] = useState(0);
+  const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [active, setActive] = useState(null);
   const [activeTab, setActiveTab] = useState("mission");
-const atsRef = useRef(null);
-const [atsVisible, setAtsVisible] = useState(false);
+  const atsRef = useRef(null);
+  const [atsVisible, setAtsVisible] = useState(false);
   const meters = [
     "/image/am9601.png",
     "/image/avm9600.png",
@@ -85,16 +85,43 @@ const [atsVisible, setAtsVisible] = useState(false);
     "/image/lab2.png",
     "/image/lab4.png",
   ];
+  const [viewport, setViewport] = useState(
+    () => (typeof window !== "undefined" ? window.innerWidth : 1200)
+  );
   const visibleCount = 4;
-  const cardWidth = 120; // card + padding
-  const gap = 40;
+  const gap = viewport <= 480 ? 14 : viewport <= 768 ? 14 : 36;
+  const cardWidth = viewport <= 480 ? 110 : viewport <= 768 ? 130 : 160;
   const step = cardWidth + gap;
-  const maxIndex = meters.length - visibleCount;
-    useEffect(() => {
+  const maxIndex = Math.max(0, meters.length - (viewport <= 768 ? 2 : visibleCount));
+
+  useEffect(() => {
+    const onResize = () => {
+      setViewport(window.innerWidth);
+      setMeterIndex(0);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
+      setShowcaseIndex((prev) => (prev + 1) % images.length);
     }, 3500);
     return () => clearInterval(timer);
+  }, [images.length]);
+
+  useEffect(() => {
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.12 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -166,30 +193,29 @@ const StarRating = ({ rating }) => {
           </p>
 
           <div className="hero-buttons">
-            <button className="btn-primary" onClick={() => navigate("/pages/Contact")}>Get in Touch</button>
-            <button className="btn-secondary" onClick={() => navigate("/products")}>Explore Products</button>
+            <button className="btn-primary btn-pro btn-pro-primary" onClick={() => navigate("/pages/Contact")}>Get in Touch</button>
+            <button className="btn-secondary btn-pro btn-pro-outline" onClick={() => navigate("/products")}>Explore Products</button>
           </div>
         </div>
       </section>
 
 
-    <section className="meter-section">
+    <section className="meter-section reveal">
       <div className="meter-slider">
 
-        {/* LEFT ARROW */}
         <button
           className="arrow-btn left"
-          onClick={() => setIndex((prev) => Math.max(prev - 1, 0))}
-          disabled={index === 0}
+          onClick={() => setMeterIndex((prev) => Math.max(prev - 1, 0))}
+          disabled={meterIndex === 0}
+          aria-label="Previous meters"
         >
           ‹
         </button>
 
-        {/* VIEWPORT */}
         <div className="meter-viewport">
           <div
             className="meter-track"
-            style={{ transform: `translateX(-${index * step}px)` }}
+            style={{ transform: `translateX(-${meterIndex * step}px)` }}
           >
             {meters.map((src, i) => (
               <div
@@ -197,34 +223,25 @@ const StarRating = ({ rating }) => {
                 className={`meter-card ${active === i ? "active" : ""}`}
                 onClick={() => setActive(i)}
               >
-                <img src={src} alt="Meter" className="meter-image" />
+                <img src={src} alt="Meter product" className="meter-image" loading="lazy" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* RIGHT ARROW */}
- <button
-  className="arrow-btn left"
-  onClick={() => setIndex((prev) => Math.max(prev - 1, 0))}
-  disabled={index === 0}
->
-  ‹
-</button>
-
-<button
-  className="arrow-btn right"
-  onClick={() => setIndex((prev) => Math.min(prev + 1, maxIndex))}
-  disabled={index === maxIndex}
->
-  ›
-</button>
-
+        <button
+          className="arrow-btn right"
+          onClick={() => setMeterIndex((prev) => Math.min(prev + 1, maxIndex))}
+          disabled={meterIndex === maxIndex}
+          aria-label="Next meters"
+        >
+          ›
+        </button>
 
       </div>
     </section>
   
-<section className="ats-hero">
+<section className="ats-hero reveal" ref={atsRef}>
 
   <div className="ats-content">
 
@@ -253,7 +270,7 @@ const StarRating = ({ rating }) => {
   </div>
 
 </section>
-<section className="mcb-showcase">
+<section className="mcb-showcase reveal">
 
   <div className="mcb-content">
 
@@ -298,7 +315,7 @@ const StarRating = ({ rating }) => {
 </section>
 <Event />
 
-  <section className="category-section" >
+  <section className="category-section reveal">
       <div className="category-container">
         {categories1.map((item, index) => (
           <div key={index} className="category-card">
@@ -318,11 +335,10 @@ const StarRating = ({ rating }) => {
     </section>
 
   
- <section className="home-showcase">
-      {/* LEFT – GLASS SLIDER */}
+ <section className="home-showcase reveal">
       <div className="showcase-left">
         <div className="glass-slider">
-          <img src={images[index]} alt="Product" />
+          <img src={images[showcaseIndex]} alt="Powells product showcase" loading="lazy" />
         </div>
       </div>
 
@@ -343,10 +359,10 @@ const StarRating = ({ rating }) => {
         </ul>
 
         <button
-          className="more-btn"
+          className="more-btn btn-pro btn-pro-primary"
           onClick={() => navigate("/pages/About")}
         >
-          Click More →
+          Learn More →
         </button>
       </div>
     </section>
@@ -354,7 +370,7 @@ const StarRating = ({ rating }) => {
     <HomeStats />
 
     
-<section className="about-section">
+<section className="about-section reveal">
 
       <div className="about-container">
 
@@ -435,7 +451,7 @@ const StarRating = ({ rating }) => {
 
     </section>
  
-<section className="about-progress">
+<section className="about-progress reveal">
 
   <div className="progress-container">
 
