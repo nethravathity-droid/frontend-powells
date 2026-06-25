@@ -247,86 +247,7 @@
 
 /* (legacy hero-image rules removed — see top of file) */
 
-.category-section {
-  padding: 60px 40px;
-  background: #f2f2f2;
-}
-
-.category-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.category-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.category-card:hover {
-  transform: translateY(-8px);
-}
-
-/* Top Black Area */
-.card-top {
-  background: rgb(5, 36, 60);
-  padding: 40px 20px 0;
-  position: relative;
-  text-align: center;
-}
-
-.card-top img {
-  width: 70%;
-  height: 150px;
-  object-fit: contain;
-}
-
-/* Orange Strip */
-.orange-strip {
-  height: 30px;
-  background: #057993;
-  margin-top: 30px;
-}
-
-/* Content */
-.card-content {
-  padding: 30px;
-}
-
-.card-content h2 {
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #1a1a2e;
-}
-
-.card-content p {
-  font-size: 16px;
-  color: #150c56;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* Button */
-.view-btn {
-  padding: 12px 28px;
-  background: #0d678b;
-  border: none;
-  border-radius: 30px;
-  font-size: 16px;
-    color: #e3e3e7;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.view-btn:hover {
-  background: #dfdddb;
-  color: rgb(28, 3, 3);
-}
-
-
+/* category section — see CategorySection.css */
 
 .about-progress{
   padding:120px 8%;
@@ -528,27 +449,7 @@ margin:10px auto;
 }
 
 
-/* MOBILE FIX FOR PRODUCT CARDS */
-@media (max-width:768px){
-
-.category-container{
-  grid-template-columns: 1fr;   /* one card per row */
-  gap:20px;
-}
-
-.category-card{
-  width:100%;
-}
-
-.card-content h2{
-  font-size:24px;
-}
-
-.card-content p{
-  font-size:15px;
-}
-
-}
+/* MOBILE FIX FOR PRODUCT CARDS — see CategorySection.css */
 
 /* ATS, showcase & meter sliders — see HomeSliders.css, HomeShowcase.css, MeterShowcase.css */
 

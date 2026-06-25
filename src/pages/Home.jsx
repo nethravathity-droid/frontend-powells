@@ -9,6 +9,7 @@ import WhyChoosePowells from "../components/WhyChoosePowells";
 import HomeStats from "../components/HomeStats";
 import "./MeterShowcase.css";
 import "./McbShowcase.css";
+import "./CategorySection.css";
 import Event from "./Event";
 
 import img1 from "/image/ats160a.png";
@@ -104,6 +105,7 @@ export default function Home() {
   const meterViewportRef = useRef(null);
   const atsRef = useRef(null);
   const mcbRef = useRef(null);
+  const categoryRef = useRef(null);
   const [meterIndex, setMeterIndex] = useState(0);
   const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [active, setActive] = useState(null);
@@ -184,6 +186,24 @@ export default function Home() {
         }
       },
       { threshold: 0.2 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = categoryRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("category-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
     );
 
     observer.observe(el);
@@ -453,13 +473,40 @@ export default function Home() {
 
       <Event />
 
-      <section className="category-section reveal">
+      <section className="category-section" ref={categoryRef}>
+        <div className="spd-surge-track" aria-hidden="true">
+          <span className="spd-surge-bolt">⚡</span>
+          <span className="spd-surge-line" />
+        </div>
+
+        <div className="category-section-head">
+          <span className="category-eyebrow spd-anim spd-anim-eyebrow">
+            Powells Protection Series
+          </span>
+          <h2 className="spd-anim spd-anim-title">Surge Protection Device</h2>
+          <p className="spd-anim spd-anim-desc">
+            Reliable SPD solutions for 2, 3 and 4 pole applications — protecting
+            equipment from voltage surges and electrical disturbances.
+          </p>
+          <p className="spd-unique-tag spd-anim spd-anim-tag">
+            Powells Exclusive · Built for harsh Indian grid conditions
+          </p>
+        </div>
+
         <div className="category-container">
           {categories1.map((item, index) => (
-            <div key={index} className="category-card">
+            <div
+              key={index}
+              className={`category-card spd-card spd-card-${index + 1}`}
+            >
+              <span className="spd-card-badge">{index + 2} Pole</span>
+              <span className="spd-card-shine" aria-hidden="true" />
+
               <div className="card-top">
-                <img src={item.image} alt={item.title} />
-                <div className="orange-strip"></div>
+                <div className="card-image-wrap">
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </div>
+                <div className="orange-strip" />
               </div>
 
               <div className="card-content">

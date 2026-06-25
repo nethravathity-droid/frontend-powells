@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./event.css";
 
 const NEWS_ITEMS = [
-  "Next-gen Smart Energy Monitoring Systems for industrial use.",
+  "Smart Energy Monitoring Systems for industrial applications.",
   "New ATS & Changeover Switch Series with advanced protection.",
-  "Expanded manufacturing with innovative automation technologies.",
+  "Expanded manufacturing with innovative automation.",
 ];
 
 const EVENT_SLIDES = [
@@ -124,18 +124,6 @@ export default function Event() {
           Driving The Future Of Smart Electrical Engineering
         </h2>
 
-        <p className="updates-anim updates-anim-3">
-          Powells India Corporation continuously invests in advanced electrical
-          technologies, intelligent automation systems, and modern power management
-          solutions designed to meet evolving industrial demands worldwide.
-        </p>
-
-        <p className="updates-anim updates-anim-4">
-          Through engineering excellence and customer-driven innovation, we develop
-          products that improve efficiency, reliability, safety, and energy performance
-          across industrial and commercial applications.
-        </p>
-
         <div className="updates-innovation-grid">
           {INNOVATION_CARDS.map((card, i) => (
             <div
@@ -148,13 +136,6 @@ export default function Event() {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="updates-cta-btn updates-anim updates-anim-5"
-          onClick={goBlog}
-        >
-          Explore Updates <span aria-hidden>→</span>
-        </button>
       </div>
     </section>
   );
