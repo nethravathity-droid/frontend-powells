@@ -350,6 +350,61 @@
 
 .ats2p-page .spec-table-section {
   margin: 0;
+  width: 100%;
+}
+
+.ats2p-page .spec-table-section__title {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  color: #0f2850;
+  border-left: 4px solid #2563eb;
+  padding-left: 14px;
+  margin: 0 0 16px;
+}
+
+.ats2p-page .spec-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 10px 36px rgba(15, 23, 42, 0.06);
+}
+
+.ats2p-page .spec-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.ats2p-page .spec-table thead {
+  background: linear-gradient(135deg, #0f2850, #2563eb);
+}
+
+.ats2p-page .spec-table th,
+.ats2p-page .spec-table td {
+  padding: 12px 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.ats2p-page .spec-table th {
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ats2p-page .spec-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: #0f2850;
+  background: #f8fafc;
+}
+
+.ats2p-page .spec-table tbody tr:nth-child(even) td:not(:first-child) {
+  background: #fafbfc;
 }
 
 .ats2p-page .hero-right .more-btn {

@@ -1,6 +1,13 @@
 import "./DbBox.css";
 import { Link } from "react-router-dom";
-import ProductPageCart from "../components/ProductPageCart";
+import AddToCartButton from "../components/AddToCartButton";
+
+const DBBOX_PRODUCT = {
+  id: "dbbox",
+  name: "DB Box",
+  image: "/image/digital_timers.png",
+  path: "/pages/DbBox",
+};
 
 const SPECS = [
   ["Enclosure Type", "Metal / ABS (as per model)"],
@@ -43,7 +50,7 @@ export default function DbBox() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
-              <ProductPageCart productId="dbbox" />
+              <AddToCartButton product={DBBOX_PRODUCT} variant="primary" />
             </div>
           </div>
           <div className="dbbox-image">

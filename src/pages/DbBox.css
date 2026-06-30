@@ -51,6 +51,15 @@
   margin-top: 4px;
 }
 
+.dbbox-hero .hero-buttons .add-to-cart-btn {
+  flex-shrink: 0;
+}
+
+/* Legacy section — keep hidden if cached bundle still references it */
+.dbbox-models {
+  display: none !important;
+}
+
 .dbbox-image {
   flex: 1;
   display: flex;

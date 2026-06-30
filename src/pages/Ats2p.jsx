@@ -91,7 +91,8 @@ export default function ProductHero() {
           path="/pages/Ats2p"
         />
 
-        <section className="spec-table-section fade-up">
+        <section className="spec-table-section">
+          <h3 className="spec-table-section__title">Technical Specifications</h3>
           <div className="spec-table-wrapper">
             <table className="spec-table">
               <thead>
