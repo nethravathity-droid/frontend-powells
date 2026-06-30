@@ -11,7 +11,7 @@ export default function ProductPageCart({ productId, className = "" }) {
   return (
     <AddToCartButton
       productId={id}
-      variant="compact"
+      variant="primary"
       className={className}
     />
   );

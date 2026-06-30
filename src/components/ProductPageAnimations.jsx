@@ -42,7 +42,6 @@ export default function ProductPageAnimations() {
       ".rccb-model-card",
       ".dbbox-content",
       ".dbbox-image",
-      ".dbbox-model-card",
       ".spd-cta",
     ].join(",");
 

@@ -4,8 +4,6 @@ const DISPLAY_AMPS = [
 
 const NO_DISPLAY_AMPS = [63, 100, 125, 160, 200, 250, 400, 630];
 
-const ATS2P_AMPS = [16, 20, 25, 32, 40, 50, 63];
-
 function buildVariants(prefix, label, amps, image) {
   return amps.map((amp) => ({
     id: `${prefix}-${amp}a`,
@@ -29,18 +27,19 @@ export const ATS_WITHOUT_DISPLAY = buildVariants(
   "/image/ats160.png"
 );
 
-export const ATS2P_2POLE = buildVariants(
-  "ats2p-2p",
-  "ATS 2 Pole",
-  ATS2P_AMPS,
-  "/image/ats2pole.png"
-);
+export const ATS2P_MINI = [
+  {
+    id: "ats2p-mini-2p-63a",
+    name: "Mini ATS 63A 2 Pole",
+    desc: "Single phase · Switches Phase & Neutral · 63A rated",
+    image: "/image/ats2pole.png",
+  },
+  {
+    id: "ats2p-mini-4p-63a",
+    name: "Mini ATS 63A 4 Pole",
+    desc: "Three phase · Switches 3 Phases + Neutral · 63A rated",
+    image: "/image/ats4pole.png",
+  },
+];
 
-export const ATS2P_4POLE = buildVariants(
-  "ats2p-4p",
-  "ATS 4 Pole",
-  ATS2P_AMPS,
-  "/image/ats4pole.png"
-);
-
-export const ATS2P_VARIANTS = [...ATS2P_2POLE, ...ATS2P_4POLE];
+export const ATS2P_VARIANTS = [...ATS2P_MINI];

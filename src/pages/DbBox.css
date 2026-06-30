@@ -58,7 +58,6 @@
 
 /* Sections */
 .dbbox-features,
-.dbbox-models,
 .dbbox-specs,
 .dbbox-applications,
 .dbbox-benefits {
@@ -67,10 +66,6 @@
 
 .dbbox-features {
   background: #f8fafc;
-}
-
-.dbbox-models {
-  background: #ffffff;
 }
 
 .dbbox-specs {
@@ -86,7 +81,6 @@
 }
 
 .dbbox-features h2,
-.dbbox-models h2,
 .dbbox-specs h2,
 .dbbox-applications h2,
 .dbbox-benefits h2 {
@@ -121,47 +115,6 @@
 .feature-card p {
   font-size: 14px;
   line-height: 1.65;
-  color: #64748b;
-}
-
-/* Model cards */
-.dbbox-model-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.dbbox-model-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dbbox-model-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(37, 99, 235, 0.12);
-}
-
-.dbbox-model-card img {
-  height: 140px;
-  width: 100%;
-  object-fit: contain;
-  margin-bottom: 16px;
-}
-
-.dbbox-model-card h3 {
-  font-size: 17px;
-  color: #0f2850;
-  margin-bottom: 8px;
-}
-
-.dbbox-model-card p {
-  font-size: 14px;
-  line-height: 1.6;
   color: #64748b;
 }
 
@@ -278,7 +231,6 @@
   }
 
   .feature-grid,
-  .dbbox-model-grid,
   .application-grid,
   .benefit-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -287,7 +239,6 @@
 
 @media (max-width: 640px) {
   .feature-grid,
-  .dbbox-model-grid,
   .application-grid,
   .benefit-grid {
     grid-template-columns: 1fr;

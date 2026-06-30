@@ -23,14 +23,18 @@ export default function AddToCartButton({
     addToCart(toCartItem(product, quantity));
   };
 
+  const iconSize = variant === "compact" ? 14 : 16;
+
   return (
     <button
       type="button"
       className={`add-to-cart-btn add-to-cart-btn--${variant} ${className}`}
       onClick={handleClick}
     >
-      <ShoppingCart size={16} aria-hidden="true" />
-      {label}
+      <span className="add-to-cart-btn__icon">
+        <ShoppingCart size={iconSize} aria-hidden="true" />
+      </span>
+      <span className="add-to-cart-btn__label">{label}</span>
     </button>
   );
 }
