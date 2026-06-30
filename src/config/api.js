@@ -1,5 +1,6 @@
 export const API_BASE =
-  import.meta.env.VITE_API_URL || "https://powells-backend-1.onrender.com";
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? "" : "https://powells-backend-1.onrender.com");
 
 export async function postJson(path, body) {
   const response = await fetch(`${API_BASE}${path}`, {

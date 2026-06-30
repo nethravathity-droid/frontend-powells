@@ -1,8 +1,54 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { Handshake, ShoppingCart } from "lucide-react";
+import { ChevronDown, ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import { SHOW_CHANNEL_PARTNER } from "../config/site";
 import "./Header.css";
+
+const PRODUCT_MENU = [
+  {
+    title: "Basic Meters",
+    links: [
+      { label: "Ammeter", path: "/pages/Ammeter" },
+      { label: "Voltmeter", path: "/pages/Voltmeter" },
+      { label: "AVM Meter", path: "/pages/AVM" },
+      { label: "VAF Meter", path: "/pages/vafmeter" },
+      { label: "HZ Meter", path: "/pages/hzmeter" },
+    ],
+  },
+  {
+    title: "Energy Meters",
+    links: [
+      { label: "KWH Meter", path: "/pages/kwhmeter" },
+      { label: "MFM Meter", path: "/pages/mfmmeter" },
+    ],
+  },
+  {
+    title: "Protection & Control",
+    links: [
+      { label: "Earth Leakage Relay & CBCT", path: "/pages/Elr" },
+      { label: "Motor Protection Relay", path: "/pages/Mpr" },
+      { label: "Surge Protection Devices", path: "/pages/SPD" },
+    ],
+  },
+  {
+    title: "Automatic Controllers",
+    links: [
+      { label: "AMF Controller", path: "/pages/Amf" },
+      { label: "ATS 2 & 4 Pole", path: "/pages/Ats2p" },
+      { label: "Automatic Transfer Switch", path: "/pages/Ats" },
+    ],
+  },
+  {
+    title: "Low Voltage Switchgear",
+    links: [
+      { label: "MCCB", path: "/pages/Mcb" },
+      { label: "RCCB", path: "/pages/Rccb" },
+      { label: "Isolators", path: "/pages/Isolator" },
+      { label: "DB Box", path: "/pages/DbBox" },
+    ],
+  },
+];
 
 export default function Header() {
   const navigate = useNavigate();
@@ -10,6 +56,7 @@ export default function Header() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   /* MEGA MENU STATE */
   const [showMega, setShowMega] = useState(false);
@@ -19,6 +66,13 @@ export default function Header() {
   const handleNavigate = (path) => {
     navigate(path);
     setShowMega(false);
+    setMobileOpen(false);
+    setMobileProductsOpen(false);
+  };
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileProductsOpen(false);
   };
 
 
@@ -66,10 +120,9 @@ export default function Header() {
             <Link to="/products">Product List</Link>
             <Link to="/pages/About">About Us</Link>
             <Link to="/pages/Blog">Blog</Link>
-            <Link to="/pages/ChannelPartner" className="nav-partner-link">
-              <Handshake size={15} aria-hidden="true" />
-              Channel Partner
-            </Link>
+            {SHOW_CHANNEL_PARTNER && (
+              <Link to="/pages/ChannelPartner">Channel Partner</Link>
+            )}
             <Link to="/pages/Contact">Contact</Link>
             
           </nav>
@@ -104,79 +157,74 @@ export default function Header() {
         {/* MEGA MENU */}
         {showMega && (
           <div className="mega-menu" ref={menuRef}>
-            <div className="mega-column">
-              <h4>Basic Meters</h4>
-              <span onClick={() => handleNavigate("/pages/Ammeter")}>Ammeter</span>
-              <span onClick={() => handleNavigate("/pages/Voltmeter")}>Voltmeter</span>
-              <span onClick={() => handleNavigate("/pages/AVM")}>AVM Meter</span>
-              <span onClick={() => handleNavigate("/pages/vafmeter")}>VAF Meter</span>
-              <span onClick={() => handleNavigate("/pages/hzmeter")}>HZ Meter</span>
-            </div>
-
-            <div className="mega-column">
-              <h4>Energy Meters</h4>
-              <span onClick={() => handleNavigate("/pages/kwhmeter")}>KWH Meter</span>
-              <span onClick={() => handleNavigate("/pages/mfmmeter")}>MFM Meter</span>
-            </div>
-
-            <div className="mega-column">
-              <h4>Protection & Control Devices</h4>
-              <span onClick={() => handleNavigate("/pages/Elr")}>
-                Earth Leakage Relay & CBCT
-              </span>
-              <span onClick={() => handleNavigate("/pages/Mpr")}>
-                Motor Protection Relay
-              </span>
-              <span onClick={() => handleNavigate("/pages/SPD")}>
-                Surge Protection Devices
-              </span>
-            </div>
-
-            <div className="mega-column">
-              <h4>Automatic Controllers & Switching</h4>
-              <span onClick={() => handleNavigate("/pages/Amf")}>
-                AMF Controller
-              </span>
-              <span onClick={() => handleNavigate("/pages/Ats2p")}>
-                Automatic Transfer Switch 2&4 Pole
-              </span>
-              <span onClick={() => handleNavigate("/pages/Ats")}>
-                Automatic Transfer Switch
-              </span>
-            </div>
-
-            <div className="mega-column">
-              <h4>Low Voltage Switchgear</h4>
-              <span onClick={() => handleNavigate("/pages/Mcb")}>MCCB</span>
-              <span onClick={() => handleNavigate("/pages/Rccb")}>RCCB</span>
-              <span onClick={() => handleNavigate("/pages/Isolator")}>Isolators</span>
-              <span onClick={() => handleNavigate("/pages/DbBox")}>DB Box</span>
-            </div>
+            {PRODUCT_MENU.map((group) => (
+              <div key={group.title} className="mega-column">
+                <h4>{group.title}</h4>
+                {group.links.map((link) => (
+                  <span key={link.path} onClick={() => handleNavigate(link.path)}>
+                    {link.label}
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
         )}
       </header>
 
       {/* MOBILE MENU */}
       <div className={`mobile-menu ${mobileOpen ? "show" : ""}`}>
-        <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
-        <Link to="/products" onClick={() => setMobileOpen(false)}>Products</Link>
-        <Link to="/pages/About" onClick={() => setMobileOpen(false)}>About Us</Link>
-        <Link to="/pages/Blog" onClick={() => setMobileOpen(false)}>Blog</Link>
-        <Link to="/pages/ChannelPartner" onClick={() => setMobileOpen(false)} className="nav-partner-link">
-          <Handshake size={15} aria-hidden="true" />
-          Channel Partner
-        </Link>
-        <Link to="/pages/Contact" onClick={() => setMobileOpen(false)}>Contact</Link>
-        <Link to="/cart" onClick={() => setMobileOpen(false)} className="mobile-cart-link">
+        <Link to="/" onClick={closeMobile}>Home</Link>
+
+        <button
+          type="button"
+          className={`mobile-products-toggle${mobileProductsOpen ? " open" : ""}`}
+          onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+        >
+          Products
+          <ChevronDown size={18} aria-hidden="true" />
+        </button>
+
+        {mobileProductsOpen && (
+          <div className="mobile-products-panel">
+            {PRODUCT_MENU.map((group) => (
+              <div key={group.title} className="mobile-products-group">
+                <p className="mobile-products-title">{group.title}</p>
+                {group.links.map((link) => (
+                  <button
+                    key={link.path}
+                    type="button"
+                    className="mobile-products-link"
+                    onClick={() => handleNavigate(link.path)}
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <Link to="/products" className="mobile-product-list-link" onClick={closeMobile}>
+              View All Products →
+            </Link>
+          </div>
+        )}
+
+        <Link to="/products" onClick={closeMobile}>Product List</Link>
+        <Link to="/pages/About" onClick={closeMobile}>About Us</Link>
+        <Link to="/pages/Blog" onClick={closeMobile}>Blog</Link>
+        {SHOW_CHANNEL_PARTNER && (
+          <Link to="/pages/ChannelPartner" onClick={closeMobile}>
+            Channel Partner
+          </Link>
+        )}
+        <Link to="/pages/Contact" onClick={closeMobile}>Contact</Link>
+        <Link to="/cart" onClick={closeMobile} className="mobile-cart-link">
           <ShoppingCart size={16} aria-hidden="true" />
           Cart {cartCount > 0 ? `(${cartCount})` : ""}
         </Link>
-        <Link to="/auth" onClick={() => setMobileOpen(false)}>Login</Link>
+        <Link to="/auth" onClick={closeMobile}>Login</Link>
       </div>
 
-      {/* OVERLAY */}
       {mobileOpen && (
-        <div className="overlay" onClick={() => setMobileOpen(false)} />
+        <div className="overlay" onClick={closeMobile} />
       )}
     </>
   );

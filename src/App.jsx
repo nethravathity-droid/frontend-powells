@@ -40,7 +40,6 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import CartToast from "./components/CartToast";
-import ProductShopBar from "./components/ProductShopBar";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
 import ProductPageAnimations from "./components/ProductPageAnimations";
 
@@ -64,7 +63,6 @@ export default function App() {
       <ProductPageAnimations />
       <Header />
       <CartToast />
-      <ProductShopBar />
       <SocialSidebar />
       <ScrollToTop />
       <main className="site-main">

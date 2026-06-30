@@ -1,15 +1,23 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Banknote, MapPin, Phone, User, Mail } from "lucide-react";
+import { MapPin, Phone, User, Mail } from "lucide-react";
 import PageShell from "../components/PageShell";
 import { useCart } from "../context/CartContext";
-import { formatPrice } from "../data/products";
 import { postJson } from "../config/api";
 import "./Shop.css";
 
+const WHATSAPP_NUMBER = "919148243088";
+
+function buildWhatsAppOrderText(orderId, customer, items) {
+  const lines = items.map((i) => `• ${i.name} × ${i.quantity}`).join("\n");
+  return encodeURIComponent(
+    `New Powells Order ${orderId}\n\nCustomer: ${customer.name}\nPhone: ${customer.phone}\nEmail: ${customer.email}\n\nProducts:\n${lines}\n\nAddress: ${customer.address}, ${customer.city}, ${customer.state} - ${customer.pincode}`
+  );
+}
+
 export default function Checkout() {
   const navigate = useNavigate();
-  const { cartItems, subtotal, clearCart } = useCart();
+  const { cartItems, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
@@ -23,14 +31,11 @@ export default function Checkout() {
     notes: "",
   });
 
-  const deliveryFee = subtotal >= 5000 ? 0 : 99;
-  const total = subtotal + deliveryFee;
-
   if (cartItems.length === 0) {
     return (
       <PageShell variant="light" className="shop-page-wrap">
         <div className="shop-empty">
-          <h1>Nothing to checkout</h1>
+          <h1>Nothing to order</h1>
           <Link to="/products" className="shop-btn shop-btn-primary">
             Browse Products
           </Link>
@@ -51,7 +56,7 @@ export default function Checkout() {
     const required = ["name", "email", "phone", "address", "city", "state", "pincode"];
     for (const field of required) {
       if (!form[field]?.trim()) {
-        setError("Please fill in all required delivery details.");
+        setError("Please fill in all required details.");
         return;
       }
     }
@@ -62,17 +67,13 @@ export default function Checkout() {
     try {
       const orderPayload = {
         customer: form,
-        items: cartItems.map(({ id, name, price, quantity, image }) => ({
+        items: cartItems.map(({ id, name, quantity, image, path }) => ({
           id,
           name,
-          price,
           quantity,
           image,
+          path,
         })),
-        subtotal,
-        deliveryFee,
-        total,
-        paymentMethod: "cod",
       };
 
       const { response, data } = await postJson("/api/orders", orderPayload);
@@ -82,9 +83,11 @@ export default function Checkout() {
         return;
       }
 
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppOrderText(data.orderId, form, cartItems)}`;
+
       clearCart();
       navigate("/order-success", {
-        state: { orderId: data.orderId, total },
+        state: { orderId: data.orderId, whatsappUrl },
       });
     } catch {
       setError("Network error. Please check your connection and try again.");
@@ -97,8 +100,10 @@ export default function Checkout() {
     <PageShell variant="light" className="shop-page-wrap">
       <div className="shop-checkout">
         <div className="shop-checkout-main">
-          <h1>Checkout</h1>
-          <p className="shop-checkout-sub">Complete your delivery details below</p>
+          <h1>Place Order</h1>
+          <p className="shop-checkout-sub">
+            Submit your order — our team will contact you with pricing and delivery details.
+          </p>
 
           <form className="shop-form" onSubmit={handleSubmit}>
             <section className="shop-form-section">
@@ -146,29 +151,15 @@ export default function Checkout() {
                 </label>
                 <label className="shop-form-full">
                   Order Notes (optional)
-                  <textarea name="notes" rows={2} value={form.notes} onChange={handleChange} placeholder="Delivery instructions, GST details, etc." />
+                  <textarea name="notes" rows={2} value={form.notes} onChange={handleChange} placeholder="Product specs, delivery instructions, etc." />
                 </label>
-              </div>
-            </section>
-
-            <section className="shop-form-section shop-payment-section">
-              <h2>
-                <Banknote size={18} aria-hidden="true" />
-                Payment Method
-              </h2>
-              <div className="shop-cod-card shop-cod-card--selected">
-                <div>
-                  <strong>Cash on Delivery (COD)</strong>
-                  <p>Pay with cash when your order is delivered. No online payment required.</p>
-                </div>
-                <span className="shop-cod-check">Selected</span>
               </div>
             </section>
 
             {error && <p className="shop-error">{error}</p>}
 
             <button type="submit" className="shop-btn shop-btn-primary shop-btn-block" disabled={loading}>
-              {loading ? "Placing Order..." : `Place Order · ${formatPrice(total)}`}
+              {loading ? "Placing Order..." : "Place Order"}
             </button>
           </form>
         </div>
@@ -183,22 +174,12 @@ export default function Checkout() {
                   <span>{item.name}</span>
                   <small>Qty: {item.quantity}</small>
                 </div>
-                <strong>{formatPrice(item.price * item.quantity)}</strong>
               </li>
             ))}
           </ul>
-          <div className="shop-summary-row">
-            <span>Subtotal</span>
-            <span>{formatPrice(subtotal)}</span>
-          </div>
-          <div className="shop-summary-row">
-            <span>Delivery</span>
-            <span>{deliveryFee === 0 ? "FREE" : formatPrice(deliveryFee)}</span>
-          </div>
-          <div className="shop-summary-row shop-summary-total">
-            <span>Total (COD)</span>
-            <span>{formatPrice(total)}</span>
-          </div>
+          <p className="shop-quote-note">
+            No payment now. Powells will email and contact you with a quotation.
+          </p>
           <div className="shop-trust-badges">
             <span><Phone size={14} /> Support: 080 28016867</span>
             <span><Mail size={14} /> sales@powellsindiacorporation.com</span>

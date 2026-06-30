@@ -34,22 +34,3 @@ export function getProductById(id) {
 export function getProductByPath(pathname) {
   return PRODUCTS.find((p) => p.path === pathname && !p.parentId);
 }
-
-export function formatPrice(amount) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
-export function toCartItem(product, quantity = 1) {
-  return {
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    image: product.image,
-    path: product.path,
-    quantity,
-  };
-}

@@ -37,7 +37,10 @@ function renderSubmissionRow(item) {
         <td>{`${d.firstName || ""} ${d.lastName || ""}`.trim()}</td>
         <td>{d.email}</td>
         <td>{d.phone}</td>
-        <td className="admin-cell-message">{d.message}</td>
+        <td className="admin-cell-message">
+          <strong>{d.requestType || d.inquiryType || "Contact"}</strong>
+          {d.message && d.message !== "—" ? ` — ${d.message}` : ""}
+        </td>
       </>
     );
   }
@@ -47,7 +50,12 @@ function renderSubmissionRow(item) {
         <td>{d.companyName}</td>
         <td>{d.email}</td>
         <td>{d.phone}</td>
-        <td>—</td>
+        <td className="admin-cell-message">
+          <strong>{d.contactName || "—"}</strong>
+          {d.partnerTypeLabel ? ` · ${d.partnerTypeLabel}` : ""}
+          {d.city || d.state ? ` · ${[d.city, d.state].filter(Boolean).join(", ")}` : ""}
+          {d.message ? ` — ${d.message}` : ""}
+        </td>
       </>
     );
   }

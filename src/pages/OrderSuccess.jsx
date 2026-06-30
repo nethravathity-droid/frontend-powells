@@ -1,7 +1,6 @@
 import { Link, useLocation, Navigate } from "react-router-dom";
-import { CheckCircle, Package, Banknote } from "lucide-react";
+import { CheckCircle, Package, MessageCircle, Mail } from "lucide-react";
 import PageShell from "../components/PageShell";
-import { formatPrice } from "../data/products";
 import "./Shop.css";
 
 export default function OrderSuccess() {
@@ -18,28 +17,42 @@ export default function OrderSuccess() {
           <CheckCircle size={56} aria-hidden="true" />
         </div>
         <h1>Order Placed Successfully!</h1>
-        <p className="shop-success-id">Order ID: <strong>{state.orderId}</strong></p>
+        <p className="shop-success-id">
+          Order ID: <strong>{state.orderId}</strong>
+        </p>
         <p>
-          Thank you for ordering from Powells India Corporation.
-          Our team will contact you shortly to confirm delivery.
+          Thank you for your order. Our sales team has been notified by email
+          and will contact you shortly with pricing and delivery details.
         </p>
 
         <div className="shop-success-cards">
           <div className="shop-success-card">
-            <Package size={22} aria-hidden="true" />
+            <Mail size={22} aria-hidden="true" />
             <div>
-              <strong>Delivery in 5–7 business days</strong>
-              <span>Across Bengaluru &amp; major cities in Karnataka</span>
+              <strong>Email notification sent</strong>
+              <span>Powells team received your order details</span>
             </div>
           </div>
           <div className="shop-success-card">
-            <Banknote size={22} aria-hidden="true" />
+            <Package size={22} aria-hidden="true" />
             <div>
-              <strong>Pay {formatPrice(state.total)} on delivery</strong>
-              <span>Cash on Delivery — keep exact change ready if possible</span>
+              <strong>We will confirm your order</strong>
+              <span>Expect a call or email within 1–2 business days</span>
             </div>
           </div>
         </div>
+
+        {state.whatsappUrl && (
+          <a
+            href={state.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shop-btn shop-btn-whatsapp shop-btn-block"
+          >
+            <MessageCircle size={18} aria-hidden="true" />
+            Also notify us on WhatsApp
+          </a>
+        )}
 
         <div className="shop-success-actions">
           <Link to="/products" className="shop-btn shop-btn-primary">

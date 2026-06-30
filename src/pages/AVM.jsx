@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import VariantCartButton from "../components/VariantCartButton";
 
 const images = [
   "/image/avm.png",
@@ -92,21 +93,24 @@ How an AVM Meter Works            <ul>
 <div className="product-grid">
   {[
     {
+      id: "avm9601",
       img: "avm.png",
       name: "AVM 9601",
       desc: "Single Phase Ammeter & Voltmeter."
     },
      {
+      id: "avm4801",
       img: "avm.png",
       name: "AVM 4801",
       desc: "Single Phase Ammeter & Voltmeter with 96X48."
     }
     
-  ].map((product, i) => (
-    <div key={i} className="product-card">
+  ].map((product) => (
+    <div key={product.id} className="product-card">
       <img src={`/image/${product.img}`} alt={product.name} />
       <h4>{product.name}</h4>
       <p>{product.desc}</p>
+      <VariantCartButton id={product.id} name={product.name} image={product.img} path="/pages/AVM" />
     </div>
   ))}
 </div>

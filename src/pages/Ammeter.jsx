@@ -3,6 +3,7 @@ import "./ProductHero.css";
 import useReveal from "../pages/useReveal";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import VariantCartButton from "../components/VariantCartButton";
 
 const images = [
   "/image/mt1.png",
@@ -89,25 +90,29 @@ export default function ProductHero() {
 <div className="product-grid">
   {[
     {
+      id: "am9601",
       img: "mt1.png",
       name: "AM9601",
       desc: "High-accuracy Single Phase Ammeter."
     },
     {
+      id: "am9603",
       img: "mt2.png",
       name: "AM9603",
       desc: "Three Phase Ammeter."
     },
     {
+      id: "am4801",
       img: "mt3.png",
       name: "AM4801",
       desc: "Single Phase Ammeter with 96X48 "
     }
-  ].map((product, i) => (
-    <div key={i} className="product-card">
+  ].map((product) => (
+    <div key={product.id} className="product-card">
       <img src={`/image/${product.img}`} alt={product.name} />
       <h4>{product.name}</h4>
       <p>{product.desc}</p>
+      <VariantCartButton id={product.id} name={product.name} image={product.img} path="/pages/Ammeter" />
     </div>
   ))}
 </div>

@@ -62,15 +62,12 @@ export function CartProvider({ children }) {
     [cartItems]
   );
 
-  const subtotal = useMemo(
-    () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
-    [cartItems]
-  );
+  const itemCount = cartItems.length;
 
   const value = {
     cartItems,
     cartCount,
-    subtotal,
+    itemCount,
     addToCart,
     removeFromCart,
     updateQuantity,

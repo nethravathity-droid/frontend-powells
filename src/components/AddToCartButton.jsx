@@ -1,6 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
-import { getProductById, toCartItem } from "../data/products";
+import { getProductById } from "../data/products";
+import { toCartItem } from "../utils/cartItem";
 import "./AddToCartButton.css";
 
 export default function AddToCartButton({

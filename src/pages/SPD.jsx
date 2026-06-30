@@ -1,8 +1,10 @@
 import "./SPDSection.css";
 import { Link } from "react-router-dom";
+import VariantCartButton from "../components/VariantCartButton";
 
 const SPD_MODELS = [
   {
+    id: "spd-2p",
     image: "/image/spd.jpg",
     title: "Surge Protection Device — 2 Pole",
     desc: "Designed for installation at the main distribution board. Protects electrical systems from direct lightning strikes and high surge currents.",
@@ -15,6 +17,7 @@ const SPD_MODELS = [
     reverse: false,
   },
   {
+    id: "spd-3p",
     image: "/image/spd1.jpg",
     title: "Surge Protection Device — 3 Pole",
     desc: "Installed in sub-distribution panels to protect equipment from switching surges and indirect lightning effects.",
@@ -27,6 +30,7 @@ const SPD_MODELS = [
     reverse: true,
   },
   {
+    id: "spd-4p",
     image: "/image/spd4.jpg",
     title: "Surge Protection Device — 4 Pole",
     desc: "Final protection stage placed close to sensitive equipment such as computers, automation systems and electronics.",
@@ -64,7 +68,7 @@ export default function SPD() {
       <section className="spd-section">
         {SPD_MODELS.map((model) => (
           <div
-            key={model.title}
+            key={model.id}
             className={`spd-container${model.reverse ? " reverse" : ""}`}
           >
             <div className="spd-image">
@@ -78,6 +82,7 @@ export default function SPD() {
                   <span key={spec}>{spec}</span>
                 ))}
               </div>
+              <VariantCartButton id={model.id} name={model.title} image={model.image} path="/pages/SPD" />
             </div>
           </div>
         ))}

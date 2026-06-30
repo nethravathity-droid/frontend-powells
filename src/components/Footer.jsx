@@ -1,5 +1,6 @@
 import "./Footer.css";
 import { useNavigate, Link } from "react-router-dom";
+import { SHOW_CHANNEL_PARTNER } from "../config/site";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -33,7 +34,9 @@ export default function Footer() {
           <Link to="/pages/About">About Us</Link>
           <Link to="/products">Products</Link>
           <Link to="/pages/Contact">Contact</Link>
-          <Link to="/pages/ChannelPartner">Channel Partner</Link>
+          {SHOW_CHANNEL_PARTNER && (
+            <Link to="/pages/ChannelPartner">Channel Partner</Link>
+          )}
         </div>
 
         <div className="footer-links">

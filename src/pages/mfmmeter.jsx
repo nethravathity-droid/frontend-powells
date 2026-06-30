@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import VariantCartButton from "../components/VariantCartButton";
 
 const images = [
   "/image/mfm.png",
@@ -91,25 +92,29 @@ METER (MFM)</h1>
 <div className="product-grid">
   {[
     {
+      id: "mfm96",
       img: "mfm.png",
       name: "MFM 96",
-      desc: "High-accuracy Single Phase Ammeter."
+      desc: "Multi Functional Meter 96×96."
     },
     {
+      id: "mfm96rs",
       img: "mfm.png",
       name: "MFM 96 RS",
-      desc: "Three Phase Ammeter."
+      desc: "MFM with RS485 communication."
     },
     {
+      id: "mfm96ds",
       img: "mfm.png",
       name: "MFM 96 DS",
-      desc: "Single Phase Ammeter with 96X48 "
+      desc: "MFM dual display 96×96."
     }
-  ].map((product, i) => (
-    <div key={i} className="product-card">
+  ].map((product) => (
+    <div key={product.id} className="product-card">
       <img src={`/image/${product.img}`} alt={product.name} />
       <h4>{product.name}</h4>
       <p>{product.desc}</p>
+      <VariantCartButton id={product.id} name={product.name} image={product.img} path="/pages/mfmmeter" />
     </div>
   ))}
 </div>

@@ -1,18 +1,22 @@
 import "./DbBox.css";
 import { Link } from "react-router-dom";
+import VariantCartButton from "../components/VariantCartButton";
 
 const MODELS = [
   {
+    id: "db-single",
     name: "Single Door DB",
     desc: "Compact distribution board for residential and small commercial panels.",
     img: "/image/digital_timers.png",
   },
   {
+    id: "db-double",
     name: "Double Door DB",
     desc: "Expanded wiring space for multi-circuit MCB and RCCB arrangements.",
     img: "/image/4pole_mcb.png",
   },
   {
+    id: "db-modular",
     name: "Modular DB Enclosure",
     desc: "Flexible way configuration for industrial and building distribution.",
     img: "/image/rccb_4pole.png",
@@ -109,10 +113,11 @@ export default function DbBox() {
           <h2>Available Configurations</h2>
           <div className="dbbox-model-grid">
             {MODELS.map((model) => (
-              <div key={model.name} className="dbbox-model-card">
+              <div key={model.id} className="dbbox-model-card">
                 <img src={model.img} alt={model.name} />
                 <h3>{model.name}</h3>
                 <p>{model.desc}</p>
+                <VariantCartButton id={model.id} name={model.name} image={model.img} path="/pages/DbBox" />
               </div>
             ))}
           </div>
