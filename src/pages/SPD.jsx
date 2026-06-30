@@ -1,6 +1,7 @@
 import "./SPDSection.css";
 import { Link } from "react-router-dom";
 import VariantCartButton from "../components/VariantCartButton";
+import ProductPageCart from "../components/ProductPageCart";
 
 const SPD_MODELS = [
   {
@@ -62,6 +63,7 @@ export default function SPD() {
           <Link to="/pages/Contact" className="secondary-btn spd-cta-btn secondary">
             Get Quotation
           </Link>
+          <ProductPageCart />
         </div>
       </section>
 
@@ -73,6 +75,14 @@ export default function SPD() {
           >
             <div className="spd-image">
               <img src={model.image} alt={model.title} />
+              <div className="spd-image-cart">
+                <VariantCartButton
+                  id={model.id}
+                  name={model.title}
+                  image={model.image}
+                  path="/pages/SPD"
+                />
+              </div>
             </div>
             <div className="spd-text">
               <h2>{model.title}</h2>
@@ -82,7 +92,6 @@ export default function SPD() {
                   <span key={spec}>{spec}</span>
                 ))}
               </div>
-              <VariantCartButton id={model.id} name={model.title} image={model.image} path="/pages/SPD" />
             </div>
           </div>
         ))}

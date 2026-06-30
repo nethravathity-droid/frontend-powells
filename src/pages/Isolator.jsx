@@ -1,27 +1,6 @@
 import "./IsolatorPage.css";
 import { Link } from "react-router-dom";
-import VariantCartButton from "../components/VariantCartButton";
-
-const MODELS = [
-  {
-    id: "isolator-1p",
-    name: "1 Pole Isolator",
-    desc: "Single-phase isolation for residential and light commercial circuits.",
-    img: "/image/isolators.png",
-  },
-  {
-    id: "isolator-2p",
-    name: "2 Pole Isolator",
-    desc: "Double-pole switching for enhanced line and neutral disconnection.",
-    img: "/image/isolators.png",
-  },
-  {
-    id: "isolator-3-4p",
-    name: "3 & 4 Pole Isolator",
-    desc: "Three-phase isolation for industrial panels and distribution boards.",
-    img: "/image/isolators.png",
-  },
-];
+import ProductPageCart from "../components/ProductPageCart";
 
 const SPECS = [
   ["Rated Current", "16A – 125A"],
@@ -63,6 +42,7 @@ export default function IsolatorPage() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
+              <ProductPageCart />
             </div>
           </div>
           <div className="isolator-image">
@@ -103,22 +83,6 @@ export default function IsolatorPage() {
                 operational use.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="isolator-models">
-        <div className="container">
-          <h2>Available Configurations</h2>
-          <div className="isolator-model-grid">
-            {MODELS.map((model) => (
-              <div key={model.id} className="isolator-model-card">
-                <img src={model.img} alt={model.name} />
-                <h3>{model.name}</h3>
-                <p>{model.desc}</p>
-                <VariantCartButton id={model.id} name={model.name} image={model.img} path="/pages/Isolator" />
-              </div>
-            ))}
           </div>
         </div>
       </section>

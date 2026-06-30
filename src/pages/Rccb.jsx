@@ -1,27 +1,6 @@
 import "./RCCBPage.css";
 import { Link } from "react-router-dom";
-import VariantCartButton from "../components/VariantCartButton";
-
-const MODELS = [
-  {
-    id: "rccb-2p",
-    name: "2 Pole RCCB",
-    desc: "Single-phase earth leakage protection for homes and small commercial loads.",
-    img: "/image/rccb_4pole.png",
-  },
-  {
-    id: "rccb-4p",
-    name: "4 Pole RCCB",
-    desc: "Three-phase protection for industrial panels and distribution boards.",
-    img: "/image/rccb_4pole.png",
-  },
-  {
-    id: "rccb-hs",
-    name: "High Sensitivity RCCB",
-    desc: "30mA sensitivity for enhanced personal protection in wet areas.",
-    img: "/image/rccb_4pole.png",
-  },
-];
+import ProductPageCart from "../components/ProductPageCart";
 
 const SPECS = [
   ["Rated Current", "25A – 100A"],
@@ -64,6 +43,7 @@ export default function RCCBPage() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
+              <ProductPageCart />
             </div>
           </div>
           <div className="rccb-image">
@@ -104,22 +84,6 @@ export default function RCCBPage() {
                 distribution boards.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="rccb-models">
-        <div className="container">
-          <h2>Available Configurations</h2>
-          <div className="rccb-model-grid">
-            {MODELS.map((model) => (
-              <div key={model.id} className="rccb-model-card">
-                <img src={model.img} alt={model.name} />
-                <h3>{model.name}</h3>
-                <p>{model.desc}</p>
-                <VariantCartButton id={model.id} name={model.name} image={model.img} path="/pages/Rccb" />
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import ProductPageCart from "../components/ProductPageCart";
 const images = [
   "/image/amf1.png",
 ];
@@ -67,6 +68,7 @@ CONTROLLER</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div>
 <br/><br/><br/>
 

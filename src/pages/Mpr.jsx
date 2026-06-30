@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
+import ProductPageCart from "../components/ProductPageCart";
 
 const images = [
   "/image/Mpr.png",
@@ -66,6 +67,7 @@ RELAY (MPR)</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div><br/><br/><br/>
 
 

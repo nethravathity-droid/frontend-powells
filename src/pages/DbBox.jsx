@@ -1,27 +1,6 @@
 import "./DbBox.css";
 import { Link } from "react-router-dom";
-import VariantCartButton from "../components/VariantCartButton";
-
-const MODELS = [
-  {
-    id: "db-single",
-    name: "Single Door DB",
-    desc: "Compact distribution board for residential and small commercial panels.",
-    img: "/image/digital_timers.png",
-  },
-  {
-    id: "db-double",
-    name: "Double Door DB",
-    desc: "Expanded wiring space for multi-circuit MCB and RCCB arrangements.",
-    img: "/image/4pole_mcb.png",
-  },
-  {
-    id: "db-modular",
-    name: "Modular DB Enclosure",
-    desc: "Flexible way configuration for industrial and building distribution.",
-    img: "/image/rccb_4pole.png",
-  },
-];
+import ProductPageCart from "../components/ProductPageCart";
 
 const SPECS = [
   ["Enclosure Type", "Metal / ABS (as per model)"],
@@ -64,6 +43,7 @@ export default function DbBox() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
+              <ProductPageCart />
             </div>
           </div>
           <div className="dbbox-image">
@@ -104,22 +84,6 @@ export default function DbBox() {
                 products seamlessly.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="dbbox-models">
-        <div className="container">
-          <h2>Available Configurations</h2>
-          <div className="dbbox-model-grid">
-            {MODELS.map((model) => (
-              <div key={model.id} className="dbbox-model-card">
-                <img src={model.img} alt={model.name} />
-                <h3>{model.name}</h3>
-                <p>{model.desc}</p>
-                <VariantCartButton id={model.id} name={model.name} image={model.img} path="/pages/DbBox" />
-              </div>
-            ))}
           </div>
         </div>
       </section>

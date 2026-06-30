@@ -3,6 +3,7 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
+import ProductPageCart from "../components/ProductPageCart";
 
 const images = [
   "/image/mfm.png",
@@ -69,6 +70,7 @@ METER (MFM)</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div><br/><br/><br/>
 
 

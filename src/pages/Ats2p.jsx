@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import "./ProductHero.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./InfoTabs.css";
+import ProductVariantGrid from "../components/ProductVariantGrid";
+import ProductPageCart from "../components/ProductPageCart";
+import { ATS2P_2POLE, ATS2P_4POLE } from "../utils/atsVariants";
 const images = [
   "/image/ats4pole.png",
   "/image/ats2pole.png",
@@ -22,7 +25,6 @@ export default function ProductHero() {
     <>
       {/* HERO SECTION */}
       <section className="product-hero">
-    <section className="product-hero">
       <div className="hero-left">
         <img
           src={images[index]}
@@ -40,7 +42,6 @@ export default function ProductHero() {
           ))}
         </div>
       </div>
-    </section>
 
         <div className="hero-right">
           <h1>AUTOMATIC TRANSFER
@@ -67,6 +68,7 @@ SWITCH (ATS) - 2 Pole & 4 Pole</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div><br/><br/><br/>
 
 
@@ -191,7 +193,19 @@ SWITCH (ATS) - 2 Pole & 4 Pole</h1>
   </div>
 </section>
 
-      {/* 2️⃣ DIAGRAM */}
+      <ProductVariantGrid
+        title="2 Pole ATS — Select Rating"
+        subtitle="Rated 16A to 63A · Single phase applications"
+        items={ATS2P_2POLE}
+        path="/pages/Ats2p"
+      />
+
+      <ProductVariantGrid
+        title="4 Pole ATS — Select Rating"
+        subtitle="Rated 16A to 63A · Three phase applications"
+        items={ATS2P_4POLE}
+        path="/pages/Ats2p"
+      />
 
       {/* 4️⃣ ADDITIONAL DETAILS */}
       <div className="detail-block">

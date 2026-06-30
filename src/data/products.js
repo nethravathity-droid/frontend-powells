@@ -1,6 +1,6 @@
 export const PRODUCTS = [
   { id: "ammeter", name: "Ammeters", price: 2499, image: "/image/mt3.png", path: "/pages/Ammeter", category: "Basic Meters" },
-  { id: "voltmeter", name: "Voltmeters", price: 2299, image: "/image/vm9601.png", path: "/pages/Voltmeter", category: "Basic Meters" },
+  { id: "voltmeter", name: "Voltmeters", price: 2299, image: "/image/volt1.png", path: "/pages/Voltmeter", category: "Basic Meters" },
   { id: "avm", name: "AVM Meter", price: 3499, image: "/image/avm.png", path: "/pages/AVM", category: "Basic Meters" },
   { id: "vafmeter", name: "VAF Meter", price: 3299, image: "/image/mt5.png", path: "/pages/vafmeter", category: "Basic Meters" },
   { id: "hzmeter", name: "HZ Meter", price: 2199, image: "/image/hz.png", path: "/pages/hzmeter", category: "Basic Meters" },
@@ -20,11 +20,11 @@ export const PRODUCTS = [
   { id: "mcb-2p", name: "2 Pole MCB", price: 699, image: "/image/2pole_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },
   { id: "mcb-3p", name: "3 Pole MCB", price: 799, image: "/image/3pole_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },
   { id: "mcb-4p", name: "4 Pole MCB", price: 899, image: "/image/4pole_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },
-  { id: "vm9601", name: "VM9601 Voltmeter", price: 2199, image: "/image/volt1.jpeg", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
-  { id: "vm9603", name: "VM9603 Voltmeter", price: 2399, image: "/image/volt2.jpeg", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
-  { id: "vm4801", name: "VM4801 Voltmeter", price: 2099, image: "/image/volt3.jpeg", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
-  { id: "vm96dc", name: "VM96DC Voltmeter", price: 2599, image: "/image/volt1.jpeg", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
-  { id: "vm48dc", name: "VM48DC Voltmeter", price: 2499, image: "/image/volt2.jpeg", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  { id: "vm9601", name: "VM9601 Voltmeter", price: 2199, image: "/image/volt1.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  { id: "vm9603", name: "VM9603 Voltmeter", price: 2399, image: "/image/volt2.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  { id: "vm4801", name: "VM4801 Voltmeter", price: 2099, image: "/image/volt3.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  { id: "vm96dc", name: "VM96DC Voltmeter", price: 2599, image: "/image/volt1.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  { id: "vm48dc", name: "VM48DC Voltmeter", price: 2499, image: "/image/volt2.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
 ];
 
 export function getProductById(id) {

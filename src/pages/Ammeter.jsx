@@ -4,6 +4,7 @@ import useReveal from "../pages/useReveal";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
+import ProductPageCart from "../components/ProductPageCart";
 
 const images = [
   "/image/mt1.png",
@@ -69,6 +70,7 @@ export default function ProductHero() {
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div><br/><br/><br/>
           <button
             className="more-btn"
