@@ -1,7 +1,6 @@
 import "./SPDSection.css";
 import { Link } from "react-router-dom";
 import VariantCartButton from "../components/VariantCartButton";
-import ProductPageCart from "../components/ProductPageCart";
 
 const SPD_MODELS = [
   {
@@ -63,7 +62,6 @@ export default function SPD() {
           <Link to="/pages/Contact" className="secondary-btn spd-cta-btn secondary">
             Get Quotation
           </Link>
-          <ProductPageCart />
         </div>
       </section>
 

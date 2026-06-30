@@ -3,7 +3,6 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import AddToCartButton from "../components/AddToCartButton";
-import ProductPageCart from "../components/ProductPageCart";
 const images = [
   "/image/volt1.png",
   "/image/volt2.png",
@@ -66,7 +65,6 @@ export default function ProductHero() {
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div><br/><br/><br/>
 
 

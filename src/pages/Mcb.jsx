@@ -1,7 +1,6 @@
 import "./mcb.css";
 import { Link } from "react-router-dom";
 import AddToCartButton from "../components/AddToCartButton";
-import ProductPageCart from "../components/ProductPageCart";
 
 const MODELS = [
   {
@@ -70,7 +69,6 @@ export default function MCBPage() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
-              <ProductPageCart />
             </div>
           </div>
           <div className="mcb-hero-image">

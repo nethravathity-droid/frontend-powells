@@ -3,7 +3,6 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
-import ProductPageCart from "../components/ProductPageCart";
 
 const images = [
   "/image/avm.png",
@@ -71,7 +70,6 @@ How an AVM Meter Works            <ul>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div><br/><br/><br/>
 
 

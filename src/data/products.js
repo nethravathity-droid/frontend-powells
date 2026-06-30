@@ -12,7 +12,7 @@ export const PRODUCTS = [
   { id: "amf", name: "AMF Controller", price: 8999, image: "/image/amf.png", path: "/pages/Amf", category: "Automation" },
   { id: "ats2p", name: "ATS 2 & 4 Pole", price: 12499, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation" },
   { id: "ats", name: "Automatic Transfer Switch", price: 14999, image: "/image/ats250.png", path: "/pages/Ats", category: "Automation" },
-  { id: "mcb", name: "MCB (MCCB)", price: 899, image: "/image/4pole_mcb.png", path: "/pages/Mcb", category: "Switchgear" },
+  { id: "mcb", name: "MCB", price: 899, image: "/image/4pole_mcb.png", path: "/pages/Mcb", category: "Switchgear" },
   { id: "rccb", name: "RCCB", price: 1299, image: "/image/rccb_4pole.png", path: "/pages/Rccb", category: "Switchgear" },
   { id: "isolator", name: "Isolators", price: 1599, image: "/image/isolators.png", path: "/pages/Isolator", category: "Switchgear" },
   { id: "dbbox", name: "DB Box", price: 2499, image: "/image/digital_timers.png", path: "/pages/DbBox", category: "Switchgear" },

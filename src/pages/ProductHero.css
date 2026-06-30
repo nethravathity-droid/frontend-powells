@@ -446,7 +446,9 @@ tbody tr:hover {
 /* BUTTONS */
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
+  align-items: center;
 }
 
 .primary-btn {

@@ -3,7 +3,6 @@ import "./ProductHero.css";
 import { Link } from "react-router-dom";
 import "./InfoTabs.css";
 import ProductVariantGrid from "../components/ProductVariantGrid";
-import ProductPageCart from "../components/ProductPageCart";
 import { ATS2P_2POLE, ATS2P_4POLE } from "../utils/atsVariants";
 const images = [
   "/image/ats4pole.png",
@@ -68,7 +67,6 @@ SWITCH (ATS) - 2 Pole & 4 Pole</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div><br/><br/><br/>
 
 

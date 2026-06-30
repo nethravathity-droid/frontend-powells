@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
-import HeroProductCart from "../components/HeroProductCart";
+import ProductPageCart from "../components/ProductPageCart";
 
 const images = [
   "/image/Mpr.png",
@@ -39,8 +39,6 @@ export default function ProductHero() {
             />
           ))}
         </div>
-
-        <HeroProductCart />
       </div>
 
         <div className="hero-right">
@@ -67,6 +65,7 @@ RELAY (MPR)</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
+              <ProductPageCart />
             </div><br/><br/><br/>
 
 

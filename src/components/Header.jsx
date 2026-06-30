@@ -42,7 +42,7 @@ const PRODUCT_MENU = [
   {
     title: "Low Voltage Switchgear",
     links: [
-      { label: "MCCB", path: "/pages/Mcb" },
+      { label: "MCB", path: "/pages/Mcb" },
       { label: "RCCB", path: "/pages/Rccb" },
       { label: "Isolators", path: "/pages/Isolator" },
       { label: "DB Box", path: "/pages/DbBox" },

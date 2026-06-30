@@ -3,7 +3,6 @@ import "./ProductHero.css";
 import { Link } from "react-router-dom";
 import "./InfoTabs.css";
 import ProductVariantGrid from "../components/ProductVariantGrid";
-import ProductPageCart from "../components/ProductPageCart";
 import {
   ATS_WITH_DISPLAY,
   ATS_WITHOUT_DISPLAY,
@@ -77,7 +76,6 @@ export default function ProductHero() {
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div></div>
 </section>
       {/* NEXT SECTIONS */}

@@ -109,7 +109,7 @@ export const productCatalog = [
     name: "MCB",
     category: "Switchgear",
     path: "/pages/Mcb",
-    keywords: ["mcb", "miniature circuit breaker", "circuit breaker", "mccb"],
+    keywords: ["mcb", "miniature circuit breaker", "circuit breaker"],
     description: "Miniature Circuit Breakers for overload and short-circuit protection.",
   },
   {

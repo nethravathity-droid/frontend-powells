@@ -3,7 +3,6 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
-import HeroProductCart from "../components/HeroProductCart";
 
 const images = [
   "/image/mfm.png",
@@ -40,8 +39,6 @@ export default function ProductHero() {
             />
           ))}
         </div>
-
-        <HeroProductCart />
       </div>
 
         <div className="hero-right">

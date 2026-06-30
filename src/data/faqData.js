@@ -15,9 +15,9 @@ export const faqData = [
       "We offer protection devices such as Earth Leakage Relays, fault protection systems, and load disconnectors."
   },
   {
-    keywords: ["low voltage", "mccb", "acb"],
+    keywords: ["low voltage", "mcb", "acb"],
     answer:
-      "Our low voltage solutions include MCCBs, ACBs, and advanced power distribution components."
+      "Our low voltage solutions include MCBs, ACBs, and advanced power distribution components."
   },
   {
     keywords: ["contact", "email", "phone"],

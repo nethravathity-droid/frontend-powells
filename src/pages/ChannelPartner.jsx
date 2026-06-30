@@ -190,7 +190,7 @@ export default function ChannelPartner() {
                   <div>
                     <strong>Complete Product Range</strong>
                     <span>
-                      Meters, ATS, SPD, MCCB, RCCB, isolators and DB boxes.
+                      Meters, ATS, SPD, MCB, RCCB, isolators and DB boxes.
                     </span>
                   </div>
                 </li>
