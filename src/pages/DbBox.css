@@ -43,6 +43,14 @@
   max-width: 560px;
 }
 
+.dbbox-hero .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 4px;
+}
+
 .dbbox-image {
   flex: 1;
   display: flex;

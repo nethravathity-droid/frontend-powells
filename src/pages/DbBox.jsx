@@ -43,7 +43,7 @@ export default function DbBox() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
-              <ProductPageCart />
+              <ProductPageCart productId="dbbox" />
             </div>
           </div>
           <div className="dbbox-image">
