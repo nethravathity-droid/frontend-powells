@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import AddToCartButton from "../components/AddToCartButton";
 const images = [
-  "/image/volt1.jpeg",
+  "/image/volt1.pnfg",
   "/image/volt2.jpeg",
   "/image/volt3.jpeg",
 ];
