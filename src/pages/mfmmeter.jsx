@@ -3,7 +3,7 @@ import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
-import ProductPageCart from "../components/ProductPageCart";
+import HeroProductCart from "../components/HeroProductCart";
 
 const images = [
   "/image/mfm.png",
@@ -24,7 +24,6 @@ export default function ProductHero() {
     <>
       {/* HERO SECTION */}
       <section className="product-hero">
-    <section className="product-hero">
       <div className="hero-left">
         <img
           src={images[index]}
@@ -41,10 +40,9 @@ export default function ProductHero() {
             />
           ))}
         </div>
+
+        <HeroProductCart />
       </div>
-    </section>
-
-
 
         <div className="hero-right">
           <h1>MULTI FUNCTIONAL
@@ -70,7 +68,6 @@ METER (MFM)</h1>
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div><br/><br/><br/>
 
 

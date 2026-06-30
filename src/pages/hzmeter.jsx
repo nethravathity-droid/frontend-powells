@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
-import ProductPageCart from "../components/ProductPageCart";
+import HeroProductCart from "../components/HeroProductCart";
 const images = [
   "/image/hz.png",
 ];
@@ -22,7 +22,6 @@ export default function ProductHero() {
     <>
       {/* HERO SECTION */}
       <section className="product-hero">
-    <section className="product-hero">
       <div className="hero-left">
         <img
           src={images[index]}
@@ -39,10 +38,9 @@ export default function ProductHero() {
             />
           ))}
         </div>
+
+        <HeroProductCart />
       </div>
-    </section>
-
-
 
         <div className="hero-right">
           <h1>Hertz (HZ)</h1>
@@ -67,7 +65,6 @@ export default function ProductHero() {
               <a className="secondary-btn" href="/pages/Contact">
                 Get Quotation
               </a>
-              <ProductPageCart />
             </div><br/><br/><br/>
 
 
