@@ -95,11 +95,22 @@ export default function Contact() {
       });
 
       if (response.ok && data.success) {
+        const emailNote =
+          data.emailSent === false
+            ? " (Saved — email notification is delayed; our team will still follow up.)"
+            : "";
         setStatus({
-          type: "success",
-          text: data.message || `${typeLabel} sent successfully!`,
+          type: data.emailSent === false ? "warning" : "success",
+          text: (data.message || `${typeLabel} sent successfully!`) + emailNote,
         });
         setFormData(INITIAL_FORM);
+      } else if (response.status === 409 || data.duplicate) {
+        setStatus({
+          type: "error",
+          text:
+            data.message ||
+            "You have already submitted a request with this email and mobile number.",
+        });
       } else {
         setStatus({
           type: "error",
@@ -157,6 +168,8 @@ export default function Contact() {
             <h3>Contact Us</h3>
             <p className="contact-form-sub">
               Fill in your details, then choose the type of request you need.
+              All submissions are emailed to{" "}
+              <strong>sales@powellsindiacorporation.com</strong>.
             </p>
 
             <form className="contact-form" onSubmit={(e) => e.preventDefault()} noValidate>

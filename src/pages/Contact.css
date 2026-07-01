@@ -182,6 +182,12 @@
   border: 1px solid #a7f3d0;
 }
 
+.contact-status--warning {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
 .contact-status--error {
   background: #fef2f2;
   color: #b91c1c;
