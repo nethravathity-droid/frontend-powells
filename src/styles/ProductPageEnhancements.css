@@ -336,16 +336,61 @@
 }
 
 .ats2p-page .product-details {
+  max-width: min(1400px, 96%);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: clamp(40px, 5vw, 56px);
+  padding: 0 clamp(16px, 4vw, 48px);
   gap: clamp(24px, 3vw, 32px);
 }
 
 .ats2p-page .product-variant-grid {
   margin: 0;
+  width: 100%;
 }
 
 .ats2p-page .product-variant-grid__title {
   margin-top: 0;
+  font-size: clamp(24px, 3.5vw, 32px);
+}
+
+.ats2p-page .product-variant-grid__subtitle {
+  max-width: none;
+  font-size: clamp(15px, 1.8vw, 17px);
+  margin-bottom: clamp(20px, 3vw, 28px);
+}
+
+.ats2p-page .product-variant-grid__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+  width: 100%;
+}
+
+.ats2p-page .product-variant-grid__card {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: 14px;
+}
+
+.ats2p-page .product-variant-grid__card img {
+  max-height: clamp(140px, 16vw, 220px);
+  margin-bottom: 16px;
+}
+
+.ats2p-page .product-variant-grid__card h4 {
+  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 10px;
+}
+
+.ats2p-page .product-variant-grid__card p {
+  font-size: clamp(13px, 1.5vw, 15px);
+  margin-bottom: 16px;
+}
+
+.ats2p-page .product-variant-grid__card .add-to-cart-btn {
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .ats2p-page .spec-table-section {
@@ -418,6 +463,10 @@
 
   .ats2p-page .hero-right {
     margin-top: 24px;
+  }
+
+  .ats2p-page .product-variant-grid__cards {
+    grid-template-columns: 1fr;
   }
 }
 

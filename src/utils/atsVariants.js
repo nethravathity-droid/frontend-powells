@@ -8,6 +8,7 @@ function buildVariants(prefix, label, amps, image) {
   return amps.map((amp) => ({
     id: `${prefix}-${amp}a`,
     name: `${label} ${amp}A`,
+    amp: `${amp}A`,
     desc: label,
     image,
   }));
@@ -32,13 +33,13 @@ export const ATS2P_MINI = [
     id: "ats2p-mini-2p-63a",
     name: "Mini ATS 63A 2 Pole",
     desc: "Single phase · Switches Phase & Neutral · 63A rated",
-    image: "/image/ats2pole.png",
+    image: "/image/ats4pole.png",
   },
   {
     id: "ats2p-mini-4p-63a",
     name: "Mini ATS 63A 4 Pole",
     desc: "Three phase · Switches 3 Phases + Neutral · 63A rated",
-    image: "/image/ats4pole.png",
+    image: "/image/ats2pole.png",
   },
 ];
 

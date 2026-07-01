@@ -846,6 +846,13 @@ tbody tr:hover {
   transition: 0.4s ease;
 }
 
+.ats-range-note {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 8px 0 0;
+  letter-spacing: 0.04em;
+}
+
 .ats-content1:hover .ats-range1::after {
   width: 100%;
 }

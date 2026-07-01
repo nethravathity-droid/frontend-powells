@@ -1,3 +1,22 @@
+import { ATS_WITH_DISPLAY, ATS_WITHOUT_DISPLAY } from "../utils/atsVariants";
+
+function mapAtsCatalog(items, startPrice) {
+  return items.map((item, index) => ({
+    id: item.id,
+    name: item.name,
+    price: startPrice + index * 2500,
+    image: item.image,
+    path: "/pages/Ats",
+    category: "Automation",
+    parentId: "ats",
+  }));
+}
+
+const ATS_CATALOG = [
+  ...mapAtsCatalog(ATS_WITH_DISPLAY, 14999),
+  ...mapAtsCatalog(ATS_WITHOUT_DISPLAY, 12999),
+];
+
 export const PRODUCTS = [
   { id: "ammeter", name: "Ammeters", price: 2499, image: "/image/mt3.png", path: "/pages/Ammeter", category: "Basic Meters" },
   { id: "voltmeter", name: "Voltmeters", price: 2299, image: "/image/volt1.png", path: "/pages/Voltmeter", category: "Basic Meters" },
@@ -11,8 +30,8 @@ export const PRODUCTS = [
   { id: "spd", name: "SPD", price: 1899, image: "/image/spd4.jpg", path: "/pages/SPD", category: "Protection" },
   { id: "amf", name: "AMF Controller", price: 8999, image: "/image/amf.png", path: "/pages/Amf", category: "Automation" },
   { id: "ats2p", name: "ATS 2 & 4 Pole", price: 12499, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation" },
-  { id: "ats2p-mini-2p-63a", name: "Mini ATS 63A 2 Pole", price: 8999, image: "/image/ats2pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
-  { id: "ats2p-mini-4p-63a", name: "Mini ATS 63A 4 Pole", price: 10999, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
+  { id: "ats2p-mini-2p-63a", name: "Mini ATS 63A 2 Pole", price: 8999, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
+  { id: "ats2p-mini-4p-63a", name: "Mini ATS 63A 4 Pole", price: 10999, image: "/image/ats2pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
   { id: "ats", name: "Automatic Transfer Switch", price: 14999, image: "/image/ats250.png", path: "/pages/Ats", category: "Automation" },
   { id: "mcb", name: "MCB", price: 899, image: "/image/4pole_mcb.png", path: "/pages/Mcb", category: "Switchgear" },
   { id: "rccb", name: "RCCB", price: 1299, image: "/image/rccb_4pole.png", path: "/pages/Rccb", category: "Switchgear" },
@@ -27,6 +46,7 @@ export const PRODUCTS = [
   { id: "vm4801", name: "VM4801 Voltmeter", price: 2099, image: "/image/volt3.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
   { id: "vm96dc", name: "VM96DC Voltmeter", price: 2599, image: "/image/volt1.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
   { id: "vm48dc", name: "VM48DC Voltmeter", price: 2499, image: "/image/volt2.png", path: "/pages/Voltmeter", category: "Basic Meters", parentId: "voltmeter" },
+  ...ATS_CATALOG,
 ];
 
 export function getProductById(id) {

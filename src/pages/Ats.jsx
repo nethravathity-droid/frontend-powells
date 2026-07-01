@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProductHero.css";
 import { Link } from "react-router-dom";
 import "./InfoTabs.css";
-import ProductVariantGrid from "../components/ProductVariantGrid";
+import AtsVariantPicker from "../components/AtsVariantPicker";
 import {
   ATS_WITH_DISPLAY,
   ATS_WITHOUT_DISPLAY,
@@ -124,19 +124,81 @@ Description        </button>
 
                 {activeTab === "Varients" && (
   <div style={{ textAlign: "left" }}>
-    <ProductVariantGrid
-      title="With Digital Display"
-      subtitle="63A to 3200A · LCD display with voltage monitoring and advanced transfer options"
-      items={ATS_WITH_DISPLAY}
-      path="/pages/Ats"
-    />
-    <ProductVariantGrid
-      title="Without Digital Display"
-      subtitle="63A to 630A · Cost-effective automatic changeover for standard backup applications"
-      items={ATS_WITHOUT_DISPLAY}
-      path="/pages/Ats"
-    />
+
+        <section className="ats-section">
+      <div className="ats-container">
+
+        {/* LEFT IMAGE */}
+<section className="ats-section">
+  <div className="ats-wrapper">
+
+    <div className="ats-card ats-1">
+      <img src="/image/ats125a.png" alt="ATS 1" />
+    </div>
+
+    <div className="ats-card ats-2">
+      <img src="/image/ats160a.png" alt="ATS 2" />
+    </div>
+
+    <div className="ats-card ats-3">
+      <img src="/image/ats400a.png" alt="ATS 3" />
+    </div>
+
+  </div><br/>
+</section><br/><br/><br/>
+        {/* RIGHT CONTENT */}
+        <div className="ats-content1">
+          <h2 className="ats-title1">
+            Automatic Transfer Switch
+          </h2>
+
+          <h3 className="ats-range1">
+            ATS 63A – ATS 3200A
+          </h3>
+          <p className="ats-range-note">With digital display</p>
+          <AtsVariantPicker items={ATS_WITH_DISPLAY} path="/pages/Ats" />
+       </div>
+      </div>
+    </section>
+
+    <section className="ats-section1">
+      <div className="ats-container1">
+
+        {/* LEFT IMAGE */}
+<section className="ats-section1">
+  <div className="ats-wrapper1">
+
+    <div className="ats-card ats-11">
+      <img src="/image/ats160.png" alt="ATS 1" />
+    </div>
+
+    <div className="ats-card ats-21">
+      <img src="/image/ats250.png" alt="ATS 2" />
+    </div>
+
+    <div className="ats-card ats-31">
+      <img src="/image/ats400.png" alt="ATS 3" />
+    </div>
+
   </div>
+</section>
+        {/* RIGHT CONTENT */}
+        <div className="ats-content1">
+          <h2 className="ats-title1">
+            Automatic Transfer Switch
+          </h2>
+
+          <h3 className="ats-range1">
+            ATS 63A – ATS 630A
+          </h3>
+          <p className="ats-range-note">Without digital display</p>
+          <AtsVariantPicker items={ATS_WITHOUT_DISPLAY} path="/pages/Ats" />
+       </div>
+
+      </div>
+    </section>
+
+          </div>
         )}
 
 
