@@ -45,14 +45,18 @@ import ProductPageAnimations from "./components/ProductPageAnimations";
 
 export default function App() {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith("/admin");
+  const isAdminRoute =
+    location.pathname.startsWith("/admin") || location.pathname.startsWith("/panel");
 
   if (isAdminRoute) {
     return (
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/panel/login" element={<AdminLogin />} />
+        <Route path="/panel" element={<AdminDashboard />} />
         <Route path="/admin/*" element={<Navigate to="/admin" replace />} />
+        <Route path="/panel/*" element={<Navigate to="/panel" replace />} />
       </Routes>
     );
   }

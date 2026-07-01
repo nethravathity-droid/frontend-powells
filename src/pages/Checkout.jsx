@@ -4,6 +4,7 @@ import { MapPin, Phone, User, Mail } from "lucide-react";
 import PageShell from "../components/PageShell";
 import { useCart } from "../context/CartContext";
 import { postJson } from "../config/api";
+import { validateEmail, validatePhone, normalizePhone } from "../utils/formValidation";
 import "./Shop.css";
 
 const WHATSAPP_NUMBER = "919148243088";
@@ -61,12 +62,33 @@ export default function Checkout() {
       }
     }
 
+    if (!validateEmail(form.email)) {
+      setError("Enter a valid email address.");
+      return;
+    }
+
+    if (!validatePhone(form.phone)) {
+      setError("Enter a valid 10-digit mobile number.");
+      return;
+    }
+
     setLoading(true);
     setError("");
 
     try {
+      const customer = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: normalizePhone(form.phone),
+        address: form.address.trim(),
+        city: form.city.trim(),
+        state: form.state.trim(),
+        pincode: form.pincode.trim(),
+        notes: form.notes.trim(),
+      };
+
       const orderPayload = {
-        customer: form,
+        customer,
         items: cartItems.map(({ id, name, quantity, image, path }) => ({
           id,
           name,
@@ -78,19 +100,21 @@ export default function Checkout() {
 
       const { response, data } = await postJson("/api/orders", orderPayload);
 
-      if (!response.ok) {
+      if (!response.ok || !data.success) {
         setError(data.message || "Could not place order. Please try again.");
         return;
       }
 
-      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppOrderText(data.orderId, form, cartItems)}`;
+      const whatsappUrl =
+        data.whatsappUrl ||
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppOrderText(data.orderId, customer, cartItems)}`;
 
       clearCart();
       navigate("/order-success", {
         state: { orderId: data.orderId, whatsappUrl },
       });
     } catch {
-      setError("Network error. Please check your connection and try again.");
+      setError("Unable to reach the server. Please try again later.");
     } finally {
       setLoading(false);
     }

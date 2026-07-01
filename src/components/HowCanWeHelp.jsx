@@ -1,7 +1,7 @@
 import "./HowCanWeHelp.css";
 import { useState } from "react";
 import { postJson } from "../config/api";
-import { validateEmail, validatePhone } from "../utils/formValidation";
+import { validateEmail, validatePhone, normalizePhone } from "../utils/formValidation";
 import ElectricalBackdrop from "./ElectricalBackdrop";
 import {
   Zap,
@@ -75,16 +75,38 @@ export default function HowCanWeHelp() {
     setStatus(null);
 
     try {
-      const { response, data } = await postJson("/api/inquiry", form);
+      const { response, data } = await postJson("/api/inquiry", {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: normalizePhone(form.phone),
+        message: form.message.trim(),
+      });
 
       if (response.ok && data.success) {
-        setStatus({ type: "success", text: "Message sent! Our team will contact you soon." });
+        const note =
+          data.emailSent === false
+            ? " (Saved — email notification is delayed; our team will still follow up.)"
+            : "";
+        setStatus({
+          type: data.emailSent === false ? "warning" : "success",
+          text: "Message sent! Our team will contact you within 24 hours." + note,
+        });
         setForm({ name: "", email: "", phone: "", message: "" });
+      } else if (response.status === 409 || data.duplicate) {
+        setStatus({
+          type: "error",
+          text:
+            data.message ||
+            "You have already sent a message with this email and mobile number.",
+        });
       } else {
         setStatus({ type: "error", text: data.message || "Failed to send message." });
       }
     } catch {
-      setStatus({ type: "error", text: "Server error. Please try again later." });
+      setStatus({
+        type: "error",
+        text: "Unable to reach the server. Please try again later.",
+      });
     } finally {
       setLoading(false);
     }

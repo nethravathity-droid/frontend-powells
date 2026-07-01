@@ -1,24 +1,23 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { authFetch } from "../config/api";
 import "./Admin.css";
 
-const TABS = [
+const COMPANY_TABS = [
   { id: "all", label: "All Submissions" },
-  { id: "contact", label: "Contact / Quotation" },
+  { id: "contact", label: "Contact Page" },
+  { id: "inquiry", label: "Home — Send Us a Message" },
+  { id: "subscribe", label: "Newsletter Subscribe" },
+  { id: "orders", label: "Product Orders" },
   { id: "channel-partner", label: "Channel Partner" },
-  { id: "inquiry", label: "Home Inquiry" },
-  { id: "subscribe", label: "Subscribe" },
-  { id: "orders", label: "Shop Orders (COD)" },
-  { id: "logins", label: "Login History" },
-  { id: "users", label: "Registered Users" },
 ];
 
 const TYPE_LABELS = {
-  contact: "Contact",
-  inquiry: "Inquiry",
-  subscribe: "Subscribe",
+  contact: "Contact Page",
+  inquiry: "Home Message",
+  subscribe: "Newsletter",
   "channel-partner": "Channel Partner",
+  order: "Product Order",
 };
 
 function formatDate(value) {
@@ -29,72 +28,137 @@ function formatDate(value) {
   });
 }
 
-function renderSubmissionRow(item) {
+function DetailRow({ label, value }) {
+  if (!value || value === "—") return null;
+  return (
+    <div className="admin-detail-row">
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
+  );
+}
+
+function SubmissionDetail({ item }) {
   const d = item.data || {};
+
   if (item.type === "contact") {
     return (
       <>
-        <td>{`${d.firstName || ""} ${d.lastName || ""}`.trim()}</td>
-        <td>{d.email}</td>
-        <td>{d.phone}</td>
-        <td className="admin-cell-message">
-          <strong>{d.requestType || d.inquiryType || "Contact"}</strong>
-          {d.message && d.message !== "—" ? ` — ${d.message}` : ""}
-        </td>
+        <DetailRow label="Request Type" value={d.requestType || d.inquiryType} />
+        <DetailRow label="First Name" value={d.firstName} />
+        <DetailRow label="Last Name" value={d.lastName} />
+        <DetailRow label="Email" value={d.email} />
+        <DetailRow label="Mobile" value={d.phone} />
+        <DetailRow label="Message" value={d.message} />
       </>
     );
   }
-  if (item.type === "channel-partner") {
-    return (
-      <>
-        <td>{d.companyName}</td>
-        <td>{d.email}</td>
-        <td>{d.phone}</td>
-        <td className="admin-cell-message">
-          <strong>{d.contactName || "—"}</strong>
-          {d.partnerTypeLabel ? ` · ${d.partnerTypeLabel}` : ""}
-          {d.city || d.state ? ` · ${[d.city, d.state].filter(Boolean).join(", ")}` : ""}
-          {d.message ? ` — ${d.message}` : ""}
-        </td>
-      </>
-    );
-  }
+
   if (item.type === "inquiry") {
     return (
       <>
-        <td>{d.name}</td>
-        <td>{d.email}</td>
-        <td>{d.phone}</td>
-        <td className="admin-cell-message">{d.message}</td>
+        <DetailRow label="Name" value={d.name} />
+        <DetailRow label="Email" value={d.email} />
+        <DetailRow label="Mobile" value={d.phone} />
+        <DetailRow label="Message" value={d.message} />
       </>
     );
   }
+
   if (item.type === "subscribe") {
+    return <DetailRow label="Email" value={d.email} />;
+  }
+
+  if (item.type === "channel-partner") {
     return (
       <>
-        <td>{d.email}</td>
-        <td>—</td>
-        <td>—</td>
-        <td>Newsletter signup</td>
+        <DetailRow label="Contact Name" value={d.contactName} />
+        <DetailRow label="Company" value={d.companyName} />
+        <DetailRow label="Partner Type" value={d.partnerTypeLabel || d.partnerType} />
+        <DetailRow label="Email" value={d.email} />
+        <DetailRow label="Mobile" value={d.phone} />
+        <DetailRow label="City" value={d.city} />
+        <DetailRow label="State" value={d.state} />
+        <DetailRow label="GST Number" value={d.gstNumber} />
+        <DetailRow label="Message" value={d.message} />
       </>
     );
   }
+
   return null;
+}
+
+function OrderDetail({ order }) {
+  const c = order.customer || {};
+  const address = [c.address, c.city, c.state, c.pincode].filter(Boolean).join(", ");
+
+  return (
+    <>
+      <DetailRow label="Order ID" value={order.orderId} />
+      <DetailRow label="Status" value={order.status || "pending"} />
+      <DetailRow label="Customer Name" value={c.name} />
+      <DetailRow label="Email" value={c.email} />
+      <DetailRow label="Mobile" value={c.phone} />
+      <DetailRow label="Delivery Address" value={address} />
+      <DetailRow label="Order Notes" value={c.notes} />
+      <div className="admin-detail-row admin-detail-row--block">
+        <span>Products</span>
+        <ul className="admin-order-items">
+          {(order.items || []).map((item) => (
+            <li key={`${item.id}-${item.name}`}>
+              {item.name} × {item.quantity}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+function getSubmissionSummary(item) {
+  const d = item.data || {};
+  if (item.type === "contact") {
+    return {
+      name: `${d.firstName || ""} ${d.lastName || ""}`.trim(),
+      email: d.email,
+      phone: d.phone,
+      detail: d.requestType || d.inquiryType || "Contact",
+    };
+  }
+  if (item.type === "inquiry") {
+    return { name: d.name, email: d.email, phone: d.phone, detail: d.message };
+  }
+  if (item.type === "subscribe") {
+    return { name: "—", email: d.email, phone: "—", detail: "Newsletter signup" };
+  }
+  if (item.type === "channel-partner") {
+    return {
+      name: d.companyName,
+      email: d.email,
+      phone: d.phone,
+      detail: `${d.contactName || ""}${d.partnerTypeLabel ? ` · ${d.partnerTypeLabel}` : ""}`.trim(),
+    };
+  }
+  return { name: "—", email: "—", phone: "—", detail: "—" };
 }
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const basePath = location.pathname.startsWith("/panel") ? "/panel" : "/admin";
+
   const [tab, setTab] = useState("all");
   const [stats, setStats] = useState(null);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selected, setSelected] = useState(null);
   const adminUser = JSON.parse(localStorage.getItem("adminUser") || "null");
 
   const logout = () => {
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminUser");
-    navigate("/admin/login");
+    navigate(`${basePath}/login`);
   };
 
   const loadData = useCallback(async () => {
@@ -110,23 +174,15 @@ export default function AdminDashboard() {
     const statsRes = await authFetch("/api/admin/stats");
     if (statsRes.response.ok) setStats(statsRes.data.stats);
 
-    if (tab === "logins") {
-      const res = await authFetch("/api/admin/logins?limit=50");
+    if (tab === "orders") {
+      const res = await authFetch("/api/admin/orders?limit=100");
       if (res.response.ok) setItems(res.data.items || []);
-      else setError(res.data.message || "Failed to load data");
-    } else if (tab === "users") {
-      const res = await authFetch("/api/admin/users");
-      if (res.response.ok) setItems(res.data.items || []);
-      else setError(res.data.message || "Failed to load data");
-    } else if (tab === "orders") {
-      const res = await authFetch("/api/admin/orders?limit=50");
-      if (res.response.ok) setItems(res.data.items || []);
-      else setError(res.data.message || "Failed to load data");
+      else setError(res.data.message || "Failed to load orders");
     } else {
       const typeParam = tab === "all" ? "" : `&type=${tab}`;
-      const res = await authFetch(`/api/admin/submissions?limit=50${typeParam}`);
+      const res = await authFetch(`/api/admin/submissions?limit=100${typeParam}`);
       if (res.response.ok) setItems(res.data.items || []);
-      else setError(res.data.message || "Failed to load data");
+      else setError(res.data.message || "Failed to load submissions");
     }
 
     setLoading(false);
@@ -134,13 +190,13 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     if (!localStorage.getItem("adminToken")) {
-      navigate("/admin/login");
+      navigate(`${basePath}/login`);
       return;
     }
     loadData();
-  }, [loadData, navigate]);
+  }, [loadData, navigate, basePath]);
 
-  const isSubmissionTab = !["logins", "users", "orders"].includes(tab);
+  const isOrderTab = tab === "orders";
 
   return (
     <div className="admin-page">
@@ -148,8 +204,10 @@ export default function AdminDashboard() {
         <div className="admin-header-left">
           <img src="/image/logo2.png" alt="Powells" className="admin-logo" />
           <div>
-            <h1>Powells Admin Dashboard</h1>
-            <p>{adminUser?.email || "Admin"}</p>
+            <h1>Powells Submissions Panel</h1>
+            <p>
+              {adminUser?.email || "Company login"} · Contact, inquiries, subscribe &amp; orders
+            </p>
           </div>
         </div>
         <div className="admin-header-actions">
@@ -165,15 +223,11 @@ export default function AdminDashboard() {
       {stats && (
         <div className="admin-stats">
           <div className="admin-stat-card">
-            <span>Contact</span>
+            <span>Contact Page</span>
             <strong>{stats.contact}</strong>
           </div>
           <div className="admin-stat-card">
-            <span>Channel Partner</span>
-            <strong>{stats.channelPartner}</strong>
-          </div>
-          <div className="admin-stat-card">
-            <span>Inquiries</span>
+            <span>Home Messages</span>
             <strong>{stats.inquiry}</strong>
           </div>
           <div className="admin-stat-card">
@@ -181,27 +235,22 @@ export default function AdminDashboard() {
             <strong>{stats.subscribe}</strong>
           </div>
           <div className="admin-stat-card">
-            <span>Shop Orders</span>
+            <span>Orders</span>
             <strong>{stats.orders ?? 0}</strong>
-          </div>
-          <div className="admin-stat-card">
-            <span>Logins</span>
-            <strong>{stats.logins}</strong>
-          </div>
-          <div className="admin-stat-card">
-            <span>Users</span>
-            <strong>{stats.users}</strong>
           </div>
         </div>
       )}
 
       <nav className="admin-tabs">
-        {TABS.map((t) => (
+        {COMPANY_TABS.map((t) => (
           <button
             key={t.id}
             type="button"
             className={tab === t.id ? "active" : ""}
-            onClick={() => setTab(t.id)}
+            onClick={() => {
+              setTab(t.id);
+              setSelected(null);
+            }}
           >
             {t.label}
           </button>
@@ -209,92 +258,29 @@ export default function AdminDashboard() {
       </nav>
 
       <div className="admin-panel">
-        {loading && <p className="admin-loading">Loading…</p>}
+        {loading && <p className="admin-loading">Loading submissions…</p>}
         {error && <p className="admin-msg admin-msg-error">{error}</p>}
 
-        {!loading && tab === "logins" && (
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Email</th>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Source</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.length === 0 ? (
-                <tr>
-                  <td colSpan={6} className="admin-empty">No login records yet</td>
-                </tr>
-              ) : (
-                items.map((row) => (
-                  <tr key={row._id}>
-                    <td>{formatDate(row.createdAt)}</td>
-                    <td>{row.email}</td>
-                    <td>{row.name || "—"}</td>
-                    <td>{row.role}</td>
-                    <td>{row.source}</td>
-                    <td>
-                      <span className={row.success ? "admin-badge ok" : "admin-badge fail"}>
-                        {row.success ? "Success" : "Failed"}
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        )}
-
-        {!loading && tab === "users" && (
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Registered</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.length === 0 ? (
-                <tr>
-                  <td colSpan={4} className="admin-empty">No registered users yet</td>
-                </tr>
-              ) : (
-                items.map((row) => (
-                  <tr key={row._id}>
-                    <td>{formatDate(row.createdAt)}</td>
-                    <td>{row.name}</td>
-                    <td>{row.email}</td>
-                    <td>{row.phone}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        )}
-
-        {!loading && tab === "orders" && (
+        {!loading && isOrderTab && (
           <table className="admin-table">
             <thead>
               <tr>
                 <th>Date</th>
                 <th>Order ID</th>
                 <th>Customer</th>
+                <th>Email</th>
                 <th>Phone</th>
                 <th>Items</th>
-                <th>Total (COD)</th>
                 <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {items.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="admin-empty">No orders yet</td>
+                  <td colSpan={8} className="admin-empty">
+                    No orders submitted yet
+                  </td>
                 </tr>
               ) : (
                 items.map((row) => (
@@ -302,13 +288,22 @@ export default function AdminDashboard() {
                     <td>{formatDate(row.createdAt)}</td>
                     <td>{row.orderId}</td>
                     <td>{row.customer?.name}</td>
+                    <td>{row.customer?.email}</td>
                     <td>{row.customer?.phone}</td>
                     <td className="admin-cell-message">
                       {(row.items || []).map((i) => `${i.name} ×${i.quantity}`).join(", ")}
                     </td>
-                    <td>₹{row.total?.toLocaleString("en-IN")}</td>
                     <td>
                       <span className="admin-badge ok">{row.status || "pending"}</span>
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        className="admin-view-btn"
+                        onClick={() => setSelected({ kind: "order", data: row })}
+                      >
+                        View
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -317,38 +312,100 @@ export default function AdminDashboard() {
           </table>
         )}
 
-        {!loading && isSubmissionTab && (
+        {!loading && !isOrderTab && (
           <table className="admin-table">
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Type</th>
+                <th>Source</th>
                 <th>Name / Company</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Details</th>
+                <th>Summary</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {items.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="admin-empty">No submissions yet</td>
+                  <td colSpan={7} className="admin-empty">
+                    No submissions yet for this section
+                  </td>
                 </tr>
               ) : (
-                items.map((row) => (
-                  <tr key={row._id}>
-                    <td>{formatDate(row.createdAt)}</td>
-                    <td>
-                      <span className="admin-badge type">{TYPE_LABELS[row.type] || row.type}</span>
-                    </td>
-                    {renderSubmissionRow(row)}
-                  </tr>
-                ))
+                items.map((row) => {
+                  const summary = getSubmissionSummary(row);
+                  return (
+                    <tr key={row._id}>
+                      <td>{formatDate(row.createdAt)}</td>
+                      <td>
+                        <span className="admin-badge type">
+                          {TYPE_LABELS[row.type] || row.type}
+                        </span>
+                      </td>
+                      <td>{summary.name}</td>
+                      <td>{summary.email}</td>
+                      <td>{summary.phone}</td>
+                      <td className="admin-cell-message">{summary.detail}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="admin-view-btn"
+                          onClick={() => setSelected({ kind: "submission", data: row })}
+                        >
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>
         )}
       </div>
+
+      {selected && (
+        <div
+          className="admin-modal-backdrop"
+          onClick={() => setSelected(null)}
+          role="presentation"
+        >
+          <div
+            className="admin-modal"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="admin-detail-title"
+          >
+            <div className="admin-modal-header">
+              <h2 id="admin-detail-title">
+                {selected.kind === "order"
+                  ? "Order Details"
+                  : TYPE_LABELS[selected.data.type] || "Submission Details"}
+              </h2>
+              <button
+                type="button"
+                className="admin-modal-close"
+                onClick={() => setSelected(null)}
+                aria-label="Close"
+              >
+                ×
+              </button>
+            </div>
+            <p className="admin-modal-date">
+              Submitted {formatDate(selected.data.createdAt)}
+            </p>
+            <div className="admin-modal-body">
+              {selected.kind === "order" ? (
+                <OrderDetail order={selected.data} />
+              ) : (
+                <SubmissionDetail item={selected.data} />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

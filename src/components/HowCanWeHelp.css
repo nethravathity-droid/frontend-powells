@@ -213,6 +213,11 @@
   color: #047857;
 }
 
+.help-form-status--warning {
+  background: #fffbeb;
+  color: #b45309;
+}
+
 .help-form-status--error {
   background: #fef2f2;
   color: #b91c1c;

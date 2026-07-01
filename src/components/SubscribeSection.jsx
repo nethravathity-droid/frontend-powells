@@ -28,16 +28,33 @@ export default function SubscribeSection() {
     setStatus(null);
 
     try {
-      const { response, data } = await postJson("/api/subscribe", { email: email.trim() });
+      const { response, data } = await postJson("/api/subscribe", {
+        email: email.trim().toLowerCase(),
+      });
 
       if (response.ok && data.success) {
-        setStatus({ type: "success", text: "You're subscribed! Watch your inbox for updates." });
+        const note =
+          data.emailSent === false
+            ? " (Saved — confirmation email is delayed.)"
+            : "";
+        setStatus({
+          type: data.emailSent === false ? "warning" : "success",
+          text: "You're subscribed! Watch your inbox for Powells updates." + note,
+        });
         setEmail("");
+      } else if (response.status === 409 || data.duplicate) {
+        setStatus({
+          type: "error",
+          text: data.message || "This email is already subscribed.",
+        });
       } else {
         setStatus({ type: "error", text: data.message || "Subscription failed." });
       }
     } catch {
-      setStatus({ type: "error", text: "Server error. Please try again later." });
+      setStatus({
+        type: "error",
+        text: "Unable to reach the server. Please try again later.",
+      });
     } finally {
       setLoading(false);
     }
