@@ -46,7 +46,7 @@ export default function ProductHero() {
 METER (MFM)</h1>
           <p>
           How MFM Works.
-            <ul>
+            <ul> 
           <li>Replaces multiple meters in one device — saves panel space and wiring.</li>
           <li>Provides real-time and precise measurement of electrical parameters.</li>
           <li>Reduces installation cost and maintenance compared to multiple meters.</li>
