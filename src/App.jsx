@@ -18,7 +18,6 @@ import Elr from "./pages/Elr";
 
 import Mpr from "./pages/Mpr";
 import SPD from "./pages/SPD";
-import Amf from "./pages/Amf";
 import Ats2p from "./pages/Ats2p";
 import Ats from "./pages/Ats";
 import About from "./pages/About";
@@ -94,8 +93,7 @@ export default function App() {
          <Route path="/pages/Elr" element={<Elr />} /> 
           <Route path="/pages/Mpr" element={<Mpr />} /> 
               <Route path="/pages/SPD" element={<SPD />} /> 
-              <Route path="/pages/Amf" element={<Amf />} /> 
-                         <Route path="/pages/Ats2p" element={<Ats2p />} /> 
+                            <Route path="/pages/Ats2p" element={<Ats2p />} /> 
                          <Route path="/pages/Ats" element={<Ats />} />
                          <Route path="/pages/ats" element={<Navigate to="/pages/Ats" replace />} />
                          <Route path="/pages/Mcb" element={<Mcb />} />

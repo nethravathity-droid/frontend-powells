@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./InfoTabs.css";
 import ProductPageCart from "../components/ProductPageCart";
 const images = [
-  "/image/kwh.png",
+  "/image/kwh93.png",
 ];
 
 export default function ProductHero() {

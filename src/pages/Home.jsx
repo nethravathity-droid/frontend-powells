@@ -704,7 +704,7 @@ export default function Home() {
             </p>
             <div className="progress-highlights">
               <span className="progress-highlight">
-                <strong>25+</strong> Years
+                <strong>06+</strong> Years
               </span>
               <span className="progress-highlight">
                 <strong>500+</strong> Clients

@@ -34,7 +34,6 @@ const PRODUCT_MENU = [
   {
     title: "Automatic Controllers",
     links: [
-      { label: "AMF Controller", path: "/pages/Amf" },
       { label: "ATS 2 & 4 Pole", path: "/pages/Ats2p" },
       { label: "Automatic Transfer Switch", path: "/pages/Ats" },
     ],

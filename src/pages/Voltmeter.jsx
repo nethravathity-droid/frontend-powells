@@ -89,25 +89,25 @@ export default function ProductHero() {
   {[
     {
       id: "vm9601",
-      img: "volt1.png",
+      img: "volt3.png",
       name: "VM9601",
       desc: "Single Phase Voltmeter."
     },
     {
       id: "vm9603",
-      img: "volt2.png",
+      img: "volt1.png",
       name: "VM9603",
       desc: "Three Phase Voltmeter."
     },
     {
       id: "vm4801",
-      img:"volt3.png",
+      img:"vm4801.png",
       name: "VM4801",
       desc: "Single Phase with 96X48."
     },
      {
       id: "vm96dc",
-      img: "volt1.png",
+      img: "volt2.png",
       name: "VM96DC",
       desc: "Industrial DC Meter 96X96."
     },

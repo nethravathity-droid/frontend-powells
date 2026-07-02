@@ -5,7 +5,7 @@ import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
 
 const images = [
-  "/image/avm.png",
+  "/image/avm9600.png",
   "/image/avm.png",
   
 ];
@@ -94,7 +94,7 @@ How an AVM Meter Works            <ul>
   {[
     {
       id: "avm9601",
-      img: "avm.png",
+      img: "avm9600.png",
       name: "AVM 9601",
       desc: "Single Phase Ammeter & Voltmeter."
     },

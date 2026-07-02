@@ -6,8 +6,8 @@ import "./InfoTabs.css";
 import VariantCartButton from "../components/VariantCartButton";
 
 const images = [
-  "/image/mt1.png",
-  "/image/mt2.png",
+  "/image/am9601.png",
+  "/image/am9603.png",
   "/image/mt3.png",
 ];
 
@@ -89,13 +89,13 @@ export default function ProductHero() {
   {[
     {
       id: "am9601",
-      img: "mt1.png",
+      img: "am9601.png",
       name: "AM9601",
       desc: "High-accuracy Single Phase Ammeter."
     },
     {
       id: "am9603",
-      img: "mt2.png",
+      img: "am9603.png",
       name: "AM9603",
       desc: "Three Phase Ammeter."
     },
