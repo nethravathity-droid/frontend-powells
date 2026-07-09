@@ -144,9 +144,9 @@ export default function HowCanWeHelp() {
           </ul>
 
           <div className="help-contact-strip">
-            <a href="tel:+919148243088">
+            <a href="tel:+918904278956">
               <Phone size={16} aria-hidden="true" />
-              +91 9148243088
+              +91 8904278956
             </a>
             <a href="mailto:sales@powellsindiacorporation.com">
               <Mail size={16} aria-hidden="true" />

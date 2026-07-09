@@ -149,7 +149,7 @@ export default function Contact() {
                 <div className="info-icon">📞</div>
                 <div className="info-text">
                   <p>Call us directly</p>
-                  <h4>+91 9148243088</h4>
+                  <h4>+91 8904278956</h4>
                 </div>
               </div>
 
@@ -258,7 +258,7 @@ export default function Contact() {
               right electrical solutions for your industry.
             </p>
             <div className="contact-buttons">
-              <Link to="tel:+919148243088" className="btn primary">
+              <Link to="tel:+918904278956" className="btn primary">
                 📞 Talk to an Expert
               </Link>
               <Link
