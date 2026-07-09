@@ -2,7 +2,7 @@ import "./Whatsapp.css";
 
 export default function WhatsApp() {
   // Replace with your company WhatsApp number
-  const phoneNumber = "919148243088";
+  const phoneNumber = "918904278956";
 
   // Pre-filled message
   const message =

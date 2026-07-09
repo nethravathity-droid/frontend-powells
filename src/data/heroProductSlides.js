@@ -76,13 +76,13 @@ export const heroProductSlides = [
     gradient:
       "radial-gradient(ellipse 68% 52% at 72% 44%, rgba(234, 179, 8, 0.12) 0%, transparent 58%), linear-gradient(145deg, #121008 0%, #1c1606 100%)",
   },
-  {
+  /*{
     src: "/image/amf.png",
     label: "AMF Controller",
     category: "Automation",
     gradient:
       "radial-gradient(ellipse 70% 55% at 75% 45%, rgba(129, 140, 248, 0.2) 0%, transparent 60%), linear-gradient(145deg, #0f0a24 0%, #1a1040 55%, #08051a 100%)",
-  },
+  },*/
   {
     src: "/image/ats4pole.png",
     label: "ATS 4 Pole",
