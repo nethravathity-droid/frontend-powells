@@ -28,7 +28,7 @@ export const PRODUCTS = [
   { id: "elr", name: "ELR & CBCT", price: 5699, image: "/image/elr.png", path: "/pages/Elr", category: "Protection" },
   { id: "mpr", name: "MPR Meter", price: 6299, image: "/image/Mpr.png", path: "/pages/Mpr", category: "Protection" },
   { id: "spd", name: "SPD", price: 1899, image: "/image/spd4.jpg", path: "/pages/SPD", category: "Protection" },
-  { id: "amf", name: "AMF Controller", price: 8999, image: "/image/amf.png", path: "/pages/Amf", category: "Automation" },
+  /*{ id: "amf", name: "AMF Controller", price: 8999, image: "/image/amf.png", path: "/pages/Amf", category: "Automation" },*/
   { id: "ats2p", name: "ATS 2 & 4 Pole", price: 12499, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation" },
   { id: "ats2p-mini-2p-63a", name: "Mini ATS 63A 2 Pole", price: 8999, image: "/image/ats4pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
   { id: "ats2p-mini-4p-63a", name: "Mini ATS 63A 4 Pole", price: 10999, image: "/image/ats2pole.png", path: "/pages/Ats2p", category: "Automation", parentId: "ats2p" },
@@ -36,7 +36,7 @@ export const PRODUCTS = [
   { id: "mcb", name: "MCB", price: 899, image: "/image/4pole_mcb.png", path: "/pages/Mcb", category: "Switchgear" },
   { id: "rccb", name: "RCCB", price: 1299, image: "/image/rccb_4pole.png", path: "/pages/Rccb", category: "Switchgear" },
   { id: "isolator", name: "Isolators", price: 1599, image: "/image/isolators.png", path: "/pages/Isolator", category: "Switchgear" },
-  { id: "dbbox", name: "DB Box", price: 2499, image: "/image/digital_timers.png", path: "/pages/DbBox", category: "Switchgear" },
+  { id: "dbbox", name: "DB Box", price: 2499, image: "/image/dbbox.png", path: "/pages/DbBox", category: "Switchgear" },
   { id: "mcb-1p", name: "1 Pole MCB", price: 499, image: "/image/1p_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },
   { id: "mcb-2p", name: "2 Pole MCB", price: 699, image: "/image/2pole_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },
   { id: "mcb-3p", name: "3 Pole MCB", price: 799, image: "/image/3pole_mcb.png", path: "/pages/Mcb", category: "Switchgear", parentId: "mcb" },

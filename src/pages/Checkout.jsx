@@ -7,7 +7,7 @@ import { postJson } from "../config/api";
 import { validateEmail, validatePhone, normalizePhone } from "../utils/formValidation";
 import "./Shop.css";
 
-const WHATSAPP_NUMBER = "919148243088";
+const WHATSAPP_NUMBER = "918904278956";
 
 function buildWhatsAppOrderText(orderId, customer, items) {
   const lines = items.map((i) => `• ${i.name} × ${i.quantity}`).join("\n");

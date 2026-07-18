@@ -5,7 +5,7 @@ import AddToCartButton from "../components/AddToCartButton";
 const DBBOX_PRODUCT = {
   id: "dbbox",
   name: "DB Box",
-  image: "/image/digital_timers.png",
+  image: "/image/dbbox.png",
   path: "/pages/DbBox",
 };
 
@@ -54,7 +54,7 @@ export default function DbBox() {
             </div>
           </div>
           <div className="dbbox-image">
-            <img src="/image/digital_timers.png" alt="Powells DB Box" />
+            <img src="/image/dbbox.png" alt="Powells DB Box" />
           </div>
         </div>
       </section>

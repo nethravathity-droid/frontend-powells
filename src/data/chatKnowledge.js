@@ -10,7 +10,7 @@ export const companyInfo = {
     support: "support@powellsindiacorporation.com",
     purchase: "purchase@powellsindiacorporation.com",
   },
-  whatsapp: "919148243088",
+  whatsapp: "918904278956",
 };
 
 export const productCatalog = [

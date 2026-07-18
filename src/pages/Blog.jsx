@@ -224,7 +224,7 @@ export default function Blog() {
 
       </section>
 
-      {/* GALLERY */}
+      {/* GALLERY 
       <section className="gallery-section">
 
         <div className="gallery-heading reveal">
@@ -282,7 +282,7 @@ export default function Blog() {
 
         </div>
 
-      </section>
+      </section>*/}
     </div>
   );
 }

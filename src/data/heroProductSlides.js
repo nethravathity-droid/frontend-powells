@@ -1,55 +1,55 @@
 export const heroProductSlides = [
   {
-    src: "/image/mt3.png",
+    src: "/image/am9603.png",
     label: "Ammeters",
     category: "Basic Meters",
     gradient:
       "radial-gradient(ellipse 70% 55% at 72% 45%, rgba(59, 130, 246, 0.22) 0%, transparent 60%), linear-gradient(145deg, #040f1f 0%, #0c1a3a 50%, #081423 100%)",
   },
   {
-    src: "/image/vm9601.png",
+    src: "/image/avm9600.png",
     label: "Voltmeters",
     category: "Basic Meters",
     gradient:
       "radial-gradient(ellipse 65% 50% at 68% 40%, rgba(96, 165, 250, 0.2) 0%, transparent 58%), linear-gradient(145deg, #051225 0%, #0f172a 55%, #061018 100%)",
   },
   {
-    src: "/image/avm.png",
+    src: "/image/kwh93.png",
     label: "AVM Meter",
     category: "Basic Meters",
     gradient:
       "radial-gradient(ellipse 60% 48% at 75% 42%, rgba(14, 165, 233, 0.18) 0%, transparent 55%), linear-gradient(150deg, #04101f 0%, #0a2540 100%)",
   },
   {
-    src: "/image/mt5.png",
+    src: "/image/vaf9603.png",
     label: "VAF Meter",
     category: "Basic Meters",
     gradient:
       "radial-gradient(ellipse 70% 50% at 70% 50%, rgba(56, 189, 248, 0.16) 0%, transparent 60%), linear-gradient(140deg, #030d18 0%, #0c2340 100%)",
   },
   {
-    src: "/image/hz.png",
+    src: "/image/vm96dc.png",
     label: "HZ Meter",
     category: "Basic Meters",
     gradient:
       "radial-gradient(ellipse 65% 45% at 78% 38%, rgba(45, 212, 191, 0.14) 0%, transparent 55%), linear-gradient(145deg, #041018 0%, #0a1f35 100%)",
   },
   {
-    src: "/image/kwh.png",
+    src: "/image/vm4801.png",
     label: "KWH Energy Meter",
     category: "Energy Meters",
     gradient:
       "radial-gradient(ellipse 68% 52% at 74% 44%, rgba(20, 184, 166, 0.2) 0%, transparent 58%), linear-gradient(145deg, #031612 0%, #0a2e28 55%, #051510 100%)",
   },
   {
-    src: "/image/mfm.png",
+    src: "/image/vm9601.png",
     label: "MFM Meter",
     category: "Energy Meters",
     gradient:
       "radial-gradient(ellipse 62% 48% at 72% 46%, rgba(52, 211, 153, 0.17) 0%, transparent 56%), linear-gradient(150deg, #041815 0%, #0d3329 100%)",
   },
   {
-    src: "/image/kwh93.png",
+    src: "/image/volt1.png",
     label: "KWH Panel Meter",
     category: "Energy Meters",
     gradient:
@@ -134,6 +134,13 @@ export const heroProductSlides = [
   },
   {
     src: "/image/digital_timers.png",
+    label: "DB Box",
+    category: "Low Voltage Switchgear",
+    gradient:
+      "radial-gradient(ellipse 62% 50% at 72% 44%, rgba(203, 213, 225, 0.1) 0%, transparent 56%), linear-gradient(145deg, #0a0e16 0%, #151c28 100%)",
+  },
+  {
+    src: "/image/dbbox.png",
     label: "DB Box",
     category: "Low Voltage Switchgear",
     gradient:
