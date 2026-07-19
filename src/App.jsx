@@ -32,6 +32,7 @@ import Mcb from "./pages/Mcb";
 import Rccb from "./pages/Rccb";
 import Isolator from "./pages/Isolator";
 import DbBox from "./pages/DbBox";
+import Timer from "./pages/Timer";
 import ChannelPartner from "./pages/ChannelPartner";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -39,6 +40,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import CartToast from "./components/CartToast";
+import PosterAd from "./components/PosterAd";
 import ElectricalBackdrop from "./components/ElectricalBackdrop";
 import ProductPageAnimations from "./components/ProductPageAnimations";
 
@@ -66,6 +68,7 @@ export default function App() {
       <ProductPageAnimations />
       <Header />
       <CartToast />
+      <PosterAd />
       <SocialSidebar />
       <ScrollToTop />
       <main className="site-main">
@@ -100,6 +103,8 @@ export default function App() {
                          <Route path="/pages/Rccb" element={<Rccb />} />
                          <Route path="/pages/Isolator" element={<Isolator />} />
                          <Route path="/pages/DbBox" element={<DbBox />} />
+                         <Route path="/pages/Timer" element={<Timer />} />
+                         <Route path="/pages/timer" element={<Navigate to="/pages/Timer" replace />} />
                          <Route path="/pages/dbbox" element={<Navigate to="/pages/DbBox" replace />} />
                          <Route path="/pages/isolators" element={<Navigate to="/pages/Isolator" replace />} />
                          <Route path="/products/mcb" element={<Navigate to="/pages/Mcb" replace />} />

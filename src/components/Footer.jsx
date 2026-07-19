@@ -1,12 +1,14 @@
 import "./Footer.css";
 import { useNavigate, Link } from "react-router-dom";
 import { SHOW_CHANNEL_PARTNER } from "../config/site";
+import { FooterPosterAd } from "./PosterAd";
 
 export default function Footer() {
   const navigate = useNavigate();
 
   return (
     <footer className="footer">
+      <FooterPosterAd />
       <div className="footer-container">
         <div className="footer-brand">
           <div className="logo1" onClick={() => navigate("/")}>
@@ -41,7 +43,7 @@ export default function Footer() {
 
         <div className="footer-links">
           <h4>Contact Numbers</h4>
-          <p>080 28016867</p>
+          <p>080 28016867 / 7975761024</p>
           <p>+91 8431183166 / 7892540406</p>
           <p>+91 9148243088 / 7892712336</p>
           <p>+91 8431163665 / 8050264257</p>

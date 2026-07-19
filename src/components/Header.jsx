@@ -36,6 +36,7 @@ const PRODUCT_MENU = [
     links: [
       { label: "ATS 2 & 4 Pole", path: "/pages/Ats2p" },
       { label: "Automatic Transfer Switch", path: "/pages/Ats" },
+      { label: "Digital & Analog Timers", path: "/pages/Timer" },
     ],
   },
   {
@@ -45,6 +46,7 @@ const PRODUCT_MENU = [
       { label: "RCCB", path: "/pages/Rccb" },
       { label: "Isolators", path: "/pages/Isolator" },
       { label: "DB Box", path: "/pages/DbBox" },
+      { label: "Timer", path: "/pages/Timer" },
     ],
   },
 ];

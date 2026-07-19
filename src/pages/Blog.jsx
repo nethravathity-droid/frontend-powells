@@ -157,17 +157,17 @@ export default function Blog() {
 
           <div className="feature-list">
 
-            <div className="feature-card">
+            <div className="feature-card feature-card--metering">
               <h4>Smart Metering</h4>
               <span>AI Integrated Monitoring</span>
             </div>
 
-            <div className="feature-card">
+            <div className="feature-card feature-card--automation">
               <h4>Automation</h4>
               <span>Industrial Control Solutions</span>
             </div>
 
-            <div className="feature-card">
+            <div className="feature-card feature-card--switchgear">
               <h4>Switchgear</h4>
               <span>Reliable Power Distribution</span>
             </div>

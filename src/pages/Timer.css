@@ -1,41 +1,41 @@
-.dbbox-page {
+.timer-page {
   padding-top: var(--header-height, 88px);
   font-family: var(--font-sans, "Poppins", sans-serif);
 }
 
-.dbbox-page .container {
+.timer-page .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 clamp(16px, 4vw, 24px);
 }
 
-/* Hero */
-.dbbox-hero {
+.timer-hero {
   padding: clamp(48px, 6vw, 80px) clamp(20px, 5vw, 8%);
   background: linear-gradient(160deg, #081423 0%, #0f2850 55%, #0c4a6e 100%);
   color: #f8fafc;
 }
 
-.dbbox-hero .container {
+.timer-hero .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: clamp(32px, 5vw, 60px);
 }
 
-.dbbox-content {
+.timer-content {
   flex: 1;
+  min-width: 0;
 }
 
-.dbbox-content h1 {
-  font-size: clamp(32px, 4vw, 48px);
+.timer-content h1 {
+  font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
   color: #f8fafc;
 }
 
-.dbbox-content p {
+.timer-content p {
   font-size: clamp(15px, 1.7vw, 17px);
   line-height: 1.75;
   color: #94a3b8;
@@ -43,7 +43,7 @@
   max-width: 560px;
 }
 
-.dbbox-hero .hero-buttons {
+.timer-hero .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
@@ -51,73 +51,73 @@
   margin-top: 4px;
 }
 
-.dbbox-hero .hero-buttons .add-to-cart-btn {
+.timer-hero .hero-buttons .add-to-cart-btn {
   flex-shrink: 0;
 }
 
-/* Available sizes / variants */
-.dbbox-models {
-  padding: clamp(40px, 5vw, 56px) clamp(20px, 5vw, 8%);
-  background: #ffffff;
-}
-
-.dbbox-models .product-variant-grid__cards {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-@media (max-width: 991px) {
-  .dbbox-models .product-variant-grid__cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .dbbox-models .product-variant-grid__cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-.dbbox-image {
+.timer-images {
   flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.dbbox-image img {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+  max-width: 480px;
   width: 100%;
-  max-width: 420px;
-  object-fit: contain;
-  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.25));
 }
 
-/* Sections */
-.dbbox-features,
-.dbbox-specs,
-.dbbox-applications,
-.dbbox-benefits {
+.timer-image-card {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: clamp(12px, 2vw, 18px);
+  text-align: center;
+}
+
+.timer-image-card img {
+  width: 100%;
+  max-height: clamp(140px, 18vw, 200px);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
+}
+
+.timer-image-card figcaption {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+.timer-features,
+.timer-specs,
+.timer-applications,
+.timer-benefits {
   padding: clamp(56px, 7vw, 90px) clamp(20px, 5vw, 8%);
 }
 
-.dbbox-features {
+.timer-features {
   background: #f8fafc;
 }
 
-.dbbox-specs {
+.timer-specs {
   background: #f1f5f9;
 }
 
-.dbbox-applications {
+.timer-applications {
   background: #ffffff;
 }
 
-.dbbox-benefits {
+.timer-benefits {
   background: #f8fafc;
 }
 
-.dbbox-features h2,
-.dbbox-specs h2,
-.dbbox-applications h2,
-.dbbox-benefits h2 {
+.timer-features h2,
+.timer-specs h2,
+.timer-applications h2,
+.timer-benefits h2 {
   text-align: center;
   font-size: clamp(24px, 3.5vw, 36px);
   font-weight: 700;
@@ -152,8 +152,20 @@
   color: #64748b;
 }
 
-/* Specs table */
-.dbbox-specs table {
+.timer-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.timer-spec-block h3 {
+  text-align: center;
+  font-size: 18px;
+  color: #0f2850;
+  margin-bottom: 14px;
+}
+
+.timer-spec-block table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
@@ -162,24 +174,19 @@
   box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
 }
 
-.dbbox-specs td {
-  padding: 16px 20px;
+.timer-spec-block td {
+  padding: 14px 16px;
   border: 1px solid #e2e8f0;
   font-size: 14px;
 }
 
-.dbbox-specs td:first-child {
+.timer-spec-block td:first-child {
   font-weight: 600;
   color: #0f2850;
-  width: 38%;
+  width: 42%;
   background: #f8fafc;
 }
 
-.dbbox-specs tr:nth-child(even) td:last-child {
-  background: #fafbfc;
-}
-
-/* Applications */
 .application-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -198,7 +205,6 @@
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
 }
 
-/* Benefits */
 .benefit-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -226,42 +232,45 @@
   color: #64748b;
 }
 
-/* CTA */
-.dbbox-cta {
+.timer-cta {
   background: linear-gradient(160deg, #081423 0%, #0f2850 100%);
   color: #f8fafc;
   padding: clamp(56px, 7vw, 80px) clamp(20px, 5vw, 8%);
   text-align: center;
 }
 
-.dbbox-cta h2 {
+.timer-cta h2 {
   font-size: clamp(24px, 3.5vw, 34px);
   margin-bottom: 16px;
 }
 
-.dbbox-cta p {
+.timer-cta p {
   max-width: 560px;
   margin: 0 auto 28px;
   line-height: 1.75;
   color: #94a3b8;
 }
 
-.dbbox-cta .primary-btn {
+.timer-cta .primary-btn {
   display: inline-flex;
 }
 
 @media (max-width: 991px) {
-  .dbbox-hero .container {
+  .timer-hero .container {
     flex-direction: column;
     text-align: center;
   }
 
-  .dbbox-content p {
+  .timer-content p {
     max-width: 100%;
   }
 
-  .dbbox-hero .hero-buttons {
+  .timer-hero .hero-buttons {
     justify-content: center;
+  }
+
+  .timer-images {
+    max-width: 100%;
   }
 
   .feature-grid,
@@ -269,16 +278,38 @@
   .benefit-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .timer-specs-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
+  .timer-images {
+    grid-template-columns: 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
   .feature-grid,
   .application-grid,
   .benefit-grid {
     grid-template-columns: 1fr;
   }
 
-  .dbbox-specs td:first-child {
-    width: 42%;
+  .timer-spec-block td:first-child {
+    width: 46%;
+  }
+
+  .timer-hero .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timer-hero .hero-buttons .primary-btn,
+  .timer-hero .hero-buttons .secondary-btn,
+  .timer-hero .hero-buttons .add-to-cart-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

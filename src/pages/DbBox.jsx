@@ -1,18 +1,38 @@
 import "./DbBox.css";
 import { Link } from "react-router-dom";
-import AddToCartButton from "../components/AddToCartButton";
+import ProductVariantGrid from "../components/ProductVariantGrid";
 
-const DBBOX_PRODUCT = {
-  id: "dbbox",
-  name: "DB Box",
-  image: "/image/dbbox.png",
-  path: "/pages/DbBox",
-};
+const DBBOX_VARIANTS = [
+  {
+    id: "dbbox-4way",
+    name: "4 Way DB Box",
+    desc: "Compact distribution board for small residential and lighting panels.",
+    image: "/image/dbbox.png",
+  },
+  {
+    id: "dbbox-6way",
+    name: "6 Way DB Box",
+    desc: "Ideal for apartments, shops and single-phase distribution layouts.",
+    image: "/image/dbbox.png",
+  },
+  {
+    id: "dbbox-8way",
+    name: "8 Way DB Box",
+    desc: "Balanced capacity for commercial offices and small industrial panels.",
+    image: "/image/dbbox.png",
+  },
+  {
+    id: "dbbox-12way",
+    name: "12 Way DB Box",
+    desc: "Extended modular ways for larger LT boards and multi-circuit setups.",
+    image: "/image/dbbox.png",
+  },
+];
 
 const SPECS = [
   ["Enclosure Type", "Metal / ABS (as per model)"],
   ["Rated Voltage", "240V / 415V AC"],
-  ["Ways Available", "4 Way – 24 Way (modular)"],
+  ["Ways Available", "4 Way, 6 Way, 8 Way, 12 Way"],
   ["Mounting", "Surface / Flush"],
   ["Protection Class", "IP40 / IP54 (model dependent)"],
   ["Standards", "IEC 61439 / IS compliant design"],
@@ -50,12 +70,22 @@ export default function DbBox() {
               <Link to="/pages/Contact" className="secondary-btn">
                 Get Quotation
               </Link>
-              <AddToCartButton product={DBBOX_PRODUCT} variant="primary" />
             </div>
           </div>
           <div className="dbbox-image">
             <img src="/image/dbbox.png" alt="Powells DB Box" />
           </div>
+        </div>
+      </section>
+
+      <section className="dbbox-models">
+        <div className="container">
+          <ProductVariantGrid
+            title="Available Sizes"
+            subtitle="Choose the modular way configuration for your distribution board. Add the size you need to cart."
+            path="/pages/DbBox"
+            items={DBBOX_VARIANTS}
+          />
         </div>
       </section>
 

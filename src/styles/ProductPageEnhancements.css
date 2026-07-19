@@ -29,6 +29,7 @@
 .rccb-page .primary-btn,
 .mcb-page .primary-btn,
 .dbbox-page .primary-btn,
+.timer-page .primary-btn,
 .spd-cta-btn.primary {
   display: inline-flex;
   align-items: center;
@@ -56,6 +57,7 @@
 .rccb-page .primary-btn:hover,
 .mcb-page .primary-btn:hover,
 .dbbox-page .primary-btn:hover,
+.timer-page .primary-btn:hover,
 .spd-cta-btn.primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 32px rgba(37, 99, 235, 0.4);
@@ -66,6 +68,7 @@
 .isolator-page .secondary-btn,
 .rccb-page .secondary-btn,
 .dbbox-page .secondary-btn,
+.timer-page .secondary-btn,
 .spd-cta-btn.secondary {
   display: inline-flex;
   align-items: center;
@@ -89,7 +92,8 @@
 .isolator-hero .secondary-btn,
 .rccb-hero .secondary-btn,
 .mcb-hero .secondary-btn,
-.dbbox-hero .secondary-btn {
+.dbbox-hero .secondary-btn,
+.timer-hero .secondary-btn {
   border-color: rgba(255, 255, 255, 0.85) !important;
   color: #ffffff !important;
 }
@@ -99,6 +103,7 @@
 .isolator-page .secondary-btn:hover,
 .rccb-page .secondary-btn:hover,
 .dbbox-page .secondary-btn:hover,
+.timer-page .secondary-btn:hover,
 .spd-cta-btn.secondary:hover {
   background: #1e3a8f !important;
   color: #ffffff !important;
@@ -109,7 +114,8 @@
 .isolator-hero .secondary-btn:hover,
 .rccb-hero .secondary-btn:hover,
 .mcb-hero .secondary-btn:hover,
-.dbbox-hero .secondary-btn:hover {
+.dbbox-hero .secondary-btn:hover,
+.timer-hero .secondary-btn:hover {
   background: #ffffff !important;
   color: #0f2850 !important;
   border-color: #ffffff !important;
@@ -175,6 +181,7 @@
 .rccb-page .product-tag,
 .mcb-page .product-tag,
 .dbbox-page .product-tag,
+.timer-page .product-tag,
 .rccb-tag {
   background: linear-gradient(135deg, #0284c7, #2563eb) !important;
   color: #fff !important;
