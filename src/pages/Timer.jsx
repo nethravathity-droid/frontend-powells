@@ -67,13 +67,13 @@ export default function Timer() {
               <img src="/image/digital_timers.png" alt="Powells digital timer" />
               <figcaption>Digital Timer</figcaption>
             </figure>
-           {/* <figure className="timer-image-card">
+            <figure className="timer-image-card">
               <img
                 src="/image/analog_timers-removebg-preview.png"
                 alt="Powells analog timer"
               />
               <figcaption>Analog Timer</figcaption>
-            </figure>*/}
+            </figure>
           </div>
         </div>
       </section>
