@@ -9,6 +9,7 @@ const NEWS_ITEMS = [
 ];
 
 const EVENT_SLIDES = [
+  { src: "/image/elecrama.jpeg", alt: "Powells exhibition event" },
   { src: "/image/event.jpeg", alt: "Powells exhibition event" },
   { src: "/image/event1.jpeg", alt: "Powells industry event" },
   { src: "/image/event2.jpeg", alt: "Powells product launch event" },
