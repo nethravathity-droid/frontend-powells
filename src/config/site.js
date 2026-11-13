@@ -3,7 +3,7 @@ export const SHOW_CHANNEL_PARTNER =
   import.meta.env.VITE_SHOW_CHANNEL_PARTNER === "true";
 
 export const POSTER_AD = {
-  src: "/image/poster.jpeg",
+  src: "/image/elecrama.jpeg",
   alt: "Powells India Corporation — Latest updates & exhibition",
   link: "/pages/Blog",
   label: "View Latest Updates",
